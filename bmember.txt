@@ -1,0 +1,40 @@
+drop table bmember;
+create table bmember(
+	num number primary key,
+	id varchar2(15),
+	pw varchar2(15),
+	pwc varchar2(15),
+	name varchar2(15),
+	birth varchar2(10),
+	pn1 varchar2(5),
+	pn2 varchar2(5),
+	pn3 varchar2(5),
+	email1 varchar2(10),
+	email2 varchar2(10),
+	gender varchar2(5),
+	genre varchar2(15)	
+);
+
+
+drop sequence bmem_seq;
+create sequence bmem_seq 
+minvalue 0
+start with 0
+nocache;
+
+insert into bmember values(bmem_seq.nextval,'admin','1234','1234','관리자','20010203','010','1234','5678','book123','naver.com','남','미스테리');
+insert into bmember values(bmem_seq.nextval,'first','5678','5678','첫고객','19990304','010','5678','1234','book321','daum.net','여','로맨스');
+commit;
+
+
+select * from bmember;
+
+=========================================
+[ 작업 순서 ]
+1. pom.xml
+2. web.xml
+3. root-context.xml
+4. album-servlet.xml
+5. album/mybatis/SqlMapConfig.xml
+6. classpath:/album/mybatis/album.xml => mapper namespace 까지 작성 
+

@@ -1,0 +1,174 @@
+drop table bookstore cascade constraint;
+
+create table bookstore(
+	bnum number primary key,
+	title varchar2(150) not null,
+	category varchar2(10) not null,
+	author varchar2(80) not null,
+	translator varchar2(40),
+	publisher varchar2(40),
+	pub_date varchar2(40),
+	ISBN varchar2(20) not null,
+	page number,
+	price number,
+	stock number,
+	introduce varchar2(400) default null
+);
+
+
+
+
+drop sequence bs_seq;
+create sequence bs_seq
+increment by 1
+start with 1
+minvalue 0
+nocache;
+
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'똑똑함의 숭배','사회과학','크리스토퍼 헤이즈','','갈라파고스','2017-11-03','9791187038245',404,17500,8);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'인플레이션','사회과학','하노 벡|우르반 바허|마르코 헤르만','','다산북스','2017-10-27','9791130614687',376,18000,3);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'모든 것의 기원','기술과학','데이비드 버코비치','','책세상','2017-10-25','9791159311314',296,17500,0);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'서른의 반격','문학','손원평','','은행나무','2017-10-23','9791196199807',240,12500,5);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'구스타프 소나타','문학','로즈 트레마인','','문학사상','2017-10-19','9788970129709',416,13800,9);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'스피치 세계사','역사','앤드루 버넷','','휴머니스트','2017-10-16','9791160800821',436,21000,2);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'기억은 역사를 어떻게 재현하는가','역사','문화사학회','','한울아카데미','2017-08-14','9788946070240',264,25000,4);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'우연의 설계','기술과학','뉴 사이언티스트|마크 뷰캐넌','','반니','2017-06-30','9791187980223',312,16000,6);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'시간은 왜 흘러가는가','기술과학','앨런 버딕','','엑스오북스','2017-12-10','9788998266226',496,27000,0);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'고전의 이유','철학','김한식','','뜨인돌출판사','2017-12-08','9788958076681',344,15000,4);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'애착 수업','철학','오카다 다카시','','푸른숲','2017-11-30','9791156757191',272,15000,5);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'정치인의 식탁','철학','차이쯔창','','애플북스','2017-11-10','9791186639658',280,16800,8);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'마쉬왕의 딸','문학','카렌 디온느','','북폴리오','2017-10-27','9788937892134',376,13800,4);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'초고령사회 일본에서 길을 찾다','사회과학','김웅철','','페이퍼로드','2017-10-25','9791186256923',286,16800,4);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'예술의 사생활','예술','노승림','','마티','2017-10-10','9791186000526',352,16000,8);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'새들의 천재성','자연과학','제니퍼 애커먼','','까치','2017-08-30','9788972916406',440,20000,8);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'그 겨울의 일주일','문학','메이브 빈치','','문학동네','2018-01-12','9788954649896',472,14800,1);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'저도 과학은 어렵습니다만','자연과학','이정모','','바틀비','2018-01-05','9791196250515',288,15000,1);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'딸에게 차려주는 식탁','문학','김진영','','인플루엔셜','2017-12-27','9791186560594',308,13800,3);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'꿈을 읽다','철학','김정희|이호형','','책읽는귀족','2017-12-15','9788997863822',272,15000,5);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'IMF 키즈의 생애','사회과학','안은별','','코난북스','2017-11-27','9791188605026',373,16000,3);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'이상한 정상가족','사회과학','김희경','','동아시아','2017-11-21','9788962622096',284,15000,3);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'노란 잠수함','문학','이재량','','나무옆의자','2017-11-20','9791161570204',320,13000,9);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'언어 공부','철학','롬브 커토','','바다출판사','2017-09-04','9788955619447',280,15000,5);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'동화경제사','사회과학','최우성','','인물과사상사','2018-02-05','9788959064915',288,15000,3);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'간디의 편지','철학','마하트마 간디','','원더박스','2018-01-30','9788998602635',104,8000,3);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'어쨌든 미술은 재밌다','철학','박혜성','','글담','2018-01-25','9791186650448',320,15000,6);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'침대에서 읽는 과학','자연과학','이종호','','문화유람','2018-01-18','9791160050486',296,14000,1);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'새벽까지 희미하게','문학','정미경','','창비','2018-01-18','9788936437510',240,13000,5);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'한국인은 왜 이렇게 먹을까','사회과학','주영하','','휴머니스트','2018-01-15','9791160800975',428,22000,9);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'세 갈래 길','문학','래티샤 콜롱바니','임미경','밝은세상','2017-12-15','9788984373396',304,13800,2);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'귀소본능','자연과학','베른트 하인리히','이경아','더숲','2017-11-13','9791186900376',462,18000,2);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'책 읽다가 이혼할 뻔','철학','엔조 도|다나베 세이아','박제이, 구수영','정은문고','2018-02-07','9791185153209',27,13800,4);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'진 브로디 선생의 전성기','문학','뮤리얼 스파크','서정은','문학동네','2018-02-01','9788954650151',188,11500,2);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'조선 명저 기행','철학','박영규','','김영사','2018-01-23','9788934980452',334,13000,5);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'하나도 괜찮지 않습니다','사회과학','오찬호','','블랙피쉬','2018-01-22','9788968331657',288,14500,2);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'과학, 그거 어디에 써먹나요','자연과학','원호섭','','북클라우드','2018-01-05','9791158461980',380,17000,9);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'나를 위로하는 글쓰기','문학','셰퍼드 코미나스','임옥희','홍익출판사','2018-01-02','9788970656144',288,14800,3);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'김상욱의 양자 공부','자연과학','김상욱','','사이언스북스','2017-12-08','9788983718914',308,17500,4);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'취향을 설계하는 곳, 츠타야','사회과학','마스다 무네아키','장은주','위즈덤하우스','2017-11-21','9791162200902',428,17800,0);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'혼자가 편한  당신에게','철학','이와이 도시노리','최서희','알투스','2018-04-01','9791186116203',248,14000,0);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'쉬어도 피곤한 사람들','자연과학','이시형','','비타북스','2018-03-20','9791158462239',279,14800,1);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'모서리의 탄생','문학','신주희','','자음과모음','2018-02-28','9788954438315',302,302,0);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'시간은 어떻게 돈이 되었는가','사회과학','류동민','','휴머니스트','2018-02-12','9791160801095',228,228,0);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'기후변화의 심리학','자연과학','조지 마셜','이은경','갈마바람','2018-02-10','9791195634057',364,18000,6);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'책을 지키려는 고양이','문학','나쓰카와 소스케','이선희','아르테(arte)','2018-01-12','9788950973025',296,14000,5);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'무지와 편견의 세계사','철학','헨드릭 빌렘 반 룬','김희숙, 정보라','생각의길','2018-01-12','9788965134862',516,22000,5);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'일언력','사회과학','가와카미 데쓰야','안혜은','쌤앤파커스','2018-01-02','9788965705444',272,13800,7);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'뒤통수의 심리학','철학','마리아 코니코바','이수경','프런티어','2018-04-17','9788947543323',420,18000,8);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'100세 쇼크','사회과학','NH투자증권 100세시대연구소','','굿인포메이션','2018-04-10','9788988958827',368,18800,5);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'미드 보다 과학에 빠지다','기술과학','안드레아 젠틸레','송소민','반니','2018-03-30','9791187980551',240,14500,0);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'나의 페르시아어 수업','문학','마리암 마지디','김도연, 이선화','달콤한책','2018-03-25','9791196280109',248,12000,7);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'뉴런하우스','철학','김정규','','알에이치코리아','2018-03-22','9788925563480',388,16000,3);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'슬픈 옥수수','기술과학','케이틀린 셰털리','김은영','풀빛','2018-01-31','9791161727080',480,23000,5);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'생명윤리와 법의 이해','기술과학','박수헌','','유원북스','2018-01-10','9788997926817',282,15000,4);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'나를 부르는 숲','문학','빌 브라이슨','홍은택','까치','2018-01-08','9788972916529',399,13500,0);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'뇌 이야기','기술과학','딘 버넷','임수미','미래의창','2018-06-01','9788959895182',1,18000,6);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'오늘 뭐 먹지','문학','권여선','','한겨레출판사','2018-05-23','9791160401615',248,13800,1);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'너무 재밌어서 잠 못 드는 지구의 과학','기술과학','신규진','','생각의길','2018-04-20','9788965134947',244,15000,4);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'내 정원의 로봇','문학','데보라 인스톨','김석희','열림원','2018-04-20','9791188047383',452,15000,2);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'심심할수록 똑똑해진다','철학','마누시 조모로디','김유미','와이즈베리','2018-04-17','9791162335024',304,15000,0);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'산수의 감각','사회과학','조지 셰프너','김수경','바다출판사','2018-03-23','9788955615067',248,15000,7);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'코끼리를 삼킨 사물들','철학','함돈균','','세종서적','2018-03-23','9788984076921',284,16000,5);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'인공지능 시대가 두려운 사람들에게','철학','리처드 왓슨','방진이','원더박스','2017-12-28','9788998602604',368,17000,1);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'동물의 무기','기술과학','더글러스 엠린','승영조','북트리거','2018-06-20','9791196040079',408,19500,5);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'잠깐 머리 좀 식히고 오겠습니다','철학','윤대현','','해냄출판사','2018-06-18','9788965746584',292,15000,2);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'지금 놀러갑니다, 다른 행성으로','기술과학','올리비아코스키|야나 그리세비치','김소정','지상의책','2018-06-18','9791196178635',304,17000,1);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'실격당한 자들을 위한 변론','사회과학','김원영','','사계절','2018-06-15','9791160943733',324,16000,8);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'혼자가 좋다','철학','프란치스카 무리','유영미','심플라이프','2018-05-28','9791186757253',292,15000,6);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'제명공주 세트','문학','이상훈','','박하','2018-05-02','9788965706281',684,27000,6);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'알고리즘, 인생을 계산하다','철학','브라이언 크리스천|톰 그리피스','이한음','청림출판','2018-03-07','9788935212057',616,20000,9);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'모모요는 아직 아흔 살','문학','무레 요코','권남희','이봄','2018-01-17','9791188451098',272,15300,7);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'과학으로 쓰는 긍정의 미래','사회과학','랑가 요게슈바어','','에코리브르','2018-08-27','9788962631852',416,20000,6);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'우린 다르게 살기로 했다','사회과학','조현','','휴','2018-08-17','9791160401776',432,20000,4);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'수영하는 여자들','문학','리비 페이지','','구픽','2018-08-03','9791187886297',408,14000,2);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'ZOOM 거의 모든 것의 속도','기술과학','밥 버먼','','예문아카이브','2018-07-16','9791187749844',496,17000,0);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'아빠, 이런 여행 어때','문학','김동옥','','씽크스마트','2018-05-30','9788965291817',344,15000,9);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'존스 할아버지의 낡은 여행 가방','철학','앤디 앤드루스','','뜨인돌출판사','2018-04-14','9788958076797',272,13800,2);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'우리가 농부로 살 수 있을까','문학','종합재미상사','','들녘','2018-04-09','9791159253256',288,15000,0);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'마카로니 프로젝트','문학','김솔','','문학동네','2018-02-28','9788954650304',264,13000,8);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'방구석 미술관','예술','조원재','','블랙피쉬','2018-08-03','9788968331862',344,16800,3);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'정조처럼 소통하라','철학','정창권','','사우','2018-08-02','9791187332244',268,15000,2);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'주문을 틀리는 요리점','문학','오구니 시로','','웅진지식하우스','2018-08-01','9788901226026',232,14000,1);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'과학자가 되는 방법','기술과학','남궁석','','이김','2018-08-01','9791196283155',336,15000,0);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'인생 우화','문학','류시화','','연금술사','2018-07-30','9791186686348',356,16000,5);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'마이크로 트렌드X','사회과학','마크 펜|메러디스 파인만','','더퀘스트','2018-06-27','9791160504934',584,22000,5);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'도둑의 도시 가이드','철학','제프 마노','','열림원','2018-06-20','9791188047413',352,15000,0);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'실험하는 여자, 영혜','문학','이영혜','','새움','2018-03-15','9791187192855',272,14000,6);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'70세 사망법안, 가결','문학','가키야 미우','','왼쪽주머니','2018-10-01','9788960496767',396,15000,9);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'밥상 위에 차려진 역사 한 숟갈','역사','박현진','','책들의정원','2018-09-25','9791187604778',232,15000,7);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'내가 아무것도 아닐까 봐','문학','박상아','','파우제','2018-09-07','9791196090463',288,13800,6);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'시민의 물리학','기술과학','유상균','','플루토','2018-08-01','9791188569052',312,16500,4);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'혼자만의 시간이 필요한 이유','철학','나코시 야스후미','','책이있는풍경','2018-06-27','9791188041138',248,15000,2);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'굿 퀘스천','철학','아와즈 교이치로','','이새','2018-06-20','9791188272143',208,13500,6);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'찻잔 속 물리학','기술과학','헬렌 체르스키','','북라이프','2018-03-31','9791188850068',368,16800,9);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'예술가로 살만합니다','예술','이상진','','이종(EJONG)','2018-01-05','9788979292602',248,13800,8);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'쓸모인류','철학','빈센트|강승민','','몽스북','2018-11-12','9791196519001',272,14900,2);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'역사는 식탁에서 이루어진다','역사','마리옹 고드프루아|자비에 덱토','','시트롱마카롱','2018-11-01','9791195385485',248,20000,3);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'브랜드 인문학','철학','김동훈','','민음사','2018-10-30','9788937436925',488,18000,6);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'초협력사회','철학','피터 터친','','생각의힘','2018-10-22','9791185585598',376,18000,1);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'리치 파머','사회과학','김철수|김재후|고은이|강진규|홍선표','','한국경제신문','2018-07-02','9788947543729',300,16000,2);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'모스크바의 신사','문학','에이모 토울스','','현대문학','2018-06-22','9788972758945',723,18000,0);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'외국어 전파담','철학','로버트 파우저','','혜화1117','2018-05-05','9791196363208',356,20000,9);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'도시를 걷는 시간','문학','김별아','','해냄출판사','2018-03-20','9788965746461',268,15000,4);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'두 사람의 역사','역사','헬게 헤세','','북캠퍼스','2018-11-26','9791188571062',396,16500,1);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'내가 우울한 건 다 오스트랄로피테쿠스 때문이야','철학','박한선','','휴머니스트','2018-11-19','9791160801736',252,14000,1);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'끌리는 것들의 비밀','사회과학','윤정원','','라곰','2018-11-16','9791196453152',296,14900,5);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'금척','문학','김종록','','다산책방','2018-10-26','9791130618920',456,14800,7);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'하루 5분의 초록','문학','한수정','','휴머니스트','2018-10-17','9791160801644',264,13500,8);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'무한을 넘어서','기술과학','유지니아 쳉','','열린책들','2018-10-10','9788932919300',384,18000,5);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'아서씨는 진짜 사랑입니다','문학','엘리자베스 버그','','나무의철학','2018-09-27','9791158511074',292,14000,1);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'화가는 무엇으로 그리는가','예술','이소영','','모요사','2018-07-27','9788997066384',304,17500,8);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'단어의 사연들','철학','백우진','','웨일북(whalebooks)','2018-12-28','9791188248735',264,13000,1);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'청년 흙밥 보고서','사회과학','변진경','','들녘','2018-12-05','9791159253744',312,13000,3);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'실력의 배신','사회과학','박남기','','쌤앤파커스','2018-12-03','9788965707257',435,20000,3);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'당신이 남긴 증오','문학','앤지 토머스','','걷는나무','2018-10-29','9788901227511',460,15000,2);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'송기원의 포스트 게놈 시대','기술과학','송기원','','사이언스북스','2018-10-15','9791189198268',264,15000,2);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'저마다의 별을 찾아서','문학','윤혜진','','넥서스BOOKS','2018-10-05','9791161654485',316,15800,0);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'내 사랑 모드','문학','랜스 울러버','','남해의봄날','2018-09-15','9791185823331',192,17000,6);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'이명현의 과학책방','기술과학','이명현','','사월의책','2018-09-10','9788997186747',400,17000,8);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'왜 세계의 가난은 사라지지 않는가','철학','장 지글러','','시공사','2019-01-18','9788952795496',200,13000,1);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'참모로 산다는 것','철학','신병주','','매경출판','2019-01-15','9791155429471',472,19000,6);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'퇴근길 클래식 수업','예술','나웅준','','페이스메이커','2018-12-15','9791189344313',300,16000,0);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'그래도 우리의 나날','문학','시바타 쇼','','문학동네','2018-12-10','9788954653909',236,13500,2);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'위장환경주의','사회과학','카트린 하르트만','이미옥','에코리브르','2018-12-05','9788962631890',260,17000,9);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'커피 얼룩의 비밀','자연과학','송현수','','MID','2018-11-16','9791187601821',284,15000,6);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'제4의 식탁','철학','임재양','','특별한서재','2018-11-15','9791188912292',162,13800,9);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'라이딩 인생','문학','고선미','','이층집','2018-10-30','9791196431600',0,15800,0);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'나에게 더 잘해주고 싶다','문학','정은길','','청림라이프','2019-03-28','9791188700363',232,14500,1);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'우리집에 화학자가 산다','기술과학','김민경','','휴머니스트','2019-03-08','9791160802160',248,15000,4);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'어느 칠레 선생님의 물리학 산책','기술과학','안드레스 곰베로프','김유경','생각의길','2019-02-28','9788965135418',264,15000,1);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'나는 감이 아니라 데이터로 말한다','사회과학','신현호','','한겨레출판사','2019-02-26','9791160402339',272,15800,9);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'그래서 좀 쉬라고 호르몬에서 힘을 살짝 빼준 거야','문학','막심 레오|요헨 구취','원성철','모래의책','2019-02-15','9791196528300',256,13800,5);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'보통 사람들의 전쟁','사회과학','앤드루 양','장용원','흐름출판','2019-01-19','9788965962977',368,16000,2);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'북유럽 그림이 건네는 말','예술','최혜진','','은행나무','2019-01-10','9791188810833',272,15800,8);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'철학으로 현대음악 읽기','예술','박영욱','','바다출판사','2018-12-20','9791196517328',272,18000,8);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'체리토마토파이','문학','베로니크 드 뷔르','이세진','청미','2019년 03월 20일','9791189134044',428,15000,7);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'줄리아나 도쿄','문학','한정현','','스위밍꿀','2019년 01월 31일','9791196074425',292,12000,5);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'나는 매주 시체를 보러 간다','철학','유성호','','21세기북스','2019년 01월 23일','9788950979409',280,16000,2);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'이것은 왜 직업이 아니란 말인가','철학','박정훈','','빨간소금','2019년 01월 11일','9791196585907',264,13000,4);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'개와 사람의 행복한 동행을 위한 한 뼘 더 깊은 지식','기술과학','마크 베코프','장호연','동녘사이언스','2019년 01월 08일','9788990247681',420,19800,8);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'조선의 밥상머리 교육','철학','김미라','','보아스','2018년 12월 31일','9791189347017',300,15000,9);
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'그림 속 드레스 이야기','예술','이정아','','디지털북스','2018년 12월 26일','9791186972458',352,20000,8);
+
+
+select * from bookstore where title like '%이%' or author like '%이%' or publisher like '%이%' order by pub_date desc;
+select pub_date from bookstore where title like '%이%' or author like '%이%' or publisher like '%이%' order by pub_date desc;
