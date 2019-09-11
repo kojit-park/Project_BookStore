@@ -21,6 +21,6 @@
 		<beans:property value=".jsp" name="suffix"/>
 	</beans:bean>
 	
-	<context:component-scan base-package="bsmall, order,bookstore,bmember"/>
+	<context:component-scan base-package="bsmall, order, bookstore, bmember, gift"/>
 	
 </beans:beans>

@@ -29,7 +29,7 @@ ${loginfo.id}
 	<a href ="">회원 리스트</a>
 	<a href ="">매출 확인</a>
 	<a href ="insert.bs">책 넣기</a>
-	<a href ="">사은품 관리</a>
+	<a href ="list.gt">사은품 관리</a>
 </c:if>
 
 <form name="f" action = "list.bs">

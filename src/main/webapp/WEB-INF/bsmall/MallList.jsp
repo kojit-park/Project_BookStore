@@ -11,7 +11,7 @@
 
 접속자 아이디 : ${sessionScope.loginfo.id} <br>
 
-<h2 align="center">주문 내역</h2>
+<h2 align="center">장바구니</h2>
 	<c:if test="${sessionScope.totalAmount==0}">
 		<b style="text-align: center">주문내역이 없습니다.</b>
 	</c:if>
@@ -50,9 +50,9 @@
 		</c:forEach>
 		<tr>
 			<td colspan="3" align="center">
-				<a href="calculate.bsmall">결재하기</a> <!-- calculate.mall => CartCalculateController--> 
+				<a href="list.gt">사은품 선택</a> <!-- calculate.mall => CartCalculateController--> 
 				&nbsp;&nbsp; 
-				<a href="list.bs">추가 주문</a>
+				<a href="main.bs">메인으로</a>
 			</td>
 			<td colspan="2" align="center">총 금액 : ${sessionScope.totalAmount}</td> 
 		</tr>

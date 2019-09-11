@@ -18,7 +18,7 @@ import order.model.OrderDao;
 @Controller
 public class CartCalculateController {
 	
-	private static final String command = "/calculate.bsmall"; // MallList.jsp���� �����ϱ� Ŭ��
+	private static final String command = "/calculate.bsmall"; // MallList.jsp
 	private static final String gotoPage = "redirect:/main.bs"; 
 	
 	@Autowired

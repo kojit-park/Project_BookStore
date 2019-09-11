@@ -9,8 +9,8 @@
 </head>
 <!-- session 설정 : 계속 상태유지, model은 한 번 사용하고 유지하지 않을 때  -->
 <body>
-	<h2 align="center">주문 내역</h2>
-	<a href="main.jsp">시작페이지</a><br><br>
+	<h2 align="center">장바구니</h2>
+	<a href="main.bs">시작페이지</a><br><br>
 	
 	<table border="1" align="center">
 		<tr>

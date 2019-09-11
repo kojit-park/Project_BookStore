@@ -18,7 +18,7 @@ import order.model.OrderDao;
 @Controller
 public class OrderMallController {
 	private static final String command = "/order.bsmall";
-	private static final String getPage = "ShopList";
+	private static final String getPage = "ShopList"; //주문내역
 	
 	@Autowired
 	@Qualifier("myOrderDao")
