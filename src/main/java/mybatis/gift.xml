@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="gift.model.Gift">
+
+	<select id="GetTotalCount" resultType="int">
+		select count(*) from gift 
+		<if test="whatColumn == 'gname'">
+			where gname like #{keyword} 
+		</if>
+		<if test="whatColumn == 'gcontents'">
+			where gcontents like #{keyword} 
+		</if>
+	</select>
+
+
+	<select id="GetDataList" resultType="MyGift" parameterType="hashmap">
+		select * from gift 
+		<if test="whatColumn == 'gname'">
+			where gname like #{keyword} 
+		</if>
+		<if test="whatColumn == 'gcontents'">
+			where gcontents like #{keyword} 
+		</if>
+		order by gnum desc 
+	</select>
+
+	<select id="GetData" resultType="MyGift">
+	select * from gift where gnum = #{gnum} 
+	</select>
+	
+	<delete id="DeleteData">
+	delete from gift where gnum = #{gnum} 
+	</delete>
+	
+	<insert id="InsertData" parameterType="MyGift">
+	insert into gift(gnum, gname, gimage, gcategory, gcontents, day)
+	values( seqgift.nextval, #{gname},#{gimage}, #{gcategory}, #{gcontents}, #{day}) 
+	</insert>
+	
+	<update id="UpdateData" parameterType="MyGift">
+	update gift set 
+	gname=#{gname}, gimage=#{gimage} ,gcategory=#{gcategory}, gcontents=#{gcontents}, day=#{day} 
+	where gnum=#{gnum} 
+	</update>
+
+</mapper>

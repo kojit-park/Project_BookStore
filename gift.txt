@@ -1,0 +1,29 @@
+-------------------------------------------------------------------------------------
+
+drop sequence seqgift ;
+create sequence seqgift 
+start with 0
+minvalue 0 
+increment by 1 
+nocache ;
+
+DROP TABLE gift CASCADE CONSTRAINTS;
+
+-- gname : 이름, gimage : 이미지 
+-- ginputdate : 등록날짜, gcategory : 카테고리
+create table gift(
+	gnum 		int primary key,
+	gname 		varchar2(50) not null,	
+	gimage   	varchar2(30),
+	gcategory   	varchar2(12),
+	gcontents 	varchar2(300),
+	day date default sysdate
+);
+
+-------------------------------------------------------------------------------------
+insert into gift(gnum, gname, gimage, gcategory, gcontents, day)
+values(seqgift.nextval, '목베개', 'smile.jpg', '사은품', '사은품입니다.', default);		
+
+commit ;
+
+select * from gift;
