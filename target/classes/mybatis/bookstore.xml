@@ -73,4 +73,18 @@
 		select * from bookstore where bnum = #{bnum}
 	</select>
 	
+	<select id="GetDataByISBN" resultType="MyBS">
+		select * from bookstore where ISBN = #{ISBN}
+	</select>
+	
+	<update id="updateStock">
+	update bookstore set 
+	stock = stock-#{stock}
+	where bnum = #{bnum} 
+	</update>
+	
+	<delete id="DeleteBook">
+	delete from bookstore where bnum = #{bnum}
+	</delete>
+	
 </mapper>

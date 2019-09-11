@@ -25,6 +25,7 @@ start with 1
 minvalue 0
 nocache;
 
+insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'그런책 없다','예술','없어','','없다구',sysdate,'1111111111111',100,20000,0);
 insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'똑똑함의 숭배','사회과학','크리스토퍼 헤이즈','','갈라파고스','2017-11-03','9791187038245',404,17500,8);
 insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'인플레이션','사회과학','하노 벡|우르반 바허|마르코 헤르만','','다산북스','2017-10-27','9791130614687',376,18000,3);
 insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) values(bs_seq.nextval,'모든 것의 기원','기술과학','데이비드 버코비치','','책세상','2017-10-25','9791159311314',296,17500,0);

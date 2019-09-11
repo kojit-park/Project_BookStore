@@ -54,7 +54,8 @@ public class BookListController {
 		mav.addObject("bookLists",bookLists);
 		mav.addObject("totalCount",totalCount);
 		mav.addObject("pageInfo",pageInfo);
-
+		mav.addObject("category",category);
+		
 		if(keyword != null) {
 			mav.addObject("keyword",keyword);
 		}

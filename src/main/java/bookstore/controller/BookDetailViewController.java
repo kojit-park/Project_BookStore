@@ -35,4 +35,16 @@ public class BookDetailViewController {
 		return getPage;
 	}
 	
+	@RequestMapping("/mini_detail.bs")
+	public String AfterMinigame(@RequestParam("ISBN") String ISBN, Model model) {
+		System.out.println("여기 들어오냐");
+		BookStore book = bookStoreDao.GetDataByISBN(ISBN);
+		Map<String,String> map = bookStoreDao.GetContent(book);
+		model.addAttribute("book",book);
+		model.addAttribute("bookIntroduce",map.get("bookIntroduce"));
+		//model.addAttribute("bookContent",map.get("bookContent"));
+		System.out.println("진행 잘되냐?"+book.getTitle());
+		return getPage;
+	}
+	
 }

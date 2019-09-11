@@ -10,8 +10,14 @@
 		<config>src/main/webapp/WEB-INF/spring/appServlet/book-servlet.xml</config>
 		<config>src/main/java/mybatis/bookstore.xml</config>
 		<config>src/main/java/mybatis/bmember.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/appServlet/minigame-servlet.xml</config>
+		<config>src/main/java/mybatis/minigame.xml</config>
+		<config>src/main/java/mybatis/order.xml</config>
+		<config>src/main/java/mybatis/composite.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/appServlet/bsmall-servlet.xml</config>
 	</configs>
 	<autoconfigs>
+		<config>src/main/webapp/WEB-INF/spring/appServlet/bmember-servlet.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/root-context.xml</config>
 	</autoconfigs>

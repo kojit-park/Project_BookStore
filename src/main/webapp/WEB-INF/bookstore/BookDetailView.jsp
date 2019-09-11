@@ -4,6 +4,7 @@
 <%@ include file="../tagsIn.jsp" %>
 <html>
 <head>
+<c:set value="${sessionScope.loginfo.id}" var="userId"/>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
@@ -14,7 +15,7 @@
 		<td><img src='<c:url value="/resources/Img/${book.title}.jpg"/>'></td>
 		
 		<td>
-			<form>
+			<form action="add.bsmall">
 				<table>
 					<tr>
 						<td><h1>${book.title }</h1></td>
@@ -35,23 +36,24 @@
 						<td>가격 : <h3>${book.price }원</h3> </td>
 					</tr>
 					<tr>
-						<td>주문 수량 <input type="number" name="quantity" value=1></td>
+						<td>주문 수량 <input type="number" name="oqty" value=1></td>
 					</tr>
 					<tr>
-						<td><input type="submit" value="주문하기"></td>
+						<c:if test="${userId != null}">
+						<td>
+						<input type="hidden" value="${book.bnum }" name="bnum">
+						<input type="submit" value="장바구니 담기">
+						</td></c:if>
 					</tr>
 				</table><br>
 			</form>
 		책소개: <br>
 		${bookIntroduce }
 		<br><br>
-		
 		</td>
 	</tr>
 
-
 </table>
-
 
 </body>
 </html>

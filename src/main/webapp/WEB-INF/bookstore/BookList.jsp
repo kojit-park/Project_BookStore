@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>BookList</title>
+<c:set value="${sessionScope.loginfo.id}" var="userId"/>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/CSS/ListStyle.css" />
 <script type="text/javascript" src ="${pageContext.request.contextPath}/resources/js/searchScript.js"></script>
 </head>
@@ -55,6 +56,9 @@
 							재고: ${book.stock } <br>
 							<a href="detail.bs?bnum=${book.bnum }"><button>상세 보기</button></a>
 							<span id="close" onclick="span_close(${book.bnum})"><input type="button" value="닫기"  style="width:100px;"></span>
+							<c:if test="${userId eq 'admin'}">
+							<a href = "delete.bs?bnum=${book.bnum }&category=${category}&keyword=${keyword}&pageNumber=${bookInfo.pageNumber}&pageSize=${bookInfo.pageSize}">삭제
+							</a></c:if>
 					</div>
 				</div>
 				</div>

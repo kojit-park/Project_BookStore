@@ -1,6 +1,9 @@
 package bmember.model;
 
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -27,9 +30,12 @@ public class BmemberDao {
 		
 	}
 	
-	public BmemberBean Login(String id) {
+	public BmemberBean Login(String id,String pw) {
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("id", id);
+		map.put("pw", pw);
 		BmemberBean bean = null;
-		bean = sqlSessionTemplate.selectOne(namespace + ".Login",	id);
+		bean = sqlSessionTemplate.selectOne(namespace + ".Login",	map);
 		return bean;
 	}
 	

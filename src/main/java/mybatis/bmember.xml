@@ -13,14 +13,14 @@
 
 <insert parameterType="Mybmember" id="InsertBmember">
 
-insert into bmember(num,name,birth,pn1,pn2,pn3,email1,email2,gender,genre)
-values(bmem_seq.nextval,#{name},#{birth},#{pn1},#{pn2},#{pn3},#{email1},#{email2},#{gender},#{genre}) 
+insert into bmember(num,name,birth,pn1,pn2,pn3,email1,email2,gender,genre,pw,id)
+values(bmem_seq.nextval,#{name},#{birth},#{pn1},#{pn2},#{pn3},#{email1},#{email2},#{gender},#{genre},#{pw},#{id}) 
 
 </insert>
 
 <select id="Login" resultType="MyBmember">
 select * from bmember 
-where id = #{id} 
+where id = #{id} and pw = #{pw}
 </select>
 
 <select id="findid" resultType="MyBmember">

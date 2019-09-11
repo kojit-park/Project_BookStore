@@ -20,7 +20,7 @@ public class BmemberLoginController {
 	
 	private static final String command = "/login.bm";											
 	private static final String getPage = "BmemberLoginform";										   
-	private static final String gotoPage = "redirect:/main.bm";
+	private static final String gotoPage = "redirect:/main.bs";
 	
 	@Autowired
 	private BmemberDao bmemberDao;
@@ -32,21 +32,21 @@ public class BmemberLoginController {
 	 
 	@RequestMapping(value=command,method=RequestMethod.POST) 
 	public ModelAndView doAction( BmemberBean Bmember, HttpServletResponse response, HttpSession session) throws IOException{
-		System.out.println(this.getClass() + " POST ¹æ½Ä µé¾î¿È");
+		System.out.println(this.getClass() + " POST");
 		
 		System.out.println(Bmember.getId());
 		System.out.println(Bmember.getPw());
 		
-		BmemberBean login = bmemberDao.Login(Bmember.getId());
+		BmemberBean login = bmemberDao.Login(Bmember.getId(),Bmember.getPw());
 		System.out.println("login:"+login);
 		
 		PrintWriter writer;
 		writer = response.getWriter();
 		ModelAndView mav = new ModelAndView();
 		if(login == null) {
-			System.out.println("Á¸ÀçÇÏÁö ¾Ê´Â È¸¿ø");
+			System.out.println("ë¡œê·¸ì¸ ì‹¤íŒ¨");
 			writer.print("<script type='text/javascript'>");
-			writer.print("alert('ÇØ´ç ¾ÆÀÌµğ°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.');");
+			writer.print("alert('IDë‚˜ Pwê°€ í‹€ë ¸ìŠµë‹ˆë‹¤.');");
 			writer.print("</script>");
 			writer.flush();
 			
@@ -54,10 +54,12 @@ public class BmemberLoginController {
 			
 		}
 		else {
-			System.out.println("Á¸ÀçÇÏ´Â È¸¿ø");
-			
 			session.setAttribute("loginfo", login);
-			mav.setViewName((String)session.getAttribute("destination"));
+			if(session.getAttribute("destination") == null || session.getAttribute("destination").equals("")) {
+				mav.setViewName(gotoPage);
+			}else {
+				mav.setViewName((String)session.getAttribute("destination"));
+			}
 			
 		}
 		return mav;

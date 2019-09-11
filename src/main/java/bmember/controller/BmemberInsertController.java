@@ -18,7 +18,7 @@ public class BmemberInsertController {
 	
 	private static final String command = "/insert.bm";
 	private static final String getPage = "BmemberInsertform";
-	private static final String gotoPage = "redirect:/main.bm";
+	private static final String gotoPage = "redirect:/main.bs";
 	
 	@Autowired
 	private BmemberDao bmemberDao;
@@ -30,10 +30,11 @@ public class BmemberInsertController {
 	
 	@RequestMapping(value=command,method=RequestMethod.POST) 
 	public ModelAndView doAction(  @ModelAttribute("bmember") @Valid BmemberBean bmember , BindingResult result ) { 
-		// BindingResult ÇÏ³ªÀÇ beanÀ¸·Î ¹­À»¶§ ¹®Á¦°¡ ¹ß»ýÇß´ÂÁö ¾Æ´ÑÁö
+		// BindingResult ï¿½Ï³ï¿½ï¿½ï¿½ beanï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ß´ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ï¿½ï¿½
 		ModelAndView mav = new ModelAndView();
+		
 		if(result.hasErrors()) {
-			System.out.println("À¯È¿¼º °Ë»ç ¿À·ù");
+			System.out.println("ï¿½ï¿½È¿ï¿½ï¿½ ï¿½Ë»ï¿½ ï¿½ï¿½ï¿½ï¿½");
 			mav.setViewName(getPage);
 			return mav;
 		}

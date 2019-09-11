@@ -12,7 +12,7 @@ public class BmemberBean {
 	@NotEmpty(message="아이디를 입력 해주세요")
 	private String id;	 
 	
-	@Pattern(regexp="[A-Za-z0-9$@$!%*?&]{8,14}", message="비밀번호는 숫자와 영문 특수문자 조합 8~13자")
+	@Pattern(regexp="[A-Za-z0-9$@$!%*?&]{4,13}", message="비밀번호는 숫자와 영문 특수문자 조합 4~12자")
 	private String pw;
 	
 	@NotEmpty(message="비밀번호 일치 확인 해주세요")

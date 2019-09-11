@@ -72,5 +72,21 @@ public class BookStoreDao {
 		return map;
 	}
 	
+	public BookStore GetDataByISBN(String ISBN) {
+		BookStore book = sqlSessionTemplate.selectOne(namespace+".GetDataByISBN",ISBN);
+		return book;
+	}
+	
+	public void updateStock(Integer bnum, Integer qty) {
+		BookStore bean = new BookStore();
+		bean.setBnum(bnum);
+		bean.setStock(qty);
+		
+		sqlSessionTemplate.update(namespace + ".updateStock", bean);
+	}
+	
+	public void DeleteBook(int bnum) {
+		sqlSessionTemplate.delete(namespace +".DeleteBook",bnum);
+	}
 	
 }

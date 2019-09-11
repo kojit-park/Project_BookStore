@@ -11,12 +11,18 @@
 	
  	<typeAliases>
  		<typeAlias type="bookstore.model.BookStore" alias="MyBS"/>
+ 		<typeAlias type="minigame.model.MiniGame" alias="MyMG"/>
  		<typeAlias type="bmember.model.BmemberBean" alias="Mybmember"/>
+ 		<typeAlias alias="MyOrder" type="order.model.Order"/>
+		<typeAlias alias="MyComposite" type="bsmall.cart.ShoppingInfo"/>
  	</typeAliases>
  
 	<mappers>
 		<mapper resource="mybatis/bookstore.xml"></mapper>
+		<mapper resource="mybatis/minigame.xml"></mapper>
 		<mapper resource="mybatis/bmember.xml"></mapper>
+		<mapper resource="mybatis/order.xml"/>
+		<mapper resource="mybatis/composite.xml"/>
 	</mappers>
 
 </configuration>

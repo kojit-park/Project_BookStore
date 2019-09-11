@@ -21,27 +21,27 @@ BmemberInsertForm.jsp<br>
 <form:form commandName="bmember" action="insert.bm" method="post">
 
 	아이디 : 
-		<input type="text" name="id" value="아이디">
+		<input type="text" name="id" placeholder="아이디">
 		<form:errors cssClass="err" path="id"></form:errors>
 	<br><br>
 	
 	비밀번호 : 
-		<input type="password" name="pw" value="1234">
+		<input type="password" name="pw" placeholder="1234">
 		<form:errors cssClass="err" path="pw"></form:errors>
 	<br><br>
 	
 	비밀번호 확인 : 
-		<input type="password" name="pwc" value="1234">
+		<input type="password" name="pwc" placeholder="1234">
 		<form:errors cssClass="err" path="pwc"></form:errors>
 	<br><br>
 
 	이름 : 
-		<input type="text" name="name" value="이름">
+		<input type="text" name="name" placeholder="이름">
 		<form:errors cssClass="err" path="name"></form:errors>
 	<br><br>
 	
 	생년월일 : 
-		<input type="text" name="birth" value="20011030"> "-" 제거후 입력해주세요 예)19990103
+		<input type="text" name="birth" placeholder="20011030"> "-" 제거후 입력해주세요 예)19990103
 		<form:errors cssClass="err" path="birth"></form:errors>
 	<br><br>
 	
@@ -54,8 +54,8 @@ BmemberInsertForm.jsp<br>
 			<option value="019">019</option>
 		</select>
 		
-		- <input type="text" name="pn2" value="1111">
-		- <input type="text" name="pn3" value="2222">
+		- <input type="text" name="pn2" placeholder="1111">
+		- <input type="text" name="pn3" placeholder="2222">
 		<form:errors cssClass="err" path="pn1"></form:errors>
 		<form:errors cssClass="err" path="pn2"></form:errors>
 		<form:errors cssClass="err" path="pn3"></form:errors>

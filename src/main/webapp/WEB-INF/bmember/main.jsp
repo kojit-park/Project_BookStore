@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     
    
-   <h1>¸ÞÀÎÈ­¸é</h1>
+   <h1>ë©”ì¸í™”ë©´</h1>
    
-   <a href="login.bm"><h2><b>·Î±×ÀÎ</b></h2></a>
-   <a href="insert.bm"><h2><b>È¸¿ø°¡ÀÔ</b></h2></a>
+   <a href="login.bm"><h2><b>ë¡œê·¸ì¸</b></h2></a>
+   <a href="insert.bm"><h2><b>íšŒì›ê°€ìž…</b></h2></a>
 
 
 
