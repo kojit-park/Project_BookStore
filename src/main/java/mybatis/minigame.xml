@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="minigame.model.MiniGame">
+
+	<select id="GetCharacter" resultType="String">
+		select ISBN from (select * from bookstore
+		<if test="category == 'title'">
+			where title like #{keyword} 
+		</if>	
+		<if test="category == 'ISBN'">
+			where ISBN like #{keyword}
+		</if>		
+		<if test="category == 'author'">
+			where author like #{keyword}
+		</if>	
+		) where rownum = 1
+	</select>
+	
+	<select id="GetCollectTitle" resultType="String">
+		select title from (select * from bookstore
+		<if test="category == 'title'">
+			where title like #{keyword} 
+		</if>	
+		<if test="category == 'ISBN'">
+			where ISBN like #{keyword}
+		</if>		
+		<if test="category == 'author'">
+			where author like #{keyword}
+		</if>	
+		) where rownum = 1
+	</select>
+	
+
+
+</mapper>
