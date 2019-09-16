@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import bmember.model.BmemberBean;
+import bookstore.model.BookStore;
 import bookstore.model.BookStoreDao;
 import bsmall.cart.MyCartList;
 import order.model.OrderDao;
@@ -33,7 +34,6 @@ public class CartCalculateController {
 	public String doAction(HttpSession session, HttpServletResponse response) {
 		
 		BmemberBean member = (BmemberBean)session.getAttribute("loginfo");
-		orderDao.insertData(member.getId()); 
 		
 		int maxoid = orderDao.getMaxOrderId(); 
 		
@@ -45,8 +45,12 @@ public class CartCalculateController {
 		for(Integer bnum:keylist) { // stock setting
 			Integer qty = orderlists.get(bnum);
 			
-			bookStoreDao.updateStock(bnum,qty);
+			BookStore bean = bookStoreDao.GetData(bnum);
+			int price = bean.getPrice();
 			
+			orderDao.insertData(member.getId(),bnum,price,qty); 
+			
+			bookStoreDao.updateStock(bnum,qty);
 		}
 		
 		session.removeAttribute("mycart");

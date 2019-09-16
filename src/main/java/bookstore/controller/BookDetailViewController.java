@@ -18,6 +18,7 @@ public class BookDetailViewController {
 
 	private static final String getPage = "BookDetailView";
 	private static final String command = "/detail.bs";
+	Boolean usedBookMarket =false;
 	
 	@Autowired
 	@Qualifier("myBookStoreDao")
@@ -28,6 +29,11 @@ public class BookDetailViewController {
 		
 		BookStore book = bookStoreDao.GetData(bnum);
 		Map<String,String> map = bookStoreDao.GetContent(book);
+		usedBookMarket =false;
+		if(book.getUsedBook() != null) {
+			usedBookMarket = true;
+		}
+		model.addAttribute("usedBookMarket",usedBookMarket);
 		model.addAttribute("book",book);
 		model.addAttribute("bookIntroduce",map.get("bookIntroduce"));
 		//model.addAttribute("bookContent",map.get("bookContent"));
@@ -40,8 +46,14 @@ public class BookDetailViewController {
 		System.out.println("여기 들어오냐");
 		BookStore book = bookStoreDao.GetDataByISBN(ISBN);
 		Map<String,String> map = bookStoreDao.GetContent(book);
+		usedBookMarket =false;
+		if(book.getUsedBook() != null) {
+			usedBookMarket = true;
+		}
+		model.addAttribute("usedBookMarket",usedBookMarket);
 		model.addAttribute("book",book);
 		model.addAttribute("bookIntroduce",map.get("bookIntroduce"));
+		
 		//model.addAttribute("bookContent",map.get("bookContent"));
 		System.out.println("진행 잘되냐?"+book.getTitle());
 		return getPage;

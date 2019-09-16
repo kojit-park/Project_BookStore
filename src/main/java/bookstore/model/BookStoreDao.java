@@ -9,8 +9,8 @@ import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.servlet.ModelAndView;
 
+import order.model.Order;
 import utility.Paging;
 
 @Component("myBookStoreDao")
@@ -87,6 +87,33 @@ public class BookStoreDao {
 	
 	public void DeleteBook(int bnum) {
 		sqlSessionTemplate.delete(namespace +".DeleteBook",bnum);
+	}
+	
+	public List<BookStore> BingoCheck(List<Order> books) {
+		List<BookStore> lists = new ArrayList<BookStore>();
+		System.out.println("북 사이즈::"+books.size());
+		for(Order order : books) {
+			int bnum = order.getBnum();
+			BookStore bs = sqlSessionTemplate.selectOne(namespace+".BingoCheck",bnum);
+			String title = bs.getTitle();
+			String pub_date=sqlSessionTemplate.selectOne(namespace+".GetPubDate",title);
+			bs.setPub_date(pub_date);
+			lists.add(bs);
+			System.out.println("bnum>>"+bnum);
+			System.out.println("pub////"+bs.getPub_date());
+		}
+		return lists;
+	}
+	
+	public void InsertUsedBook(String title, String price,String id) {
+		
+		Map<String, String> map =new HashMap<String, String>();
+		System.out.println(id+"///"+price+"///"+title);
+		map.put("id", id);
+		map.put("price",price);
+		map.put("title", title);
+		int chk = sqlSessionTemplate.update(namespace+".InsertUsedBook",map);
+		System.out.println(chk);
 	}
 	
 }

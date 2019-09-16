@@ -70,7 +70,6 @@
 				<td align="center">
 					<%-- <a href="detail.gt?gnum=<c:out value="${gift.gnum}" />"> --%>
 					<img src="<%=request.getContextPath() %>/resources/${gift.gimage}" width="60px" height="60px"> 
-					</a>
 				</td>
 				<td align="center">
 					<c:out value="${gift.gcategory}" />

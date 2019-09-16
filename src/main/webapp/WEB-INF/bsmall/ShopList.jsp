@@ -6,6 +6,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+function bingoChk(){
+	
+	location.href = "bingo.bsmall"
+}
+function insertUsedBook(){
+	location.href = "usedBook.bsmall";
+}
+
+</script>
 </head>
 <body>
 갯수 : ${fn:length(lists) }<br>
@@ -38,7 +48,10 @@
 				</td>				
 			</tr>
 		</c:forEach>		
-	</table>		
+	</table>
+			
+	<button onclick="insertUsedBook()">중고서적 등록</button>
+	<button onclick="bingoChk()">Bingo</button>
 </body>
 </html> 
 

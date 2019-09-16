@@ -2,8 +2,11 @@ package bmember.model;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+
+import org.apache.ibatis.type.Alias;
 import org.hibernate.validator.constraints.NotEmpty;
 
+@Alias("MyBmember")
 public class BmemberBean {
 	
 	

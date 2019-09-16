@@ -1,7 +1,5 @@
 package gift.model;
 
-import javax.validation.constraints.Max;
-
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;

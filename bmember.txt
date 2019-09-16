@@ -12,7 +12,8 @@ create table bmember(
 	email1 varchar2(10),
 	email2 varchar2(10),
 	gender varchar2(5),
-	genre varchar2(15)	
+	genre varchar2(15),
+	point number default 0	
 );
 
 

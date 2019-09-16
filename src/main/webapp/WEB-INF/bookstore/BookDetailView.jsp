@@ -7,6 +7,13 @@
 <c:set value="${sessionScope.loginfo.id}" var="userId"/>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+function usedBookMarket(){
+	location.href = "usedBookList.bs?bnum="+${book.bnum}
+}
+
+</script>
+
 </head>
 <body>
 
@@ -50,6 +57,7 @@
 		책소개: <br>
 		${bookIntroduce }
 		<br><br>
+		<c:if test="${usedBookMarket }"><button onclick="usedBookMarket()">중고 마켓</button></c:if>
 		</td>
 	</tr>
 

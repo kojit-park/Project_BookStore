@@ -3,6 +3,7 @@ package bmember.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -21,6 +22,7 @@ public class BmemberInsertController {
 	private static final String gotoPage = "redirect:/main.bs";
 	
 	@Autowired
+	@Qualifier("myBmember")
 	private BmemberDao bmemberDao;
 	
 	@RequestMapping(value=command,method=RequestMethod.GET) 

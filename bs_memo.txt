@@ -12,7 +12,11 @@ create table bookstore(
 	page number,
 	price number,
 	stock number,
-	introduce varchar2(400) default null
+	introduce varchar2(400) default null,
+	count number default 0,
+	usedBook varchar2(200) default null,
+	usedBookPrice varchar2(200) default null,
+	reputation number default 0
 );
 
 

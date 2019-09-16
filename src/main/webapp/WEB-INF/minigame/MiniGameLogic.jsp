@@ -75,10 +75,10 @@ window.onkeydown = function(){
 		
 		if(countDown == 3){
 			enemy = Math.floor(Math.random()*4+1)
+			eimg.src = "${pageContext.request.contextPath}/resources/Img/Char/${mini2.property}_"+enemy+".gif";
 			switch(enemy){
 			case 1:
 				
-				eimg.src = "${pageContext.request.contextPath}/resources/Img/Char/${mini2.property}_1.gif";
 				var Eatk_ani = anime({
 					targets:"#enemyImg",
 					autoplay:true,
@@ -89,7 +89,6 @@ window.onkeydown = function(){
 				
 				break;
 			case 2:
-				eimg.src = "${pageContext.request.contextPath}/resources/Img/Char/${mini2.property}_2.gif";
 				var Esmash_ani = anime({
 					targets:"#enemyImg",
 					autoplay:true,
@@ -99,7 +98,6 @@ window.onkeydown = function(){
 				
 				break;
 			case 3:
-				eimg.src = "${pageContext.request.contextPath}/resources/Img/Char/${mini2.property}_3.gif";
 				var Edef_ani = anime({
 					targets: "#enemyImg",
 					borderRadius:'50%',
@@ -108,7 +106,6 @@ window.onkeydown = function(){
 				
 				break;
 			case 4:
-				eimg.src = "${pageContext.request.contextPath}/resources/Img/Char/${mini2.property}_4.gif";
 				var Eavoid_ani = anime({
 					targets: "#enemyImg",
 					translateX: [-30,70],

@@ -51,6 +51,12 @@ public class BmemberDao {
 		return bean;
 	}
 	
+	public BmemberBean GetInfo(String id) {
+		BmemberBean bean = null;
+		bean = sqlSessionTemplate.selectOne(namespace+".GetInfo",id);
+		return bean;
+	}
+	
 }
 
 

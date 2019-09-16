@@ -5,12 +5,10 @@ import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -26,6 +24,7 @@ public class BmemberFindpwController {
 	private static final String gotoPage = "redirect:/main.bm";
 	
 	@Autowired
+	@Qualifier("myBmember")
 	private BmemberDao bmemberDao;
 	
 	@RequestMapping(value=command,method=RequestMethod.GET) 
@@ -35,7 +34,7 @@ public class BmemberFindpwController {
 	
 	@RequestMapping(value=command,method=RequestMethod.POST) 
 	public ModelAndView doAction( BmemberBean Bmember, HttpServletResponse response, HttpSession session) throws IOException{
-		System.out.println(this.getClass() + " POST ¹æ½Ä µé¾î¿È");
+		System.out.println(this.getClass() + " POST");
 		
 		System.out.println(Bmember.getId());
 		System.out.println(Bmember.getPw());
@@ -47,9 +46,9 @@ public class BmemberFindpwController {
 		writer = response.getWriter();
 		ModelAndView mav = new ModelAndView();
 		if(login == null) {
-			System.out.println("Á¸ÀçÇÏÁö ¾Ê´Â ¾ÆÀÌµğ");
+			System.out.println("ë¡œê·¸ì¸ ì•ˆë˜ì–´ìˆìŒ");
 			writer.print("<script type='text/javascript'>");
-			writer.print("alert('ÀÔ·ÂÇÑ Á¤º¸¿Í ÀÏÄ¡ÇÏ´Â È¸¿ø Á¤º¸°¡ ¾ø½À´Ï´Ù.');");
+			writer.print("alert('ë¡œê·¸ì¸ë¶€í„° í•˜ì„¸ìš”');");
 			writer.print("</script>");
 			writer.flush();
 			
@@ -57,7 +56,7 @@ public class BmemberFindpwController {
 			
 		}
 		else {
-			System.out.println("Á¸ÀçÇÏ´Â ¾ÆÀÌµğ");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½Ìµï¿½");
 			
 			session.setAttribute("loginfo", login);
 			mav.setViewName((String)session.getAttribute("destination"));

@@ -87,4 +87,13 @@
 	delete from bookstore where bnum = #{bnum}
 	</delete>
 	
+	<select id="BingoCheck" resultType="MyBS">
+	select * from bookstore where bnum = #{bnum}
+	</select>
+	
+	<update id="InsertUsedBook">
+		update bookstore set usedBookPrice = #{price}, usedBook = #{id} 
+		where title = #{title}
+	</update>
+	
 </mapper>

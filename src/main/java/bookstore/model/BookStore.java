@@ -20,10 +20,37 @@ public class BookStore {
 	private int price;
 	private int stock;
 	private String introduce;
-	
+	private int count;
+	private String usedBook;
+	private String usedBookPrice;
+	private int reputation;
 	
 	public String getPub_date() {
 		return pub_date;
+	}
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
+	public String getUsedBook() {
+		return usedBook;
+	}
+	public void setUsedBook(String usedBook) {
+		this.usedBook = usedBook;
+	}
+	public String getUsedBookPrice() {
+		return usedBookPrice;
+	}
+	public void setUsedBookPrice(String usedBookPrice) {
+		this.usedBookPrice = usedBookPrice;
+	}
+	public int getReputation() {
+		return reputation;
+	}
+	public void setReputation(int reputation) {
+		this.reputation = reputation;
 	}
 	public void setPub_date(String pub_date) {
 		this.pub_date = pub_date;
@@ -94,12 +121,6 @@ public class BookStore {
 	}
 	public void setIntroduce(String introduce) {
 		this.introduce = introduce;
-	}
-	@Override
-	public String toString() {
-		return "BookStore [bnum=" + bnum + ", title=" + title + ", category=" + category + ", author=" + author
-				+ ", translator=" + translator + ", publisher=" + publisher + ", ISBN="
-				+ ISBN + ", page=" + page + ", price=" + price + ", stock=" + stock + ", introduce=" + introduce + "]";
 	}
 	
 	
