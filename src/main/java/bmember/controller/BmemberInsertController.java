@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import bmember.model.BmemberBean;
 import bmember.model.BmemberDao;
+import bmember.model.BmemberEmailVerification;
 
 @Controller
 public class BmemberInsertController {
@@ -22,7 +23,7 @@ public class BmemberInsertController {
 	private static final String gotoPage = "redirect:/main.bs";
 	
 	@Autowired
-	@Qualifier("myBmember")
+	@Qualifier("myBmemberDao")
 	private BmemberDao bmemberDao;
 	
 	@RequestMapping(value=command,method=RequestMethod.GET) 
@@ -32,16 +33,19 @@ public class BmemberInsertController {
 	
 	@RequestMapping(value=command,method=RequestMethod.POST) 
 	public ModelAndView doAction(  @ModelAttribute("bmember") @Valid BmemberBean bmember , BindingResult result ) { 
-		// BindingResult �ϳ��� bean���� ������ ������ �߻��ߴ��� �ƴ���
+		// BindingResult
 		ModelAndView mav = new ModelAndView();
 		
 		if(result.hasErrors()) {
-			System.out.println("��ȿ�� �˻� ����");
+			System.out.println("뭔가 안썼음");
 			mav.setViewName(getPage);
 			return mav;
 		}
 		
 		bmemberDao.insertBmember(bmember);
+		String emailAddr = bmember.getEmail1()+"@"+bmember.getEmail2();
+		BmemberEmailVerification verify = new BmemberEmailVerification();
+		verify.gmailSend(emailAddr);
 		mav.setViewName(gotoPage);
 		return mav;
 		

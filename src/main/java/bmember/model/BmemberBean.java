@@ -18,7 +18,7 @@ public class BmemberBean {
 	@Pattern(regexp="[A-Za-z0-9$@$!%*?&]{4,13}", message="비밀번호는 숫자와 영문 특수문자 조합 4~12자")
 	private String pw;
 	
-	@NotEmpty(message="비밀번호 일치 확인 해주세요")
+	@NotEmpty(message="비밀번호 일치 확인 해주세요")//?
 	private String pwc;
 	
 	@NotEmpty(message="이름 누락")
@@ -48,28 +48,16 @@ public class BmemberBean {
 	@NotNull(message="관심장르 선택 해주세요")
 	private String genre;
 	
+	private int point;
 	
-	public BmemberBean() {
-		super();
+	
+	public int getPoint() {
+		return point;
 	}
 
 
-	public BmemberBean(int num, String id, String pw, String pwc, String name, String birth, String pn1, String pn2,
-			String pn3, String email1, String email2, String gender, String genre) {
-		super();
-		this.num = num;
-		this.id = id;
-		this.pw = pw;
-		this.pwc = pwc;
-		this.name = name;
-		this.birth = birth;
-		this.pn1 = pn1;
-		this.pn2 = pn2;
-		this.pn3 = pn3;
-		this.email1 = email1;
-		this.email2 = email2;
-		this.gender = gender;
-		this.genre = genre;
+	public void setPoint(int point) {
+		this.point = point;
 	}
 
 

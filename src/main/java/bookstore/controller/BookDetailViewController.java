@@ -2,6 +2,8 @@ package bookstore.controller;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -25,7 +27,7 @@ public class BookDetailViewController {
 	private BookStoreDao bookStoreDao;
 	
 	@RequestMapping(value = command, method =RequestMethod.GET)
-	public String doAction(@RequestParam("bnum") int bnum, Model model) {
+	public String doAction(@RequestParam("bnum") int bnum, Model model, HttpSession session) {
 		
 		BookStore book = bookStoreDao.GetData(bnum);
 		Map<String,String> map = bookStoreDao.GetContent(book);
@@ -37,6 +39,10 @@ public class BookDetailViewController {
 		model.addAttribute("book",book);
 		model.addAttribute("bookIntroduce",map.get("bookIntroduce"));
 		//model.addAttribute("bookContent",map.get("bookContent"));
+		if(session.getAttribute("mobile") != null) {
+			return "Mobile_BookDetailView";
+		}
+		
 		
 		return getPage;
 	}

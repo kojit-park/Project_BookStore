@@ -24,7 +24,7 @@ public class BmemberLoginController {
 	private static final String gotoPage = "redirect:/main.bs";
 	
 	@Autowired
-	@Qualifier("myBmember")
+	@Qualifier("myBmemberDao")
 	private BmemberDao bmemberDao;
 	
 	@RequestMapping(value=command,method=RequestMethod.GET) 

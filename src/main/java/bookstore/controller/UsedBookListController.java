@@ -32,7 +32,7 @@ public class UsedBookListController {
 	private BookStoreDao bookStoreDao;
 	
 	@Autowired
-	@Qualifier("myBmember")
+	@Qualifier("myBmemberDao")
 	private BmemberDao bmemberDao;
 	
 	@RequestMapping(command)

@@ -8,19 +8,14 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component("myBmember") 
+@Component("myBmemberDao") 
 public class BmemberDao {
 
-	private String namespace = "bmember.BmemberBean";
+	private String namespace = "bmember.model.BmemberBean";
 	
 	@Autowired // r.x=>SqlSessionTemplate 객체 주입
 	SqlSessionTemplate sqlSessionTemplate ;
 	//SqlSessionTemplate : mybatis 관련 메서드를 가지고 있는 클래스
-	
-	
-	public BmemberDao() {
-		System.out.println("BmemberDao()"); 
-	}	
 	
 	
 	public void insertBmember(BmemberBean bmember) {

@@ -20,7 +20,7 @@
 		<beans:property value=".jsp" name="suffix"/>
 	</beans:bean>
 
-<context:component-scan base-package="gift, order, bsmall, bookstore"/>
+<context:component-scan base-package="gift, order, bsmall, bookstore, bmember"/>
 
 <!-- 파일(이미지) 업로드 관련 -->
 

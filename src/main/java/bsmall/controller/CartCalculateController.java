@@ -35,7 +35,7 @@ public class CartCalculateController {
 		
 		BmemberBean member = (BmemberBean)session.getAttribute("loginfo");
 		
-		int maxoid = orderDao.getMaxOrderId(); 
+//		int maxoid = orderDao.getMaxOrderId(); 
 		
 		MyCartList mycart = (MyCartList)session.getAttribute("mycart");
 		Map<Integer,Integer> orderlists = mycart.getAllOrder();

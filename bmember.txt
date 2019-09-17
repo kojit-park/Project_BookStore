@@ -23,8 +23,8 @@ minvalue 0
 start with 0
 nocache;
 
-insert into bmember values(bmem_seq.nextval,'admin','1234','1234','관리자','20010203','010','1234','5678','book123','naver.com','남','미스테리');
-insert into bmember values(bmem_seq.nextval,'first','5678','5678','첫고객','19990304','010','5678','1234','book321','daum.net','여','로맨스');
+insert into bmember values(bmem_seq.nextval,'admin','1234','1234','관리자','20010203','010','1234','5678','book123','naver.com','남','미스테리', 0);
+insert into bmember values(bmem_seq.nextval,'first','5678','5678','첫고객','19990304','010','5678','1234','book321','daum.net','여','로맨스', 0);
 commit;
 
 

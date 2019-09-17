@@ -19,7 +19,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="minigame, bookstore" />
+	<context:component-scan base-package="minigame, bookstore, bmember" />
 	
 </beans:beans>
 

@@ -69,7 +69,7 @@
 				</td>
 				<td align="center">
 					<%-- <a href="detail.gt?gnum=<c:out value="${gift.gnum}" />"> --%>
-					<img src="<%=request.getContextPath() %>/resources/${gift.gimage}" width="60px" height="60px"> 
+					<img src="<%=request.getContextPath() %>/resources/Img/Gift/${gift.gimage}" width="60px" height="60px"> 
 				</td>
 				<td align="center">
 					<c:out value="${gift.gcategory}" />

@@ -12,7 +12,7 @@
  	<typeAliases>
  		<typeAlias type="bookstore.model.BookStore" alias="MyBS"/>
  		<typeAlias type="minigame.model.MiniGame" alias="MyMG"/>
- 		<typeAlias type="bmember.model.BmemberBean" alias="Mybmember"/>
+ 		<typeAlias type="bmember.model.BmemberBean" alias="MyBmember"/>
  		<typeAlias type="order.model.Order" alias="MyOrder"/>
 		<typeAlias type="bsmall.cart.ShoppingInfo" alias="MyComposite"/>
 		<typeAlias type="gift.model.Gift" alias="MyGift"/>

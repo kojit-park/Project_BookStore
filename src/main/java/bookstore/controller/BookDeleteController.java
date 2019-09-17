@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import bookstore.model.BookStoreDao;
-import utility.Paging;
 
 @Controller
 public class BookDeleteController {
@@ -33,7 +32,6 @@ public class BookDeleteController {
 		
 		bookStoreDao.DeleteBook(bnum);
 		
-		BookListController blc = new BookListController();
 		mav.setViewName(getPage);
 		
 		return mav;

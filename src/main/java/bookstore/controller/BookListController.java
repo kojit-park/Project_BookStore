@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -35,6 +36,8 @@ public class BookListController {
 			@RequestParam(value = "sorting", required = false) String sorting, 
 			@RequestParam(value = "pageNumber", required = false ) String pageNumber,
 			@RequestParam(value = "pageSize", required = false ) String pageSize,
+			@RequestParam(value = "mobile", required = false ) String mobile,
+			HttpSession session,
 			HttpServletRequest request
 			) {
 		Map<String, String> map = new HashMap<String, String>();
@@ -44,7 +47,7 @@ public class BookListController {
 		
 		ModelAndView mav = new ModelAndView();
 		
-		
+		System.out.println("검색:"+(Integer)session.getAttribute("mobile"));
 		int totalCount = bookStoreDao.GetTotalCount(map);
 		String url = request.getContextPath() + "/" + command;
 		
@@ -59,6 +62,17 @@ public class BookListController {
 		if(keyword != null) {
 			mav.addObject("keyword",keyword);
 		}
+		if(session.getAttribute("mobile") == null) {
+			session.setAttribute("mobile", mobile);
+				if(session.getAttribute("mobile") != null && ((String)session.getAttribute("mobile")).equals("1")) {
+					mav.setViewName("Mobile_BookList");
+					return mav;
+				}
+		}else {
+			mav.setViewName("Mobile_BookList");
+			return mav;
+		}
+		
 		
 		mav.setViewName(getPage);
 		return mav;

@@ -7,17 +7,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>BookStore 메인 페이지</title>
 <c:set value="${sessionScope.loginfo.id}" var="userId"/>
-
-<script>
-	function LogIn(){
-		location.href = "login.bm"
-	}
-	function minigame(){
-		location.href = "minigame_select.mg"
-	}
-	
-</script>
-
 </head>
 <body>
 ${loginfo.id}
@@ -32,7 +21,7 @@ ${loginfo.id}
 	<a href ="list.gt">사은품 관리</a>
 </c:if>
 
-<form name="f" action = "list.bs">
+<form name="f" action="list.bs">
 	<div id = "Main_cate">
 		<div>
 		<select id="sel_cateMain" name="category">
@@ -47,7 +36,6 @@ ${loginfo.id}
 			</div>
 		</div>
 	</div>
-	
 </form>
 <c:set var="MemberId" value="${loginfo.id}"></c:set>
 <c:if test="${MemberId == null}">
@@ -56,6 +44,19 @@ ${loginfo.id}
 	</div>
 </c:if>
 <div onclick="minigame()">미니게임</div>
-
+<button onclick="mobileVersion()">모바일 버전</button>
+<script>
+<%HttpSession remember = request.getSession();%>
+	function LogIn(){
+		location.href = "login.bm"
+	}
+	function minigame(){
+		location.href = "minigame_select.mg"
+	}
+	function mobileVersion(){
+		<%remember.removeAttribute("mobile");%>
+		location.href = "main.bs?mobile=1"
+	}
+</script>
 </body>
 </html>
