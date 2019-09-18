@@ -26,7 +26,7 @@ function usedBookMarket(){
     <div class="content" data-role="content" style="padding-left: 20%; font-size: 30px;">
        ${book.category}<br>
        ${book.author} 지음 | ${book.publisher }<br>
-       ${book.pub_date} 출간<br>
+       ${book.pubdate} 출간<br>
        가격 : <b>${book.price }원</b>
        <form action="add.bsmall">
        <c:if test="${userId != null}">

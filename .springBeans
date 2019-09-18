@@ -17,6 +17,10 @@
 		<config>src/main/webapp/WEB-INF/spring/appServlet/bsmall-servlet.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/appServlet/gift-servlet.xml</config>
 		<config>src/main/java/mybatis/gift.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/appServlet/review-servlet.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/appServlet/reply-servlet.xml</config>
+		<config>src/main/java/mybatis/review.xml</config>
+		<config>src/main/java/mybatis/reply.xml</config>
 	</configs>
 	<autoconfigs>
 		<config>src/main/webapp/WEB-INF/spring/appServlet/bmember-servlet.xml</config>

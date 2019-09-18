@@ -36,7 +36,7 @@
 			<form action="list.bs">
 				<select name="category">
 					<option value="title">정확도</option>
-					<option value="pub_date">신상품</option>
+					<option value="pubdate">신상품</option>
 					<option value="price">가격</option>
 				</select>
 				<input type="hidden" value="${keyword }" name="keyword">
@@ -67,7 +67,7 @@
 										<td>${book.author } | ${book.publisher }</td>
 									</tr>
 									<tr>
-										<td>${book.pub_date }</td>
+										<td>${book.pubdate }</td>
 									</tr>
 									<tr>
 										<td>${book.price } 원</td>
@@ -100,7 +100,7 @@
 									제목: ${book.title } <br>
 									저자: ${book.author } <br>
 									출판사: ${book.publisher } <br>
-									출판년도: ${book.pub_date }<br>
+									출판년도: ${book.pubdate }<br>
 									책소개: ${book.page } page, <br>
 									${book.introduce }... <br>
 									분류: ${book.category } <br>

@@ -109,7 +109,7 @@ String url="http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallG
 		Elements elementPub_date = doc.select("span.date");
 		String bookPub_date = elementPub_date.eq(0).text().substring(0, 13).trim();
 		System.out.println("bookPub_date"+bookPub_date);
-		bs.setPub_date(bookPub_date);
+		bs.setPubdate(bookPub_date);
 		
 		bs.setStock((int)(Math.random()*10));
 		

@@ -34,7 +34,7 @@ function usedBookMarket(){
 						<td>${book.author} 지음 | ${book.publisher }</td>
 					</tr>
 					<tr>
-						<td>${book.pub_date} 출간 </td>
+						<td>${book.pubdate} 출간 </td>
 					</tr>
 					<tr>
 						<td>리뷰 : </td>

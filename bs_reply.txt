@@ -1,0 +1,21 @@
+drop table bs_reply cascade constraint;
+
+create table bs_reply(
+	rpnum number primary key,
+	writer varchar2(15) not null,
+	reply varchar2(300),
+	regdate varchar2(20) default sysdate,
+	replyto number,
+	emo number default 1	
+);
+
+drop sequence reply_seq;
+
+create sequence reply_seq
+increment by 1
+start with 1
+minvalue 0
+maxvalue 10000
+nocache;
+
+select * from bs_reply;

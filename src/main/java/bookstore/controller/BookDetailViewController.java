@@ -27,7 +27,12 @@ public class BookDetailViewController {
 	private BookStoreDao bookStoreDao;
 	
 	@RequestMapping(value = command, method =RequestMethod.GET)
-	public String doAction(@RequestParam("bnum") int bnum, Model model, HttpSession session) {
+	public String doAction(@RequestParam("bnum") int bnum,
+			@RequestParam(value = "category", required = false) String category, 
+			@RequestParam(value = "keyword", required = false) String keyword, 
+			@RequestParam(value = "pageNumber", required = false ) String pageNumber,
+			@RequestParam(value = "pageSize", required = false ) String pageSize,
+			Model model, HttpSession session) {
 		
 		BookStore book = bookStoreDao.GetData(bnum);
 		Map<String,String> map = bookStoreDao.GetContent(book);
@@ -39,10 +44,14 @@ public class BookDetailViewController {
 		model.addAttribute("book",book);
 		model.addAttribute("bookIntroduce",map.get("bookIntroduce"));
 		//model.addAttribute("bookContent",map.get("bookContent"));
+		model.addAttribute("category",category);
+		model.addAttribute("keyword",keyword);
+		model.addAttribute("pageNumber",pageNumber);
+		model.addAttribute("pageSize",pageSize);
+		
 		if(session.getAttribute("mobile") != null) {
 			return "Mobile_BookDetailView";
 		}
-		
 		
 		return getPage;
 	}

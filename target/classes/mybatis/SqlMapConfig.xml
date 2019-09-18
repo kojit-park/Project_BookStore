@@ -16,6 +16,8 @@
  		<typeAlias type="order.model.Order" alias="MyOrder"/>
 		<typeAlias type="bsmall.cart.ShoppingInfo" alias="MyComposite"/>
 		<typeAlias type="gift.model.Gift" alias="MyGift"/>
+		<typeAlias type="review.model.Review" alias="MyReview"/>
+		<typeAlias type="reply.model.Reply" alias="MyReply"/>
  	</typeAliases>
  
 	<mappers>
@@ -25,6 +27,8 @@
 		<mapper resource="mybatis/order.xml"/>
 		<mapper resource="mybatis/composite.xml"/>
 		<mapper resource="mybatis/gift.xml"/>
+		<mapper resource="mybatis/review.xml"/>
+		<mapper resource="mybatis/reply.xml"/>
 	</mappers>
 
 </configuration>

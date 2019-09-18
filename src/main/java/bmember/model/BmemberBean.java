@@ -9,7 +9,6 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Alias("MyBmember")
 public class BmemberBean {
 	
-	
 	private int num;
 	
 	@NotEmpty(message="아이디를 입력 해주세요")

@@ -1,0 +1,25 @@
+drop table bs_review cascade constraint;
+
+create table bs_review(
+	rnum number primary key,
+	writer varchar2(15) not null,
+	booktitle varchar2(100) default '잡담',
+	subject varchar2(50) not null,
+	content varchar2(500),
+	regdate varchar2(20) default sysdate,
+	readcount number default 0,
+	replycount number default 0	
+);
+
+drop sequence review_seq;
+
+create sequence review_seq
+increment by 1
+start with 0
+minvalue 0
+maxvalue 10000
+nocache;
+
+insert into bs_review(rnum,writer,subject,content) values(review_seq.nextval,'관리자','리뷰 게시판입니다','리뷰 게시판이에요');
+
+select * from bs_review;

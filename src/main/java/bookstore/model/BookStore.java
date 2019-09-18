@@ -16,7 +16,7 @@ public class BookStore {
 	@NotNull(message="필수")
 	private String ISBN;
 	private int page;
-	private String pub_date;
+	private String pubdate;
 	private int price;
 	private int stock;
 	private String introduce;
@@ -25,8 +25,8 @@ public class BookStore {
 	private String usedBookPrice;
 	private int reputation;
 	
-	public String getPub_date() {
-		return pub_date;
+	public String getPubdate() {
+		return pubdate;
 	}
 	public int getCount() {
 		return count;
@@ -52,8 +52,8 @@ public class BookStore {
 	public void setReputation(int reputation) {
 		this.reputation = reputation;
 	}
-	public void setPub_date(String pub_date) {
-		this.pub_date = pub_date;
+	public void setPubdate(String pubdate) {
+		this.pubdate = pubdate;
 	}
 	public int getBnum() {
 		return bnum;

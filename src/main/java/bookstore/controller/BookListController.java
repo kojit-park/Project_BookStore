@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -47,7 +46,6 @@ public class BookListController {
 		
 		ModelAndView mav = new ModelAndView();
 		
-		System.out.println("검색:"+(Integer)session.getAttribute("mobile"));
 		int totalCount = bookStoreDao.GetTotalCount(map);
 		String url = request.getContextPath() + "/" + command;
 		
@@ -57,7 +55,6 @@ public class BookListController {
 		mav.addObject("bookLists",bookLists);
 		mav.addObject("totalCount",totalCount);
 		mav.addObject("pageInfo",pageInfo);
-		mav.addObject("category",category);
 		
 		if(keyword != null) {
 			mav.addObject("keyword",keyword);

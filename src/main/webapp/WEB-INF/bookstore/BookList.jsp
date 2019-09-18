@@ -15,10 +15,10 @@
 	<form action="list.bs">
 		<select name="category">
 			<option value="title">정확도</option>
-			<option value="pub_date">신상품</option>
+			<option value="pubdate">신상품</option>
 			<option value="price">가격</option>
 		</select>
-		<input type="hidden" value="${keyword }" name="keyword">
+		<input type="hidden" value="${pageInfo.keyword }" name="keyword">
 		<input type="hidden" value="sorting" name="sorting">
 		<input type="submit" value="정렬">
 	</form>
@@ -39,7 +39,7 @@
 						제목: ${book.title } <br>
 						저자: ${book.author }<br>
 						출판사: ${book.publisher } <br>
-						출판년도: ${book.pub_date }<br>
+						출판년도: ${book.pubdate }<br>
 						분류: ${book.category }<br>
 						</div>
 					</div>
@@ -49,15 +49,15 @@
 							제목: ${book.title } <br>
 							저자: ${book.author } <br>
 							출판사: ${book.publisher } <br>
-							출판년도: ${book.pub_date }<br>
+							출판년도: ${book.pubdate }<br>
 							책소개: ${book.page } page, <br>
 							${book.introduce } <br>
 							분류: ${book.category } <br>
 							재고: ${book.stock } <br>
-							<a href="detail.bs?bnum=${book.bnum }"><button>상세 보기</button></a>
+							<a href="detail.bs?bnum=${book.bnum }&category=${pageInfo.category}&keyword=${pageInfo.keyword}&pageNumber=${bookInfo.pageNumber}&pageSize=${bookInfo.pageSize}"><button>상세 보기</button></a>
 							<span id="close" onclick="span_close(${book.bnum})"><input type="button" value="닫기"  style="width:100px;"></span>
 							<c:if test="${userId eq 'admin'}">
-							<a href = "delete.bs?bnum=${book.bnum }&category=${category}&keyword=${keyword}&pageNumber=${bookInfo.pageNumber}&pageSize=${bookInfo.pageSize}">삭제
+							<a href = "delete.bs?bnum=${book.bnum }&category=${pageInfo.category}&keyword=${pageInfo.keyword}&pageNumber=${bookInfo.pageNumber}&pageSize=${bookInfo.pageSize}">삭제
 							</a></c:if>
 					</div>
 				</div>

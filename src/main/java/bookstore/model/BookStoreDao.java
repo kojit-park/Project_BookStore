@@ -34,11 +34,6 @@ public class BookStoreDao {
 		lists = sqlSessionTemplate.selectList(namespace + ".GetDataList", map,rowBounds );
 		
 		for(BookStore bs : lists) {
-			String pub_day = sqlSessionTemplate.selectOne(namespace+".GetPubDate", bs.getTitle());
-			bs.setPub_date(pub_day);
-		}
-		
-		for(BookStore bs : lists) {
 			if(bs.getIntroduce() == null || bs.getIntroduce().equals("")) {
 				BookCrawler crawler = new BookCrawler();
 				String content = crawler.bookContentCrawler(bs.getISBN());
@@ -96,11 +91,8 @@ public class BookStoreDao {
 			int bnum = order.getBnum();
 			BookStore bs = sqlSessionTemplate.selectOne(namespace+".BingoCheck",bnum);
 			String title = bs.getTitle();
-			String pub_date=sqlSessionTemplate.selectOne(namespace+".GetPubDate",title);
-			bs.setPub_date(pub_date);
 			lists.add(bs);
 			System.out.println("bnum>>"+bnum);
-			System.out.println("pub////"+bs.getPub_date());
 		}
 		return lists;
 	}

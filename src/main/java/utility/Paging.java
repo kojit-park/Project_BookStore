@@ -18,7 +18,7 @@ public class Paging {
 	
 	
 	//�˻��� ���� ���� �߰�
-	private String whatColumn = "" ; //�˻� ���(�ۼ���, ������, ��ü �˻��� all) ���
+	private String category = "" ; //�˻� ���(�ۼ���, ������, ��ü �˻��� all) ���
 	private String keyword = "" ; //�˻��� �ܾ� 
 
 	public int getTotalCount() {
@@ -156,13 +156,13 @@ public class Paging {
 	}
 
 
-	public String getWhatColumn() {
-		return whatColumn;
+	public String getCategory() {
+		return category;
 	}
 
 
-	public void setWhatColumn(String whatColumn) {
-		this.whatColumn = whatColumn;
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 
@@ -181,7 +181,7 @@ public class Paging {
 			String _pageSize,  
 			int totalCount,
 			String url, 
-			String whatColumn, 
+			String category, 
 			String keyword,
 			String whologin) {		
 
@@ -229,9 +229,9 @@ public class Paging {
 		
 		System.out.println("pageNumber2:"+pageNumber+"/totalPage2:"+totalPage);	
 		this.url = url ; //  /ex/list.ab
-		this.whatColumn = whatColumn ;
+		this.category = category ;
 		this.keyword = keyword ;
-		System.out.println("whatColumn:"+whatColumn+"/keyword:"+keyword);
+		System.out.println("category:"+category+"/keyword:"+keyword);
 		
 		this.pagingHtml = getPagingHtml(url) ;
 	
@@ -241,7 +241,7 @@ public class Paging {
 		System.out.println("getPagingHtml url:"+url); 
 		
 		String result = "" ;
-		String added_param = "&whatColumn=" + whatColumn + "&keyword=" + keyword ; // &whatColumn=singer&keyword=��
+		String added_param = "&category=" + category + "&keyword=" + keyword ; // &category=singer&keyword=��
 		
 		if (this.beginPage != 1) { 
 			result += "&nbsp;<a href='" + url  
@@ -279,7 +279,6 @@ public class Paging {
 					+ added_param + "'>끝</a>&nbsp;" ;
 		}		
 		System.out.println("result2:"+result);
-		// result2 : <a href='/ex/list.ab?pageNumber=1&pageSize=2'>�� ó��</a>&nbsp;&nbsp;<a href='/ex/list.ab?pageNumber=3&pageSize=2&whatColumn=null&keyword=null'>����</a>&nbsp;&nbsp;<font color='red'>4</font>&nbsp;&nbsp;<a href='/ex/list.ab?pageNumber=5&pageSize=2&whatColumn=null&keyword=null'>5</a>&nbsp;
 		
 		return result ;
 	}	

@@ -13,6 +13,7 @@ ${loginfo.id}
 <c:if test="${userId ne null and userId ne 'admin' }">
 	<a href ="order.bsmall">내 서재</a>
 	<a href ="list.bsmall">장바구니</a>
+	<a href = "list.rv">리뷰 게시판</a>
 </c:if>
 <c:if test="${userId ne null and userId eq 'admin' }">
 	<a href ="">회원 리스트</a>

@@ -40,8 +40,8 @@
 				<if test="category=='title'">
 				order by title desc
 				</if>
-				<if test="category=='pub_date'">
-				order by pub_date desc
+				<if test="category=='pubdate'">
+				order by pubdate desc
 				</if>
 				<if test="category=='price'">
 				order by price desc
@@ -49,7 +49,7 @@
 			
 			</when>
 			<otherwise>
-				order by pub_date desc
+				order by pubdate desc
 			</otherwise>
 		</choose>
 		
@@ -61,12 +61,12 @@
 	</update>
 	
 	<insert id="InsertData" parameterType="MyBS">
-		insert into bookstore (bnum,title,category,author,translator,publisher,pub_date,ISBN,page,price,stock) 
-		values(bs_seq.nextval, #{title},#{category},#{author},#{translator},#{publisher},#{pub_date},#{ISBN},#{page},#{price},#{stock})
+		insert into bookstore (bnum,title,category,author,translator,publisher,pubdate,ISBN,page,price,stock) 
+		values(bs_seq.nextval, #{title},#{category},#{author},#{translator},#{publisher},#{pubdate},#{ISBN},#{page},#{price},#{stock})
 	</insert>
 	
 	<select id="GetPubDate" resultType="String">
-		select pub_date from bookstore where title = #{title}
+		select pubdate from bookstore where title = #{title}
 	</select>
 	
 	<select id = "GetData" resultType="MyBS">

@@ -66,28 +66,21 @@ public class MyBingoController {
 		}
 		
 		for(BookStore bs:books) {
-			if(bs.getCategory().contains("문학")) {
-				bingo[1] = true;
-			}else if(bs.getCategory().contains("과학")) {
-				bingo[8] = true;
-			}else if(checkCategory1.contains(bs.getCategory())) {
-				bingo[2] = true;
-			}else if(checkCategory2.contains(bs.getCategory())) {
-				bingo[7] = true;
-			}
-			System.out.println(bs.getPub_date());
-			if(bs.getPub_date().contains("2019")) {
-				bingo[5] = true;
-				String month = bs.getPub_date().substring(5,8);
+				bingo[1] = bs.getCategory().contains("문학");
+				bingo[8] = bs.getCategory().contains("과학");
+				bingo[2] = checkCategory1.contains(bs.getCategory());
+				bingo[7] = checkCategory2.contains(bs.getCategory());
+			
+			System.out.println(bs.getPubdate());
+				bingo[5] = bs.getPubdate().contains("2019");
+				String month = bs.getPubdate().substring(5,8);
 				
 				if(month.contains("7") || month.contains("8") || month.contains("9") ) {
 					bingo[4] = true;
 				}
 				
-			}
 		}
 		int count = 0;
-		
 		if(bingo[0] && bingo[1] && bingo[2]) {
 			count ++;
 		}

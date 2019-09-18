@@ -1,6 +1,5 @@
 package bmember.model;
 
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Component("myBmemberDao") 
 public class BmemberDao {
 
-	private String namespace = "bmember.model.BmemberBean";
+	private final String namespace = "bmember.model.BmemberBean";
 	
 	@Autowired // r.x=>SqlSessionTemplate 객체 주입
 	SqlSessionTemplate sqlSessionTemplate ;
