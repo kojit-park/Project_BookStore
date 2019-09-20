@@ -48,7 +48,7 @@ function insertUsedBook(){
 					${shopinfo.orderdate}<br>
 				</td>
 				<td align="center">
-				<a href="">리뷰쓰기</a>
+				<a href="insert.rv?booktitle=${shopinfo.title}">리뷰쓰기</a>
 				</td>				
 			</tr>
 		</c:forEach>		

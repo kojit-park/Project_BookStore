@@ -12,7 +12,7 @@
 ${userId }<br>
 <form action = "insert.rv" method="post">
 	<input type="hidden" name="writer" value="${userId }">
-	책 제목 : <input type="text" name = "booktitle" placeholder="책 제목을 입력하세요"><br><br>
+	책 제목 : <input type="text" name = "booktitle" placeholder="책 제목을 입력하세요" <c:if test="${booktitle ne null and booktitle ne '' }">value="${booktitle }"</c:if>  ><br><br>
 	리뷰 제목: <input type="text" name="subject" placeholder="제목을 입력하세요"><br><br>
 	내용: <textarea name = "content" rows="30" cols="50" placeholder = "내용을 입력하세요"></textarea><br><br>
 	<input type="submit" value="리뷰 쓰기">

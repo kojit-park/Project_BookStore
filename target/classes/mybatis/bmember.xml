@@ -79,5 +79,13 @@
 	where id = #{id} 
 </select>
 
+<update id="UpdatePoint">
+	update bmember set point = point+#{point} 
+	where id= #{id}
+</update>
+
+<select id="GetAll" resultType="MyBmember">
+	select * from bmember
+</select>
 
 </mapper>

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import bmember.model.BmemberBean;
+import bmember.model.BmemberDao;
 import bookstore.model.BookStore;
 import bookstore.model.BookStoreDao;
 import order.model.Order;
@@ -30,6 +31,10 @@ public class MyBingoController {
 	@Autowired
 	@Qualifier("myBookStoreDao")
 	private BookStoreDao bookStoreDao;
+	
+	@Autowired
+	@Qualifier("myBmemberDao")
+	private BmemberDao bmemberDao;
 	
 	@RequestMapping(command)
 	public ModelAndView doAction(HttpSession session) {
@@ -106,6 +111,15 @@ public class MyBingoController {
 			count ++;
 		}
 		
+		if(session.getAttribute("bingoCheck") == null) {
+			BmemberBean member = (BmemberBean)(session.getAttribute("loginfo"));
+			String id = member.getId();
+			int point = count * 500;
+			bmemberDao.UpdatePoint(id, point);
+			member = bmemberDao.GetInfo(id);
+			session.setAttribute("bingoCheck", 1);
+			session.setAttribute("loginfo",member);
+		}
 		
 		mav.addObject("count",count);
 		mav.addObject("bingo", bingo);

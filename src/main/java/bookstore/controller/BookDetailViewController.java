@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import bmember.model.BmemberBean;
+import bmember.model.BmemberDao;
 import bookstore.model.BookStore;
 import bookstore.model.BookStoreDao;
 
@@ -25,6 +27,10 @@ public class BookDetailViewController {
 	@Autowired
 	@Qualifier("myBookStoreDao")
 	private BookStoreDao bookStoreDao;
+	
+	@Autowired
+	@Qualifier("myBmemberDao")
+	private BmemberDao bmemberDao;
 	
 	@RequestMapping(value = command, method =RequestMethod.GET)
 	public String doAction(@RequestParam("bnum") int bnum,
@@ -57,8 +63,20 @@ public class BookDetailViewController {
 	}
 	
 	@RequestMapping("/mini_detail.bs")
-	public String AfterMinigame(@RequestParam("ISBN") String ISBN, Model model) {
+	public String AfterMinigame(@RequestParam("ISBN") String ISBN,
+			@RequestParam("result") int result,
+			Model model,HttpSession session) {
 		System.out.println("여기 들어오냐");
+		
+		if(result >= 1 && session.getAttribute("loginfo") != null) {
+			BmemberBean member = (BmemberBean)(session.getAttribute("loginfo"));
+			String id = member.getId();
+			int NoUsage = (result==1) ? bmemberDao.UpdatePoint(id, 100):bmemberDao.UpdatePoint(id, 50);
+			member = bmemberDao.GetInfo(id);
+			session.setAttribute("loginfo", member);
+		}
+		
+		
 		BookStore book = bookStoreDao.GetDataByISBN(ISBN);
 		Map<String,String> map = bookStoreDao.GetContent(book);
 		usedBookMarket =false;

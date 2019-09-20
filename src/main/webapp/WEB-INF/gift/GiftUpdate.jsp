@@ -53,6 +53,12 @@
 		<form:errors cssClass="err" path="gcontents" /></td>
 	</tr>
 	<tr>
+		<td width="120">설명</td>
+		<td width="180"><input type="text" name="gpoint" value="${gift.gpoint}">
+		<form:errors cssClass="err" path="gpoint" /></td>
+	</tr>
+	
+	<tr>
 		<td width="120">등록일</td>
 		<td width="180">
 			<input type="text" name="day" value="${gift.day}">

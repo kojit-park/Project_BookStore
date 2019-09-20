@@ -59,6 +59,15 @@
 		</tr>	
 		<tr>
 			<td>
+			<label for="gpoint">포인트</label>
+			</td>
+			<td>
+			<input type="text" name="gpoint" id="gpoint" placeholder="숫자만 입력하세요"/>
+			<form:errors cssClass="err" path="gpoint"></form:errors>
+			</td>
+		</tr>
+		<tr>
+			<td>
 			<label for="day">등록일</label>
 			</td>
 			<td>

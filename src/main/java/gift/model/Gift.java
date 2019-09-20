@@ -1,5 +1,7 @@
 package gift.model;
 
+import javax.validation.constraints.Pattern;
+
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
@@ -17,6 +19,9 @@ public class Gift {
 	private String gcategory; 
 	@Length(min=5, max=15 , message="설명은 최소5자부터 15자까지 입력하세요.")
 	private String gcontents; 
+	
+	@Pattern(regexp="[0-9]{1,5}",message="숫자만 입력하세요")
+	private int gpoint;
 	
 	private String day;
 	////
@@ -44,8 +49,15 @@ public class Gift {
 	}
 	////////
 	
+	
 	public int getGnum() {
 		return gnum;
+	}
+	public int getGpoint() {
+		return gpoint;
+	}
+	public void setGpoint(int gpoint) {
+		this.gpoint = gpoint;
 	}
 	public String getDay() {
 		return day;

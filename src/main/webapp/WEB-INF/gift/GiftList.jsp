@@ -23,7 +23,7 @@
 	<h2 align="center">리스트 화면</h2>
 	<center>
 	<form action="list.gt" method="get"> 
-		<select name="whatColumn">
+		<select name="category">
 			<option value="all">전체 검색
 			<option value="gname">사은품명
 			<option value="gcontents">설명
@@ -50,6 +50,7 @@
 			<th>이미지</th>
 			<th>카테고리</th>
 			<th>설명</th>
+			<th>가격</th>
 			<th>등록일</th>
 			<th>선택</th>
 			
@@ -80,6 +81,9 @@
 				<td align="left" width="150">
 					<c:out value="${gift.gcontents}" />
 				</td>				
+				<td align="left" width="150">
+					<c:out value="${gift.gpoint}" /> pt
+				</td>				
 				<td align="center">
 					<c:out value="${gift.day}" />
 				</td>	 
@@ -101,7 +105,7 @@
 		<input type="submit" value="선택 완료">
 	</c:if>
 </form>
-		
+		<div>현재 ${sessionScope.loginfo.point }point 사용가능합니다.</div>
 	<br>
 	<center>
 		${pageInfo.pagingHtml}

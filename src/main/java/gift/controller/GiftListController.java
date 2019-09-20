@@ -28,20 +28,20 @@ public class GiftListController {
 	private GiftDao giftDao;
 	
 	@RequestMapping(value = command)
-	public ModelAndView doAction(@RequestParam(value = "whatColumn", required = false ) String whatColumn,
+	public ModelAndView doAction(@RequestParam(value = "category", required = false ) String category,
 			@RequestParam(value = "keyword", required = false ) String keyword,
 			@RequestParam(value = "pageNumber", required = false ) String pageNumber,
 			@RequestParam(value = "pageSize", required = false ) String pageSize,
 			HttpServletRequest request) {
 		
-		System.out.print("whatColumn" + whatColumn + ", ");
+		System.out.print("whatColumn" + category + ", ");
 		System.out.print("keyword : " + keyword + ", ");
 		System.out.print("pageNumber : " + pageNumber + ", ");
 		System.out.print("pageSize : " + pageSize + ", ");
 
 		Map<String, String> map = new HashMap<String, String>() ;	
 
-		map.put("whatColumn", whatColumn ) ;
+		map.put("category", category ) ;
 		map.put("keyword", "%" + keyword + "%" ) ;
 
 		int totalCount = giftDao.GetTotalCount( map );
@@ -50,7 +50,7 @@ public class GiftListController {
 		String url = request.getContextPath() +  this.command ;
 
 		Paging pageInfo 
-		= new Paging( pageNumber, pageSize, totalCount, url, whatColumn, keyword, null);
+		= new Paging( pageNumber, pageSize, totalCount, url, category, keyword, null);
 
 		System.out.print( "offset : " + pageInfo.getOffset() + ", " ) ; 
 		System.out.print( "limit : " + pageInfo.getLimit() + ", " ) ;  

@@ -13,7 +13,8 @@ DROP TABLE gift CASCADE CONSTRAINTS;
 -- ginputdate : 등록날짜, gcategory : 카테고리
 create table gift(
 	gnum 		int primary key,
-	gname 		varchar2(50) not null,	
+	gname 		varchar2(50) not null,
+	gpoint number not null,
 	gimage   	varchar2(30),
 	gcategory   	varchar2(12),
 	gcontents 	varchar2(300),
@@ -21,8 +22,8 @@ create table gift(
 );
 
 -------------------------------------------------------------------------------------
-insert into gift(gnum, gname, gimage, gcategory, gcontents, day)
-values(seqgift.nextval, '목베개', 'smile.jpg', '사은품', '사은품입니다.', default);		
+insert into gift(gnum, gname, gimage, gcategory, gcontents, day, gpoint)
+values(seqgift.nextval, '목베개', 'smile.jpg', '사은품', '사은품입니다.', default, 1000);		
 
 commit ;
 

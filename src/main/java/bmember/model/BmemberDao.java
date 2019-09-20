@@ -77,6 +77,20 @@ public class BmemberDao {
 		return lists;
 	}
 	
+	public int UpdatePoint(String id,int point) {
+		Map<String,String> map = new HashMap<String, String>();
+		map.put("id", id);
+		map.put("point", ""+point);
+		int ud =sqlSessionTemplate.update(namespace+".UpdatePoint",map);
+		return ud;
+	}
+	
+	public List<BmemberBean> GetAll(){
+		List<BmemberBean> lists = new ArrayList<BmemberBean>();
+		lists = sqlSessionTemplate.selectList(namespace+".GetAll");
+		return lists;
+	}
+	
 }
 
 

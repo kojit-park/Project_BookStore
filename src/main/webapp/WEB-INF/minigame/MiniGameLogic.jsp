@@ -366,16 +366,16 @@ window.onkeydown = function(){
 		
 		if(myHp<0 && enemyHp<0){
 			alert("무승부");
-			location.href = "mini_detail.bs?ISBN="+${mini1.ISBN};
+			location.href = "mini_detail.bs?ISBN="+${mini1.ISBN}+"&result=2";
 			countDown = 70;
 		}
 		else if(myHp<0){
 			alert("enemy win");
-			location.href = "mini_detail.bs?ISBN="+${mini2.ISBN};
+			location.href = "mini_detail.bs?ISBN="+${mini2.ISBN}+"&result=0";
 			countDown = 70;
 		}else if(enemyHp<0){
 			alert("I win");
-			location.href = "mini_detail.bs?ISBN="+${mini1.ISBN};
+			location.href = "mini_detail.bs?ISBN="+${mini1.ISBN}+"&result=1";
 			countDown = 70;
 		}
 		

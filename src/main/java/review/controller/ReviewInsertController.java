@@ -10,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import review.model.Review;
@@ -25,8 +26,11 @@ public class ReviewInsertController {
 	private ReviewDao reviewDao;
 	
 	@RequestMapping(value=command, method=RequestMethod.GET)
-	public String doActionGET() {
-		return "Insert_Review";
+	public ModelAndView doActionGET(@RequestParam("booktitle") String booktitle) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("booktitle", booktitle);
+		mav.setViewName("Insert_Review");
+		return mav;
 	}
 	
 	@RequestMapping(value=command, method=RequestMethod.POST)

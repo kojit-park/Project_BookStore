@@ -14,13 +14,9 @@
 <body>
 
 	<div id="IncomesByDay" style="height: 250px;"></div>
-	<div>--------------------------------------------------</div>
 	<div id="IncomesByMonth" style="height: 250px;"></div>
-	<div>--------------------------------------------------</div>
 	<div id="IncomesByYear" style="height: 250px;"></div>
-	<div>--------------------------------------------------</div>
 	<div id="IncomesByBook" style="height: 400px;"></div>
-	<div>--------------------------------------------------</div>
 
 
 <script type="text/javascript">
