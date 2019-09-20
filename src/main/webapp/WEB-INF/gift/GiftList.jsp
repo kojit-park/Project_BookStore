@@ -37,12 +37,13 @@
 
 <form action = "calculate.bsmall">
 	 <table border="1" align="center" width="80%">
-	
+		<c:if test="${userId ne null and userId eq 'admin' }">
 		<tr>
 			<td colspan="8" align="center">
 				<input type="button" value="추가하기" onclick="insert();">
 			</td>
 		</tr>
+		</c:if>
 		<tr>
 			<th>번호</th>
 			<th>사은품명</th>
@@ -52,8 +53,10 @@
 			<th>등록일</th>
 			<th>선택</th>
 			
-		<c:if test="${userId ne null and userId eq 'admin' }"><th>삭제</th>
-			<th>수정</th> </c:if>
+		<c:if test="${userId ne null and userId eq 'admin' }">
+			<th>삭제</th>
+			<th>수정</th> 
+		</c:if>
 		</tr>
 		<c:forEach items="${giftLists}" var="gift" >
 			<tr>
@@ -83,16 +86,20 @@
 				<td>
 					<input type="radio" name="selectGift" value="${gift.gname }" >
 				</td>
-				<c:if test="${userId ne null and userId eq 'admin' }"><td align="center">
+				<c:if test="${userId ne null and userId eq 'admin' }">
+				<td align="center">
 					<a href="delete.gt?gnum=<c:out value="${gift.gnum}" />">삭제</a><br>
 				</td>
 				<td  align="center">
 					<input type="button" value="수정" value="${gift.gnum}" onclick="goUpdate('${gift.gnum}')"/>
-				</td></c:if>
+				</td>
+				</c:if>
 			</tr>
 		</c:forEach>
 	</table>
-	<input type="submit" value="선택 완료">
+	<c:if test="${userId ne null and userId ne 'admin' }">
+		<input type="submit" value="선택 완료">
+	</c:if>
 </form>
 		
 	<br>

@@ -6,7 +6,7 @@
 
 	<select resultType="MyComposite" id="ShowDetail">
 	select b.bnum bbnum, b.title btitle, o.qty , b.price, b.price * o.qty as amount
-	from bsorders o inner join bookstore bon o.bnum = bbnum and o.oid = #{pmkey}
+	from bsorders o inner join bookstore b on o.bnum = bbnum and o.oid = #{pmkey}
 	order by o.oid desc
 	</select>
 

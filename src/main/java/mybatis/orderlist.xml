@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="orderlist.model.OrderList">
+
+<select resultType="MyOrderList" id="OrderList">
+	select o.oid, o.bnum, o.mid, o.qty, o.orderdate,b.title, b.category, b.author, b.translator, b.publisher, b.ISBN, b.page, b.pubdate, b.price 
+	from bsorders o inner join bookstore b 
+	on o.bnum = b.bnum 
+	where o.mid = #{mid}
+	order by o.oid desc 
+</select>
+
+<select id="IncomeCheckByBook" resultType="MyOrderList">
+	select b.title as title, b.price * o.qty as price 
+	from bsorders o inner join bookstore b 
+	on o.bnum = b.bnum 
+	order by price desc
+</select>
+
+<select id="IncomeCheckByDate" resultType="MyOrderList">
+	select o.orderdate as orderdate, b.price price, o.qty qty
+	from bsorders o inner join bookstore b
+	on o.bnum = b.bnum
+	order by price desc
+</select>
+
+
+
+
+</mapper>

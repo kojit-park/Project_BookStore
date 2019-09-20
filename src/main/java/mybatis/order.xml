@@ -4,16 +4,16 @@
 	
 <mapper namespace="order.model.Order">
 	<insert id="InsertData">
-	insert into bsorders(oid, mid, orderdate,bnum,qty,price)
-	values(bsseqod.nextval, #{id}, sysdate,#{bnum},#{qty},#{price} ) 
+		insert into bsorders(oid, mid, orderdate,bnum,qty)
+		values(bsseqod.nextval, #{mid},  to_char(sysdate,'yy-mm-dd hh24:mi'),#{bnum},#{qty} ) 
 	</insert>
 	
 	<select id="getMaxOrderId" resultType="int">
-	select max(oid) from bsorders 
+		select max(oid) from bsorders 
 	</select>
 	
 	<select id="OrderMall" resultType="MyOrder">
-	 select * from bsorders where mid = #{id} 
+	 	select * from bsorders where mid = #{id} order by oid desc
 	</select>
 	
 </mapper>

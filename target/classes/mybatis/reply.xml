@@ -7,5 +7,20 @@
 		select count(*) from bs_reply 
 		where replyto = #{rnum} 
 	</select>
+	
+	<select id="GetReplyList" resultType="MyReply">
+		select * from bs_reply 
+		where replyto = #{rnum}
+	</select>
+	
+	<insert id="InsertReply" parameterType="MyReply">
+		insert into bs_reply(rpnum, writer,replyto,reply,emo) 
+		values(reply_seq.nextval, #{writer}, #{replyto}, #{reply},#{emo})
+	</insert>
+	
+	<delete id="DeleteReply">
+		delete from bs_reply 
+		where rpnum= #{rpnum}
+	</delete>
 
 </mapper>

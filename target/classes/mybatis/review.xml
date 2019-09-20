@@ -22,7 +22,7 @@
 		<if test="category == 'booktitle'">
 			where booktitle like #{keyword}
 		</if>		
-			order by regdate desc
+			order by rnum desc
 	</select>
 	
 	<select id = "GetData" resultType="MyReview">
@@ -50,5 +50,14 @@
 		where rnum = #{rnum}
 	</select>
 	
+	<update id="UpdateReplyCount">
+		update bs_review set replycount = replycount+1 
+		where rnum = #{rnum}
+	</update>
+	
+	<update id="UpdateDeletedReply">
+		update bs_review set replycount = replycount-1 
+		where rnum = #{rnum}
+	</update>
 	
 </mapper>

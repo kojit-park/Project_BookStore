@@ -56,8 +56,12 @@ public class ReviewDao {
 		sqlSessionTemplate.update(namespace+".UpdateReview",review);
 	}
 	
-	public Review GetDataMissed(int rnum) {
-		Review rv = sqlSessionTemplate.selectOne(namespace+".GetDataMissed",rnum);
-		return rv; 
+	public void UpdateReplyCount(int rnum) {
+		sqlSessionTemplate.update(namespace+".UpdateReplyCount",rnum);
 	}
+	
+	public void UpdateDeletedReply(int rnum) {
+		sqlSessionTemplate.update(namespace+".UpdateDeletedReply",rnum);
+	}
+	
 }

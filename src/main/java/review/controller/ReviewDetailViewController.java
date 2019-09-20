@@ -1,5 +1,8 @@
 package review.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import reply.model.Reply;
+import reply.model.ReplyDao;
 import review.model.Review;
 import review.model.ReviewDao;
 
@@ -23,6 +28,10 @@ public class ReviewDetailViewController {
 	@Qualifier("myReviewDao")
 	private ReviewDao reviewDao;
 	
+	@Autowired
+	@Qualifier("myReplyDao")
+	private ReplyDao replyDao;
+	
 	@RequestMapping(value = command, method =RequestMethod.GET)
 	public String doAction(@RequestParam("rnum") int rnum, 
 			@RequestParam("category") String category,
@@ -31,6 +40,14 @@ public class ReviewDetailViewController {
 		
 		Review review = reviewDao.GetData(rnum);
 		reviewDao.UpdateReadCount(rnum);
+		List<Reply> replies = new ArrayList<Reply>();
+		
+		if(review.getReplycount()>0) {
+			replies = replyDao.GetReplyList(rnum);
+		}
+		
+		
+		model.addAttribute("replyList",replies);
 		model.addAttribute("review",review);
 		model.addAttribute("category",category);
 		model.addAttribute("keyword",keyword);

@@ -5,6 +5,7 @@
 <html>
 <head>
 <c:set value="${sessionScope.loginfo.id}" var="userId"/>
+<c:set value="${sessionScope.mobile}" var="mobile"/>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
@@ -40,7 +41,16 @@
 							${review.rnum}
 						</td>				
 						<td align="center">
-							${review.booktitle}
+							<c:choose>
+								<c:when test="${review.booktitle ne '잡담' }">
+									<a href = "list.bs?category=title&keyword=${review.booktitle}&mobile=${mobile}">${review.booktitle}</a>
+								</c:when>
+							
+								<c:otherwise>
+									${review.booktitle}
+								</c:otherwise>
+							</c:choose>
+							
 						</td>
 						<td align="center">
 							<a href = "detail.rv?rnum=${review.rnum}&category=${pageInfo.category}&keyword=${pageInfo.keyword}">${review.subject}</a>

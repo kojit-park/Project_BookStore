@@ -45,18 +45,22 @@ public class MinigameSelectController {
 		
 		map.put("category", category);
 		map.put("keyword", "%"+keyword+"%");
-		System.out.println("카테고리 키워드"+category+"//"+keyword);
-		String char1 = miniGameDao.GetCharacter(map);
 		
+		System.out.println("카테고리 키워드"+category+"//"+keyword);
+		
+		String char1 = miniGameDao.GetCharacter(map);
 		char1 = (char1 ==null) ? "1111111111111" : char1;
 		
 		keyword = miniGameDao.GetCollectTitle(map);
-		keyword = (keyword ==null) ? "그런 책 없음" : keyword;
+		keyword = (keyword ==null) ? "그런 책 없다" : keyword;
 		
 		System.out.println("잘나왔나 확인1"+char1+"//"+keyword);
+		
 		map.put("category", category2);
 		map.put("keyword", "%"+keyword2+"%");
+		
 		System.out.println("카테고리2 키워드2"+category2+"//"+keyword2);
+		
 		String char2 = miniGameDao.GetCharacter(map);
 		keyword2 = miniGameDao.GetCollectTitle(map);
 		System.out.println("잘나왔나 확인2"+char2+"//"+keyword2);

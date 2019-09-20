@@ -31,7 +31,7 @@ public class CartListController {
 		if(mycart!=null) {
 		Map<Integer, Integer> orderlists = mycart.getAllOrder();
 		
-		Set<Integer> keylist = orderlists.keySet(); ////keySet()��  Map���� ���ǵ�(this.params) �� �߿� key ���� �����ͼ� �����Ѵ�.
+		Set<Integer> keylist = orderlists.keySet(); ////keySet()
 		
 		List<ShoppingInfo> shopLists = new ArrayList<ShoppingInfo>();
 		
@@ -48,19 +48,12 @@ public class CartListController {
 			shopInfo.setQty(qty);
 			shopInfo.setPrice(bean.getPrice());
 			
-			System.out.println("qty" + shopInfo.getQty());
 			int amount = (bean.getPrice() * qty);
-			
-			System.out.println("amount1:"+amount);
-			
-			System.out.println("amount2:"+amount);
-			System.out.println("price" + bean.getPrice());
-			
 			shopInfo.setAmount(amount);
+			
 			totalAmount += amount;
 			
 			shopLists.add(shopInfo);
-			System.out.println(shopInfo.getBnum()+","+shopInfo.getPname()+","+shopInfo.getPrice()+","+shopInfo.getAmount()+","+shopInfo.getQty());
 		}
 		
 		session.setAttribute("shopLists", shopLists);
@@ -70,6 +63,8 @@ public class CartListController {
 		}
 		
 		else {
+			session.removeAttribute("totalAmount");
+			session.removeAttribute("shopLists");
 			return getPage;
 		}
 	}

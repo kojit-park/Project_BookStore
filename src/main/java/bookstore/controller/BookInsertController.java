@@ -14,7 +14,7 @@ import bookstore.model.BookStoreDao;
 public class BookInsertController {
 
 	private static final String command = "/insert.bs";
-	private static final String gotoPage = "redirect:/list.bs"; 
+	private static final String gotoPage = "redirect:/main.bs"; 
 	private static final String getPage = "InsertBook"; 
 	
 	@Autowired

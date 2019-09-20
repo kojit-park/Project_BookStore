@@ -20,6 +20,6 @@ minvalue 0
 maxvalue 10000
 nocache;
 
-insert into bs_review(rnum,writer,subject,content) values(review_seq.nextval,'관리자','리뷰 게시판입니다','리뷰 게시판이에요');
+insert into bs_review(rnum,writer,subject,content) values(review_seq.nextval,'admin','리뷰 게시판입니다','리뷰 게시판이에요');
 
 select * from bs_review;

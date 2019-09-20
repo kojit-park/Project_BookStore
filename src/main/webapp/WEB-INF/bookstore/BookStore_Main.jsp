@@ -9,18 +9,25 @@
 <c:set value="${sessionScope.loginfo.id}" var="userId"/>
 </head>
 <body>
-${loginfo.id}
-<c:if test="${userId ne null and userId ne 'admin' }">
-	<a href ="order.bsmall">내 서재</a>
-	<a href ="list.bsmall">장바구니</a>
-	<a href = "list.rv">리뷰 게시판</a>
-</c:if>
-<c:if test="${userId ne null and userId eq 'admin' }">
-	<a href ="">회원 리스트</a>
-	<a href ="">매출 확인</a>
-	<a href ="insert.bs">책 넣기</a>
-	<a href ="list.gt">사은품 관리</a>
-</c:if>
+	<c:choose>
+    	<c:when test="${userId ne null and userId ne 'admin' }">
+		    <h1>${userId}님 환영합니다</h1>
+			<a href ="order.bsmall">내 서재</a>
+			<a href ="list.bsmall">장바구니</a>
+			<a href = "list.rv">리뷰 게시판</a>
+		</c:when>
+    	<c:when test="${userId ne null and userId eq 'admin' }">
+		    <h1>관리자 어서오고~</h1>
+			<a href ="list.bm">회원 리스트</a>
+			<a href ="incomeView.bsmall">매출 확인</a>
+			<a href ="insert.bs">책 넣기</a>
+			<a href ="list.gt">사은품 관리</a>
+			<a href ="list.rv">리뷰 게시판</a>
+		</c:when>
+		<c:otherwise>
+			<h1>서점 프로젝트</h1>
+		</c:otherwise>
+    </c:choose>
 
 <form name="f" action="list.bs">
 	<div id = "Main_cate">

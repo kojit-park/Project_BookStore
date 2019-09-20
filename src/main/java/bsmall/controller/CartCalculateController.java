@@ -31,11 +31,10 @@ public class CartCalculateController {
 	private OrderDao orderDao;
 	
 	@RequestMapping(value=command)
-	public String doAction(HttpSession session, HttpServletResponse response) {
+	public String doAction(HttpSession session) {
 		
 		BmemberBean member = (BmemberBean)session.getAttribute("loginfo");
-		
-//		int maxoid = orderDao.getMaxOrderId(); 
+		//*orderDao.insertData(member.getId());
 		
 		MyCartList mycart = (MyCartList)session.getAttribute("mycart");
 		Map<Integer,Integer> orderlists = mycart.getAllOrder();
@@ -45,15 +44,15 @@ public class CartCalculateController {
 		for(Integer bnum:keylist) { // stock setting
 			Integer qty = orderlists.get(bnum);
 			
-			BookStore bean = bookStoreDao.GetData(bnum);
-			int price = bean.getPrice();
-			
-			orderDao.insertData(member.getId(),bnum,price,qty); 
-			
+			System.out.println("bnum:"+bnum+"member.getId()"+member.getId()+"qty"+qty);
+			orderDao.insertData(bnum,member.getId(),qty);
 			bookStoreDao.updateStock(bnum,qty);
 		}
 		
+		/*mycart.removeOrder(orderlists);*/
+		
 		session.removeAttribute("mycart");
+		
 		return gotoPage;
 	}
 	

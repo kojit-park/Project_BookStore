@@ -18,6 +18,7 @@
 		<typeAlias type="gift.model.Gift" alias="MyGift"/>
 		<typeAlias type="review.model.Review" alias="MyReview"/>
 		<typeAlias type="reply.model.Reply" alias="MyReply"/>
+		<typeAlias type="orderlist.model.OrderList" alias="MyOrderList"/>
  	</typeAliases>
  
 	<mappers>
@@ -29,6 +30,7 @@
 		<mapper resource="mybatis/gift.xml"/>
 		<mapper resource="mybatis/review.xml"/>
 		<mapper resource="mybatis/reply.xml"/>
+		<mapper resource="mybatis/orderlist.xml"/>
 	</mappers>
 
 </configuration>

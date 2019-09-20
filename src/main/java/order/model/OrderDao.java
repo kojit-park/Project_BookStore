@@ -1,14 +1,11 @@
 package order.model;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 @Component("myOrderDao")
 public class OrderDao {
@@ -18,14 +15,12 @@ public class OrderDao {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
 	
-	public void insertData(String id,int bnum,int price,int qty) {
-		Map<String,String> map = new HashMap<String, String>();
-		map.put("id", id);
-		map.put("bnum", ""+bnum);
-		map.put("price", ""+price);
-		map.put("qty", ""+qty);
-		
-		sqlSessionTemplate.insert(namespace+".InsertData",map);
+	public void insertData(Integer bnum, String id, Integer qty) {
+	    Order bean = new Order();
+	    bean.setBnum(bnum);
+	    bean.setMid(id);
+	    bean.setQty(qty);
+	    sqlSessionTemplate.insert(namespace+".InsertData",bean);
 	}
 
 	public int getMaxOrderId() {

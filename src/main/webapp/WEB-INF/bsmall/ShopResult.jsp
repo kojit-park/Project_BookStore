@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>장바구니</title>
 </head>
 <!-- session 설정 : 계속 상태유지, model은 한 번 사용하고 유지하지 않을 때  -->
 <body>

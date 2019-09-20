@@ -13,15 +13,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.sun.org.glassfish.gmbal.GmbalMBeanNOPImpl;
+
 import bmember.model.BmemberBean;
 import bmember.model.BmemberDao;
+import bmember.model.BmemberPasswordSender;
 
 @Controller
 public class BmemberFindpwController {
 	
 	private static final String command = "/findpw.bm";
 	private static final String getPage = "findpw";
-	private static final String gotoPage = "redirect:/main.bm";
 	
 	@Autowired
 	@Qualifier("myBmemberDao")
@@ -34,21 +36,24 @@ public class BmemberFindpwController {
 	
 	@RequestMapping(value=command,method=RequestMethod.POST) 
 	public ModelAndView doAction( BmemberBean Bmember, HttpServletResponse response, HttpSession session) throws IOException{
+		response.setCharacterEncoding("UTF-8"); 
+		response.setContentType("text/html; charset=UTF-8");
+		
 		System.out.println(this.getClass() + " POST");
 		
 		System.out.println(Bmember.getId());
 		System.out.println(Bmember.getPw());
 		
-		BmemberBean login = bmemberDao.findpw(Bmember); 
-		System.out.println("login:"+login);
+		BmemberBean findpw = bmemberDao.findpw(Bmember); 
+		System.out.println("findpw:"+findpw);
 		
 		PrintWriter writer;
 		writer = response.getWriter();
 		ModelAndView mav = new ModelAndView();
-		if(login == null) {
-			System.out.println("로그인 안되어있음");
+		if(findpw == null) {
+			System.out.println("존재하지 않는 패스워드");
 			writer.print("<script type='text/javascript'>");
-			writer.print("alert('로그인부터 하세요');");
+			writer.print("alert('입력한 정보와 일치하는 회원 정보가 없습니다.');");
 			writer.print("</script>");
 			writer.flush();
 			
@@ -56,11 +61,20 @@ public class BmemberFindpwController {
 			
 		}
 		else {
-			System.out.println("�����ϴ� ���̵�");
+			System.out.println("존재하는 패스워드");
+			writer.print("<script type='text/javascript'>");
+			writer.print("alert('가입하신 이메일 주소로 \n 비밀번호가 전송되었습니다.');");
+			writer.print("</script>");
+			writer.flush();
+			BmemberPasswordSender bps = new BmemberPasswordSender();
+			String mailAddr = findpw.getEmail1()+"@"+findpw.getEmail2();
+			String ForgotenPassword = findpw.getPw();
+			bps.PassSend(mailAddr, ForgotenPassword);
 			
-			session.setAttribute("loginfo", login);
+			if(session.getAttribute("destination")==null) {
+				session.setAttribute("destination", "BmemberLoginform");
+			}
 			mav.setViewName((String)session.getAttribute("destination"));
-			
 		}
 		return mav;
 	}

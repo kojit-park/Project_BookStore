@@ -1,18 +1,17 @@
 package reply.controller;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import reply.model.Reply;
 import reply.model.ReplyDao;
+import review.model.ReviewDao;
 
 @Controller
 public class ReplyInsertController {
@@ -23,22 +22,24 @@ public class ReplyInsertController {
 	@Qualifier("myReplyDao")
 	private ReplyDao replyDao;
 	
+	@Autowired
+	@Qualifier("myReviewDao")
+	private ReviewDao reviewDao;
+	
 	@RequestMapping(command)
-	public ModelAndView doAction(
-			@ModelAttribute("reply") @Valid Reply reply, 
-			HttpServletRequest request, BindingResult result
+	public String doAction(
+			@ModelAttribute("reply") @Valid Reply reply,
+			@RequestParam("category") String category,
+			@RequestParam("keyword") String keyword
 			) {
-		ModelAndView mav = new ModelAndView();
 		
-		int totalReplyCount = replyDao.GetReplyTo(reply.getRpnum());
+		replyDao.InsertReply(reply);
+		reviewDao.UpdateReplyCount(reply.getReplyto());
 		
-		if(totalReplyCount >0) {
-			
-			
-			
-		}
+		String address = "redirect:/detail.rv?rnum="+reply.getReplyto();
+		address += "&category="+category+"&keyword="+keyword;
 		
-		return mav;
+		return address;
 	}
 }
 

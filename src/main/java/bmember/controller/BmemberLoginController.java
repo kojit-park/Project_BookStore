@@ -46,9 +46,9 @@ public class BmemberLoginController {
 		writer = response.getWriter();
 		ModelAndView mav = new ModelAndView();
 		if(login == null) {
-			System.out.println("로그인 실패");
+			System.out.println("존재하지 않는 회원");
 			writer.print("<script type='text/javascript'>");
-			writer.print("alert('ID나 Pw가 틀렸습니다.');");
+			writer.print("alert('해당 아이디가 존재하지 않습니다.');");
 			writer.print("</script>");
 			writer.flush();
 			

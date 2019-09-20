@@ -1,11 +1,16 @@
 package bmember.model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import utility.Paging;
 
 @Component("myBmemberDao") 
 public class BmemberDao {
@@ -49,6 +54,27 @@ public class BmemberDao {
 		BmemberBean bean = null;
 		bean = sqlSessionTemplate.selectOne(namespace+".GetInfo",id);
 		return bean;
+	}
+	
+	public int IDJB(String id) {
+		System.out.println("dao 도착");
+		
+		return sqlSessionTemplate.selectOne(namespace + ".IDJB",id);
+		
+	}
+
+	public int GetTotalCount(Map<String, String> map){
+		int cnt = sqlSessionTemplate.selectOne(namespace+".GetTotalCount",map);
+		return cnt;
+	}
+	
+	public List<BmemberBean> GetMemberList(Paging pageInfo,Map<String, String> map){
+		
+		List<BmemberBean> lists = new ArrayList<BmemberBean>();
+		RowBounds rowBounds = new RowBounds(pageInfo.getOffset(),pageInfo.getLimit());
+		lists = sqlSessionTemplate.selectList(namespace+".GetMemberList",map,rowBounds);
+		System.out.println(lists.size());
+		return lists;
 	}
 	
 }

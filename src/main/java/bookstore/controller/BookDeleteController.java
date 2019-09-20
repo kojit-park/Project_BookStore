@@ -20,6 +20,7 @@ public class BookDeleteController {
 	@Autowired
 	@Qualifier("myBookStoreDao")
 	private BookStoreDao bookStoreDao;
+	
 	@RequestMapping(command)
 	public ModelAndView doAction(
 			@RequestParam(value = "pageNumber", required = false ) String pageNumber,

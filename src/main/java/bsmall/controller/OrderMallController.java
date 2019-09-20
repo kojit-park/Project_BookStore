@@ -11,8 +11,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import bmember.model.BmemberBean;
+import bookstore.model.BookStoreDao;
 import order.model.Order;
 import order.model.OrderDao;
+import orderlist.model.OrderList;
+import orderlist.model.OrderListDao;
 
 
 @Controller
@@ -21,8 +24,12 @@ public class OrderMallController {
 	private static final String getPage = "ShopList"; //주문내역
 	
 	@Autowired
-	@Qualifier("myOrderDao")
-	private OrderDao orderDao;
+	@Qualifier("myOrderListDao")
+	private OrderListDao orderListDao;
+	
+	@Autowired
+	@Qualifier("myBookStoreDao")
+	private BookStoreDao bookStoreDao; 
 	
 	@RequestMapping(value=command)
 	public String doAction(HttpSession session, Model model) {
@@ -35,7 +42,8 @@ public class OrderMallController {
 			return "redirect:/login.bm" ;
 		}
 		else {
-			List<Order> lists = orderDao.OrderMall(loginfo.getId());
+			List<OrderList> lists = orderListDao.OrderList(loginfo.getId());
+			
 			model.addAttribute("lists",lists);
 			
 			return getPage;

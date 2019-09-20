@@ -13,28 +13,71 @@
 
 <insert parameterType="Mybmember" id="InsertBmember">
 
-insert into bmember(num,name,birth,pn1,pn2,pn3,email1,email2,gender,genre,pw,id)
-values(bmem_seq.nextval,#{name},#{birth},#{pn1},#{pn2},#{pn3},#{email1},#{email2},#{gender},#{genre},#{pw},#{id}) 
+	insert into bmember(num,name,birth,pn1,pn2,pn3,email1,email2,gender,genre,pw,id)
+	values(bmem_seq.nextval,#{name},#{birth},#{pn1},#{pn2},#{pn3},#{email1},#{email2},#{gender},#{genre},#{pw},#{id}) 
 
 </insert>
 
 <select id="Login" resultType="MyBmember">
-select * from bmember 
-where id = #{id} and pw = #{pw}
+	select * from bmember 
+	where id = #{id} and pw = #{pw}
 </select>
 
-<select id="findid" resultType="MyBmember">
-select * from bmember 
-where name = #{name}, email1 = #{email1}, email2 = #{email2} 
+<select id="findid" resultType="MyBmember" parameterType="MyBmember">
+	select * from (select * from bmember 
+	where name = #{name} and email1 = #{email1} and email2 = #{email2} ) where rownum = 1
 </select>
 
-<select id="findpw" resultType="MyBmember">
-select * from bmember 
-where name = #{name}, id = #{id}, email1 = #{email1}, email2 = #{email2} 
+<select id="findpw" resultType="MyBmember" parameterType="MyBmember">
+	select * from bmember 
+	where name = #{name} and id = #{id} and email1 = #{email1} and email2 = #{email2} 
 </select>
 
 <select id="GetInfo" resultType="MyBmember">
 	select * from bmember where id=#{id}
 </select>
+
+
+<select parameterType="hashmap" resultType="int" id="GetTotalCount">
+	select count(*) from bmember 
+		<if test="category == 'id'">
+			where id like #{keyword}
+		</if>
+		
+		<if test="category =='name'">
+			where name like #{keyword} 
+		</if>
+		
+		<if test="category =='gender'">
+			where gender like #{keyword} 
+		</if>
+	order by num desc 
+</select>
+
+
+<select resultType="MyBmember" id="GetMemberList">
+	select * from bmember 
+		<choose>
+			<when test="category =='id'">
+				where id like #{keyword} 
+			</when>
+			<when test="category =='name'">
+				where name like #{keyword} 
+			</when>
+			<when test="category =='gender'">
+				where gender like #{keyword} 
+			</when>
+			<otherwise>
+				where id like #{keyword} or name like #{keyword} or gender like #{keyword} 
+			</otherwise>
+		</choose>
+	order by num desc 
+</select>
+
+<select parameterType="String" resultType="int" id="IDJB">
+	select count(*) from bmember 
+	where id = #{id} 
+</select>
+
 
 </mapper>
