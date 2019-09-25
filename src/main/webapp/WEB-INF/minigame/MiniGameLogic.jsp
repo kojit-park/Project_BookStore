@@ -41,7 +41,8 @@ window.onload=function(){
 		alert(description)
 		
 		context2.fillStyle = "#ff0000"; 
-		context2.fillRect(0, 0, enemyHp/2, 20);
+		context2.strokeStyle = "#000000"
+		context2.fillRect(0, 0, (enemyHp)/2, 20);
 		context.fillStyle = "#ff0000"; 
 		context.fillRect(0, 0, myHp/2, 20);
 		
@@ -233,7 +234,7 @@ window.onkeydown = function(){
 				var atk_ani = anime({
 					targets:"#myImg",
 					autoplay:true,
-					translateX:150,
+					translateX:100,
 					scale: 1.5,
 					rotate:'1turn'
 				})
@@ -245,11 +246,13 @@ window.onkeydown = function(){
 						break;
 					case 2:
 						enemyHp -=my_crt
+						if(enemyHp <0) break;
 						myHp -= (Enemy_crt*2)
 						break;
 					case 3:
-						if(enemyHp <${mini2.hp}*0.5){
+						if(enemyHp <=${mini2.hp}*0.5){
 							myHp -= Enemy_crt * 4
+							break;
 						}
 						enemyAtk +=10
 						enemyHp -= (my_crt - enemyDef*2)
@@ -272,8 +275,9 @@ window.onkeydown = function(){
 				
 			switch(enemy){
 				case 1:
-					enemyHp -= my_crt*2
 					myHp -= Enemy_crt
+					if(myHp <0) break;
+					enemyHp -= my_crt*2
 					break;
 				case 2:
 					enemyHp -= my_crt*2
@@ -300,8 +304,9 @@ window.onkeydown = function(){
 			myAtk +=10
 			switch(enemy){
 				case 1:
-					if(myHp <${mini1.hp}*0.5){
+					if(myHp <=${mini1.hp}*0.5){
 						enemyHp -= my_crt * 4
+						break;
 					}
 					myHp -= (Enemy_crt-myDef*2)
 					break;
@@ -355,6 +360,9 @@ window.onkeydown = function(){
 		
 		//alert("myHp"+myHp+"::::상대 Hp"+enemyHp)
 		
+		if(myHp < (${mini1.hp}/2)){
+			document.getElementById("parring").innerHTML = "패링 Ee";
+		}
 		
 			document.getElementById("enemyHealth").innerHTML = enemyHp;
 			document.getElementById("health").innerHTML = myHp;
@@ -371,10 +379,35 @@ window.onkeydown = function(){
 		}
 		else if(myHp<0){
 			alert("enemy win");
+			var EWinning_ani = anime({
+				targets: "#enemyImg",
+				translateY: [0,70],
+				delay: 100,
+				derection:'alternative',
+				scale: 2.5,
+				autoplay:true
+			})
+			var Losing_ani = anime({
+				targets: "#myImg",
+				translateX: -300,
+				autoplay:true
+			})
 			location.href = "mini_detail.bs?ISBN="+${mini2.ISBN}+"&result=0";
 			countDown = 70;
 		}else if(enemyHp<0){
 			alert("I win");
+			var Winning_ani = anime({
+				targets: "#myImg",
+				translateY: [0,70],
+				scale: 2.5,
+				delay: 10,
+				autoplay:true
+			})
+			var ELosing_ani = anime({
+				targets: "#enemyImg",
+				translateX: 300,
+				autoplay:true
+			})
 			location.href = "mini_detail.bs?ISBN="+${mini1.ISBN}+"&result=1";
 			countDown = 70;
 		}

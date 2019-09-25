@@ -55,6 +55,7 @@ function insertUsedBook(){
 	</table>	
 			
 	<button onclick="insertUsedBook()">중고서적 등록</button>
+	<a href = "registeredBookList.bs" rel="external">내가 등록한 중고서적</a>
 	<a href = "bingo.bsmall" rel="external">Bingo</a>
 </body>
 </html> 

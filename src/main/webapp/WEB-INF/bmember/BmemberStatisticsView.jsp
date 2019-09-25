@@ -39,8 +39,8 @@ var GenderArray = new Array();
 		
 	<c:forEach items="${memberBySex}" var="byGender">
 		var GenderInfo = new Object();
-		GenderInfo.gender = "${byGender.key}"
-		GenderInfo.val = ${byGender.value}
+		GenderInfo.label = "${byGender.key}"
+		GenderInfo.value = ${byGender.value}
 		GenderArray.push(GenderInfo)
 		var jsonInfoGender = JSON.stringify(GenderArray)
 	</c:forEach>  
@@ -86,19 +86,19 @@ var GenderArray = new Array();
 		  labels: ['Val']
 		});
 
-	new Morris.Bar({
+	new Morris.Donut({
 		  // ID of the element in which to draw the chart.
 		  element: 'StatisticsGender',
 		  // Chart data records -- each entry in this array corresponds to a point on
 		  // the chart.
-		  data: JSON.parse(jsonInfoGender),
+		  data: JSON.parse(jsonInfoGender)
 		  // 연속성이 없는 데이터는 line 타입이 불가능 스트링이 안드감
-		  xkey: 'gender',
+		  //xkey: 'gender',
 		  // A list of names of data record attributes that contain y-values.
-		  ykeys: ['val'],
+		  //ykeys: ['val'],
 		  // Labels for the ykeys -- will be displayed when you hover over the
 		  // chart.
-		  labels: ['Val']
+		  //labels: ['Val']
 		});
 </script>	
 	

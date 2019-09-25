@@ -19,7 +19,55 @@
 <script type="text/javascript">
 // 아이디 체크여부 확인 (아이디 중복일 경우 = 0 , 중복이 아닐경우 = 1 )
 var idck = 0;
+var codeck = 0;
 $(function() {
+	
+	$("#EmailSend").click(function(){
+		var email = $("#email1").val()+"@"+$("#email2").val();
+		$.ajax({
+			 async: true,
+	         type : 'POST',
+	         data : email,
+	         url : "emailVerify.bm",
+	         dataType : "json",
+	         contentType: "application/json; charset=UTF-8",
+	         success : function(data) {
+	        	 
+	        	 if(data == 0){
+	        		 alert("email을 보내는데 실패했습니다.")
+	        	 }else{
+	        		 alert("email을 보냈습니다")
+	        	 }
+	         }, 
+	         error:function(){alert("에러남")}
+		})
+		
+	})
+	
+	$("#EmailVerification").click(function(){
+		var code = $("#code").val();
+		
+		$.ajax({
+			 async: true,
+	         type : 'POST',
+	         data : code,
+	         url : "CodeVerify.bm",
+	         dataType : "json",
+	         contentType: "application/json; charset=UTF-8",
+	         success : function(data) {
+	        	 if(data ==1){
+	        		 alert("인증 성공")
+		        	 codeck = 1;
+	        	 }else{
+	        		 alert("인증 실패")
+	        		 codeck = 0
+	        	 }
+	         }, 
+	         error:function(){alert("에러남")}
+		})
+		
+	})
+	
     //중복체크  버튼을 클릭했을 때 
     $("#id_check").click(function() {
         
@@ -73,6 +121,9 @@ function check() {
 	}else if(document.getElementById("pw").value != document.getElementById("pwc").value){
 		alert("비밀번호가 일치하지 않습니다")
 		document.getElementById("pwc").blur()
+		return false
+	}else if(codeck ==0){
+		alert("이메일을 인증하세요")
 		return false
 	}
 	
@@ -132,18 +183,22 @@ BmemberInsertForm.jsp<br>
 	<br><br>
 	
 	이메일 : 
-		<input type="text" name="email1" placeholder="abc123"> @ 		
-		<select name="email2">
+		<input type="text" name="email1" placeholder="abc123" id="email1"> @ 		
+		<select name="email2" id="email2">
 			<option value="">선택하세요</option> 
 			<option value="naver.com">naver.com</option>
 			<option value="daum.net">daum.net</option>			
 			<option value="nate.com">nate.com</option>			
 			<option value="gmail.com">gmail.com</option>			
 		</select>
+		<button type="button" id = "EmailSend">메일보내기</button>
 		<form:errors cssClass="err" path="email1"></form:errors>
 		<form:errors cssClass="err" path="email2"></form:errors>
 	<br>
-	
+	<label>
+		<input type="text" name = "code" id="code">		
+		<button type="button" id = "EmailVerification">인증</button>
+	</label>
 	<p>
 		<label for="gender"></label>
 		성별 :<input type="radio" name="gender" value="남">남

@@ -43,9 +43,10 @@ public class BmemberInsertController {
 		}
 		
 		bmemberDao.insertBmember(bmember);
-		String emailAddr = bmember.getEmail1()+"@"+bmember.getEmail2();
-		BmemberEmailVerification verify = new BmemberEmailVerification();
-		verify.gmailSend(emailAddr);
+//		String emailAddr = bmember.getEmail1()+"@"+bmember.getEmail2();
+//		BmemberEmailVerification verify = new BmemberEmailVerification();
+		
+		//verify.gmailSend(emailAddr,randumNum);
 		mav.setViewName(gotoPage);
 		return mav;
 		

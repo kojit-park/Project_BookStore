@@ -26,12 +26,19 @@ public class BookDeleteController {
 			@RequestParam(value = "pageNumber", required = false ) String pageNumber,
 			@RequestParam(value = "pageSize", required = false ) String pageSize,
 			@RequestParam(value = "bnum", required = true ) int bnum,
+			@RequestParam(value = "category", required = true ) String category,
+			@RequestParam(value = "keyword", required = true ) String keyword,
 			HttpServletRequest request
 			) {
 		
 		ModelAndView mav = new ModelAndView();
 		
 		bookStoreDao.DeleteBook(bnum);
+		
+		mav.addObject("category", category);
+		mav.addObject("keyword",keyword);
+		mav.addObject("pageSize",pageSize);
+		mav.addObject("pageNumber",pageNumber);
 		
 		mav.setViewName(getPage);
 		

@@ -63,8 +63,6 @@ public class UsedBookListController {
 		String Contact = "";
 		List<UsedBookMarket> lists = new ArrayList<UsedBookMarket>();
 		
-	//	Map<String, Integer> usedBook = new HashMap<String, Integer>();
-		
 		for(int i =0;i<users.length;i++) {
 			bean = bmemberDao.GetInfo(users[i]);
 			Contact = bean.getEmail1()+"@"+bean.getEmail2();

@@ -91,6 +91,16 @@ public class BmemberDao {
 		return lists;
 	}
 	
+	public int IssueTempPassword(int num,String TempPassword) {
+		int cnt = 0;
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("num", num+"");
+		map.put("TempPassword", TempPassword);
+		cnt = sqlSessionTemplate.update(namespace+".IssueTempPassword",map);
+		System.out.println("1이면 성공임~ ㅅㄱ "+cnt);
+		return cnt;
+	}
+	
 }
 
 

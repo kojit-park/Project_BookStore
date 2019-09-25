@@ -96,4 +96,14 @@
 		where title = #{title}
 	</update>
 	
+	<select id="GetUsedBookListById" resultType="MyBS">
+		select * from bookstore where usedBook like #{id}
+	</select>
+	
+	<update id="UpdateUsedBook" parameterType="hashmap">
+		update bookstore set 
+		usedBook = #{usedBook,jdbcType=VARCHAR}, usedBookPrice = #{usedBookPrice,jdbcType=VARCHAR} 
+		where bnum = #{bnum,jdbcType=INTEGER}
+	</update>
+	
 </mapper>

@@ -6,13 +6,44 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+.center-block() {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container {
+  width: 70%;
+  .center-block();
+}
+
+</style>
+<link rel="stylesheet" href = "${pageContext.request.contextPath}/resources/CSS/bootstrap.min.css">
+<script type="text/javascript" src ="${pageContext.request.contextPath}/resources/js/searchScript.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
+
 </head>
 <body>
-
-<c:forEach items="${usedBook }" var="us">
-	<div>판매자: ${us.user } 가격: ${us.priceWanted } krw 연락처: ${us.contactNumber }</div>
-</c:forEach>
-
+<div align="center"><a href="main.bs"><img src="${pageContext.request.contextPath}/resources/Img/Logo/3.jpg" width="200" height="100"/></a></div>
+<div class = "container" style="padding-left: auto;padding-right: auto;">
+	<table class="table table-striped">
+	
+	<tr>
+		<td>판매자</td>
+		<td>가격</td>
+		<td>연락처</td>
+	</tr>
+	
+	<c:forEach items="${usedBook }" var="us">
+		<tr>
+			<td>${us.user }</td>
+			<td>${us.priceWanted } krw</td>
+			<td>${us.contactNumber }</td>
+		</tr>
+	</c:forEach>
+	</table>
+</div>
 
 </body>
 </html>

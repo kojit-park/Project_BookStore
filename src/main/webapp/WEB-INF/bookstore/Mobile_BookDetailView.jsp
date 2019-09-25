@@ -19,11 +19,12 @@ function usedBookMarket(){
 <body>
 <section id="page1" data-role="page">
     <header data-role="header">
-    	<div style="text-align: center;"><img src='<c:url value="/resources/Img/${book.title}.jpg"/>' style="width:90%; height:90%;"><br></div>
-    	<h1 >${book.title }</h1>
+    	<div align="center"><a href="main.bs"><img src="${pageContext.request.contextPath}/resources/Img/Logo/3.jpg" width="200" height="100"/></a></div>
+    	<div style="text-align: center;"><img src='<c:url value="/resources/Img/${book.title}.jpg"/>' style="width:400; height:550;"><br></div>
+    	<h1>${book.title }</h1>
     </header>       
                 
-    <div class="content" data-role="content" style="padding-left: 20%; font-size: 30px;">
+    <div class="content" data-role="content" style="padding-left: 20%; padding-right: 30%; font-size: 30px; background-color: #E6E6E6">
        ${book.category}<br>
        ${book.author} 지음 | ${book.publisher }<br>
        ${book.pubdate} 출간<br>
@@ -39,8 +40,10 @@ function usedBookMarket(){
     </div>
     <footer data-role="footer">
     <div style="font-size: 20px">
-    책소개: <br>
-		${bookIntroduce }<br>
+    <br>
+    <h2 style="padding-left: 10%;">책소개</h2>
+    <hr style="border: solid 1px #368AFF;">
+			<div style="padding-left: 10%;padding-right: 10%">${fn:replace(bookIntroduce,". ",".<br>")}</div><br>
     </div>
 		
 	</footer>

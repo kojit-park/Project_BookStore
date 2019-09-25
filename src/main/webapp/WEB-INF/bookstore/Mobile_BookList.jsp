@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
 <style type="text/css">
 	.content{
 		font-size:xx-large;
@@ -23,43 +24,52 @@
 	.ui-popup-container { 
 	width: 80%; 
 	}
+	a { 
+		text-decoration:none !important;
+	} 
+	
 </style>
 
 <c:set value="${sessionScope.loginfo.id}" var="userId"/>
+<link rel="stylesheet" href = "${pageContext.request.contextPath}/resources/CSS/bootstrap.min.css">
 <link rel="stylesheet" href = "${pageContext.request.contextPath}/resources/CSS/jquery.mobile-1.4.5.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.mobile-1.4.5.js"></script>
 </head>
 <body>
 	<section id="page${book.bnum }" data-role="page">
 		<header data-role="header">
-			<form action="list.bs">
-				<select name="category">
-					<option value="title">정확도</option>
-					<option value="pubdate">신상품</option>
-					<option value="price">가격</option>
-				</select>
-				<input type="hidden" value="${keyword }" name="keyword">
-				<input type="hidden" value="sorting" name="sorting">
-				<input type="submit" value="정렬">
-			</form>
-				<div><h1>${pageInfo.pagingHtml}</h1></div>
+			<div align="center"><a href="main.bs"><img src="${pageContext.request.contextPath}/resources/Img/Logo/3.jpg" width="200" height="100"/></a></div>
+			<div style="text-align: center;">
+			<form name="frm" action="list.bs">
+						<select name="category" onchange="this.form.submit()" >
+							<option value="title">정확도</option>
+							<option value="pubdate">신상품</option>
+							<option value="price">가격</option>
+						</select>
+						<input type="hidden" value="sorting" name="sorting">
+				<input type="hidden" value="${pageInfo.keyword }" name="keyword">
+			</form></div>
+			<%-- 	<div style="text-align: center;">
+						${pageInfo.pagingHtml}
+				</div> --%>
 		</header>
-		
+
 		<c:choose>
 				<c:when test="${totalCount == 0 }">
 					<div>찾으시는 책이 없습니다</div>
 				</c:when>
 			<c:otherwise>
 				<c:forEach items="${bookLists }" var="book">
-					<table class="content" data-role="content">
+					<table class="content" data-role="content" >
 						<tr>
 							<td>
 								 <a href="#modal${book.bnum }" data-rel="dialog">
 								 <img id="bookImage${book.bnum }" src='<c:url value="/resources/Img/${book.title}.jpg"/>' width="300" height="400"></a>
 							</td>
 							<td>
-								<table style="text-align: left;">
+								<table style="text-align: left;padding-left: 10%">
 									<tr>
 										<td><a href="detail.bs?bnum=${book.bnum }"><h1>${book.title }</h1></a></td>
 									</tr>
@@ -87,12 +97,15 @@
 				</c:forEach>
 			</c:otherwise>
 		</c:choose>
-		
-		<footer data-role="footer"><h1>${pageInfo.pagingHtml}</h1></footer>
+		</div>
+			<div>${pageInfo.pagingHtml}</div>
+		<%-- <footer data-role="footer">
+					<div style="text-align: center;">${pageInfo.pagingHtml}</div>
+		</footer> --%>
 	</section>
 	
 		
-					<c:forEach items="${bookLists }" var="book">
+				<%-- 	<c:forEach items="${bookLists }" var="book">
 						<section id="modal${book.bnum }" data-role="page">
 							<header data-role="header" data-add-back-btn="true"></header>
 							<div class="content" data-role="content">
@@ -110,7 +123,7 @@
 							</div>
 						</section>
 					</c:forEach>
-		
+		 --%>
 		
 	
 	

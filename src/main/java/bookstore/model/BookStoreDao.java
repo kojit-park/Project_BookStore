@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 import order.model.Order;
 import utility.Paging;
+import utility.PagingList;
 
 @Component("myBookStoreDao")
 public class BookStoreDao {
@@ -27,7 +28,7 @@ public class BookStoreDao {
 		return cnt;
 	}
 	
-	public List<BookStore> GetDataList(Paging pageInfo,Map<String, String> map){
+	public List<BookStore> GetDataList(PagingList pageInfo,Map<String, String> map){
 		List<BookStore> lists = new ArrayList<BookStore>();
 		RowBounds rowBounds = new RowBounds(pageInfo.getOffset(),pageInfo.getLimit());
 		
@@ -90,7 +91,7 @@ public class BookStoreDao {
 		for(Order order : books) {
 			int bnum = order.getBnum();
 			BookStore bs = sqlSessionTemplate.selectOne(namespace+".BingoCheck",bnum);
-			String title = bs.getTitle();
+	//		String title = bs.getTitle();
 			lists.add(bs);
 			System.out.println("bnum>>"+bnum);
 		}
@@ -106,6 +107,16 @@ public class BookStoreDao {
 		map.put("title", title);
 		int chk = sqlSessionTemplate.update(namespace+".InsertUsedBook",map);
 		System.out.println(chk);
+	}
+	
+	public List<BookStore> GetUsedBookListById(String id) {
+		List<BookStore> lists = new ArrayList<BookStore>();
+		lists = sqlSessionTemplate.selectList(namespace+".GetUsedBookListById", id);
+		return lists;
+	}
+	
+	public void UpdateUsedBook(Map<String,String> map) {
+		sqlSessionTemplate.update(namespace+".UpdateUsedBook",map);
 	}
 	
 }

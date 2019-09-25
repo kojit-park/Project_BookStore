@@ -34,13 +34,9 @@
         }
         .pic{
         	position: relative;
-        	width: 90%;
+        	width: 100%;
         }
-        .image{
-            display: block;
-  			width: 100%;
-  			height: auto;
-        }
+
         .mouse_Enter{
 		  position: absolute;
 		  top: 0;
@@ -51,7 +47,7 @@
 		  width: 100%;
 		  opacity: 0;
 		  transition: .5s ease;
-		  background-color: #008CBA;
+		  background: linear-gradient(to bottom, black 50%,#A4A4A4); /* W3C */
         }
         .pic:hover .mouse_Enter {
   		opacity: 0.8;
@@ -60,13 +56,17 @@
 			  color: white;
 			  font-size: 10px;
 			  position: absolute;
-			  top: 50%;
-			  left: 50%;
+			  top: 47%;
+			  left: 38%;
 			  -webkit-transform: translate(-50%, -50%);
 			  -ms-transform: translate(-50%, -50%);
 			  transform: translate(-50%, -50%);
 			  text-align: center;
 		}
+		.mouse_Enter_Darker{
+		
+		}
+		
 
 #searchingResult_div{
 	margin-left: 30%;

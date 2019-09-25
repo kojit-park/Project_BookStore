@@ -27,7 +27,7 @@ public class MiniGame {
 		Collections.shuffle(stack);
 		
 		int param = Integer.parseInt(stack.pop()+stack.pop());
-		hp = (param > 50) ? param *5 : (param + 100)*3;
+		hp = (param > 50) ? param *4+1 : (param + 100)*2+1;
 		
 		param = Integer.parseInt(stack.pop()+stack.pop());
 		atk = (param > 40) ? param +50 : param + 100;

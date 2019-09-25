@@ -68,13 +68,14 @@ public class BmemberFindpwController {
 			writer.flush();
 			BmemberPasswordSender bps = new BmemberPasswordSender();
 			String mailAddr = findpw.getEmail1()+"@"+findpw.getEmail2();
-			String ForgotenPassword = findpw.getPw();
-			bps.PassSend(mailAddr, ForgotenPassword);
-			
-			if(session.getAttribute("destination")==null) {
-				session.setAttribute("destination", "BmemberLoginform");
+			String TempPassword = ((int)(Math.random()*1000)+1000)+"";
+			int chk = 0;
+			chk = bps.PassSend(mailAddr, TempPassword);
+			if(chk == 1) {
+				bmemberDao.IssueTempPassword(findpw.getNum(),TempPassword);
 			}
-			mav.setViewName((String)session.getAttribute("destination"));
+			
+			mav.setViewName("BmemberLoginform");
 		}
 		return mav;
 	}

@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import bookstore.model.BookStore;
 import bookstore.model.BookStoreDao;
 import utility.Paging;
+import utility.PagingList;
 
 @Controller
 public class BookListController {
@@ -49,7 +50,7 @@ public class BookListController {
 		int totalCount = bookStoreDao.GetTotalCount(map);
 		String url = request.getContextPath() + "/" + command;
 		
-		Paging pageInfo = new Paging(pageNumber, pageSize, totalCount, url, category, keyword, null);
+		PagingList pageInfo = new PagingList(pageNumber, pageSize, totalCount, url, category, keyword, null);
 		
 		List<BookStore> bookLists = bookStoreDao.GetDataList(pageInfo,map); 
 		mav.addObject("bookLists",bookLists);
