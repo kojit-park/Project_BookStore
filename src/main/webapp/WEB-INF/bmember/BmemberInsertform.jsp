@@ -6,16 +6,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath }/resources/CSS/Member/BmemberInsert.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <title>회원가입</title>
-<style type="text/css">
-	.err{
-		font-size: 9pt;
-		color: red;
-		font-weight: bold;
-	}
-</style>
-<script type="text/javascript" src="<c:url value="/resources/js/jquery.js"/>"></script>
 
+<script type="text/javascript" src="<c:url value="/resources/js/jquery.js"/>"></script>
 <script type="text/javascript">
 // 아이디 체크여부 확인 (아이디 중복일 경우 = 0 , 중복이 아닐경우 = 1 )
 var idck = 0;
@@ -23,7 +21,7 @@ var codeck = 0;
 $(function() {
 	
 	$("#EmailSend").click(function(){
-		var email = $("#email1").val()+"@"+$("#email2").val();
+		var email = $("input[name=email1").val()+"@"+$("select[name=email2]").val();
 		$.ajax({
 			 async: true,
 	         type : 'POST',
@@ -128,95 +126,188 @@ function check() {
 	}
 	
 }
+/* input form js */
+
+$(window, document, undefined).ready(function() {
+
+ $('input').blur(function() {
+   var $this = $(this);
+   if ($this.val())
+     $this.addClass('used');
+   else
+     $this.removeClass('used');
+ });
+
+ var $ripples = $('.ripples');
+
+ $ripples.on('click.Ripples', function(e) {
+
+   var $this = $(this);
+   var $offset = $this.parent().offset();
+   var $circle = $this.find('.ripplesCircle');
+
+   var x = e.pageX - $offset.left;
+   var y = e.pageY - $offset.top;
+
+   $circle.css({
+     top: y + 'px',
+     left: x + 'px'
+   });
+
+   $this.addClass('is-active');
+
+ });
+
+ $ripples.on('animationend webkitAnimationEnd mozAnimationEnd oanimationend MSAnimationEnd', function(e) {
+ 	$(this).removeClass('is-active');
+ });
+
+});
 
 
- 
+	jQuery(document).ready(function(){
+    
+    var select = $("select#select");
+    
+    select.change(function(){
+        var select_name = $(this).children("option:selected").text();
+        $(this).siblings("label").text(select_name);
+    });
+});
+
 </script>
 
 </head>
 <body>
-BmemberInsertForm.jsp<br>
-<h1>회원 가입</h1>
+<div align="center"><b><h1>JB 회원 가입</h1></b></div> 
 <form:form commandName="bmember" action="insert.bm" onsubmit="return check()" method="post">
 
-	아이디 : 
-		<input type="text" id="id" name="id" placeholder="아이디" onchange="idChecker()">
-		<button type="button" id="id_check">중복체크</button>
-		<span id="idmessage">메세지 출력</span>
-		<form:errors cssClass="err" path="id"></form:errors>
-	<br><br>
+	<div class="group">
+		 <input type="text" id="id" name="id" style="width:390px; height:50px" onchange="idChecker()">		
+	    <span class="highlight"></span><span class="bar"></span>
+	    <label>아이디</label> <br>
+	    
+	    <button type="button" id="id_check" style="width:200px; height:50px" align="right">중복체크</button>
+		<span id="idmessage"></span>
+		<br><br> <form:errors cssClass="err" path="id"></form:errors>
+	</div>
 	
-	비밀번호 : 
-		<input type="password" id="pw" name="pw" placeholder="qwer1234">
-		<form:errors cssClass="err" path="pw"></form:errors>
-	<br><br>
+	<div class="group">
+	  	<input type="password" id="pw" name="pw" style="width:390px; height:50px">
+	    <span class="highlight"></span><span class="bar"></span>
+	    <label>비밀번호</label>
+	    <br> <form:errors cssClass="err" path="pw"></form:errors>
+  	</div>
 	
-	비밀번호 확인 : 
-		<input type="password" name="pwc" placeholder="비밀번호 확인">
-		<form:errors cssClass="err" path="pwc"></form:errors>
-	<br><br>
+	<div class="group">
+	  	<input type="password" name="pwc" style="width:390px; height:50px">
+	    <span class="highlight"></span><span class="bar"></span>
+	    <label>비밀번호 확인</label>
+	    <br> <form:errors cssClass="err" path="pwc"></form:errors>
+ 	 </div>
 
-	이름 : 
-		<input type="text" name="name" placeholder="이름을 입력하세요">
-		<form:errors cssClass="err" path="name"></form:errors>
-	<br><br>
+	<div class="group">
+	  	<input type="text" name="name" style="width:390px; height:50px">
+	    <span class="highlight"></span><span class="bar"></span>
+	    <label>이름</label>
+	    <br> <form:errors cssClass="err" path="name"></form:errors>
+  	</div>
 	
-	생년월일 : 
-		<input type="text" name="birth" placeholder="예시: 20011030"> "-" 제거후 입력해주세요
-		<form:errors cssClass="err" path="birth"></form:errors>
-	<br><br>
+	  
+ 	<div class="group">
+	  	<input type="text" name="birth" style="width:390px; height:50px">
+	    <span class="highlight"></span><span class="bar"></span>
+	    <label>생년월일</label>
+	    <br> <form:errors cssClass="err" path="birth"></form:errors>
+  	</div>
 	
-	핸드폰번호 : 
+		<b>전화번호</b> <br><br> 
+	<div id="select_box" style="width: 400px">
+		    <div class="whysels">
+		    	<div>
+	    <label for="select" style="color: #000">선택하세요</label>
+		    <select id="select" title="전화번호" name ="pn1" style="display:inline-block; width:130px; height:50px; font-size:15px;">
+		        <option value="">선택하세요</option>
+		        <option value="010">010</option>
+		        <option value="011">011</option>
+		        <option value="019">019</option>        
+		    </select></div>
+		    	</div>
+			- <div class="whysels"><input type="text" name="pn2" style="width:100px; height:50px" placeholder="1111"></div>
+			- <div class="whysels"><input type="text" name="pn3" style="width:100px; height:50px" placeholder="2222"></div>
+			<br> <form:errors cssClass="err" path="pn1"></form:errors>
+	</div>
 	
-		<select name = "pn1">
-			<option value="">선택하세요</option> 
-			<option value="010">010</option>
-			<option value="011">011</option>
-			<option value="019">019</option>
-		</select>
-		
-		- <input type="text" name="pn2" placeholder="1111">
-		- <input type="text" name="pn3" placeholder="2222">
-		<form:errors cssClass="err" path="pn1"></form:errors>
-		<form:errors cssClass="err" path="pn2"></form:errors>
-		<form:errors cssClass="err" path="pn3"></form:errors>
-	<br><br>
+			<b>이메일</b><br>
+	<div style="width: 400px;display: inline;">
+		<input type="text" name="email1" placeholder="abc123" style="width: 200px; height:40px; display: inline-block;"> @
+		<div id="select_box" style="width:130px; height:50px; font-size:15px; display: inline-block;">
+		    <label for="select" style="color: #000;">선택하세요</label>
+		    <select id="select" title="이메일" name ="email2" style="width:130px; height:50px; font-size:15px; display: inline-block;">
+		        <option value="">선택하세요</option> 
+					<option value="naver.com">naver.com</option>
+					<option value="daum.net">daum.net</option>			
+					<option value="nate.com">nate.com</option>			
+					<option value="gmail.com">gmail.com</option>      
+		    </select>
+		</div>
+				<form:errors cssClass="err" path="eamil1" ></form:errors>
+	</div>
 	
-	이메일 : 
-		<input type="text" name="email1" placeholder="abc123" id="email1"> @ 		
-		<select name="email2" id="email2">
-			<option value="">선택하세요</option> 
-			<option value="naver.com">naver.com</option>
-			<option value="daum.net">daum.net</option>			
-			<option value="nate.com">nate.com</option>			
-			<option value="gmail.com">gmail.com</option>			
-		</select>
-		<button type="button" id = "EmailSend">메일보내기</button>
-		<form:errors cssClass="err" path="email1"></form:errors>
-		<form:errors cssClass="err" path="email2"></form:errors>
+	<div>
+		<button type="button" id = "EmailSend" class="btn btn-primary">메일보내기</button>
+	</div>
 	<br>
-	<label>
-		<input type="text" name = "code" id="code">		
-		<button type="button" id = "EmailVerification">인증</button>
-	</label>
-	<p>
-		<label for="gender"></label>
-		성별 :<input type="radio" name="gender" value="남">남
-		<input type="radio" name="gender" value="여">여		
-		<form:errors cssClass="err" path="gender"></form:errors>
-	</p>	
+	<div>
+		<span style="display: inline-block;"><input type="text" name = "code" id="code"></span>	
+		<button type="button" id = "EmailVerification" class="btn btn-primary">인증</button>
+	</div>
 	
-	<p>
-		<label for="genre"></label>
-		관심장르 :<input type="checkbox" name="genre" value="미스테리">미스테리
-		<input type="checkbox" name="genre" value="로맨스">로맨스
-		<input type="checkbox" name="genre" value="판타지">판타지
+	<div class="container">
+
+
+  <div class="row">
+    <div class="col-xs-12">
+      <br> <b>성별</b>
+      <br>
+      <div class="btn-group btn-group-vertical" data-toggle="buttons">
+        <div class="btn active">
+          <input type="radio" name='gender' class="gender"><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span>  남</span>
+        </div>
+        <div class="btn">
+          <input type="radio" name='gender' class="gender"><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> 여</span>
+        </div>
+        <br> <form:errors cssClass="err" path="gender"></form:errors>
+      </div>
+    </div>
+  </div>
 	
-		<form:errors cssClass="err" path="genre"></form:errors>
-	</p>			
+	 <br><br>
+  <b>관심장르</b>
+  
+  <br>
+	
+  <div class="btn-group btn-group" data-toggle="buttons">
+    <div class="btn active">
+      <input type="checkbox" name='genre'><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i><span> 미스테리
+    </div>
+    <div class="btn">
+      <input type="checkbox" name='genre'><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i><span> 로맨스</span>
+    </div>
+    <div class="btn">
+      <input type="checkbox" name='genre'><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i><span> 판타지</span>
+    </div>    
+  </div>
+</div> 
+<br> &nbsp;&nbsp;&nbsp; <form:errors cssClass="err" path="genre"></form:errors>
 	
 	<input type="submit" value="추가하기" id="add">
+
+	<br> <br>		
 	
+	이미 계정에 있으신가요? &nbsp; <a href="login.bm" style="text-decoration:none">로그인</a> <br>
+	&nbsp;&nbsp; <input type="submit" value="계정 만들기" id="add" style="width: 200px; height:50px">	
+
 </form:form>
 </body>
 </html>

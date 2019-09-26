@@ -26,7 +26,7 @@ public class ReviewInsertController {
 	private ReviewDao reviewDao;
 	
 	@RequestMapping(value=command, method=RequestMethod.GET)
-	public ModelAndView doActionGET(@RequestParam("booktitle") String booktitle) {
+	public ModelAndView doActionGET(@RequestParam(value="booktitle",required=false) String booktitle) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("booktitle", booktitle);
 		mav.setViewName("Insert_Review");

@@ -10,12 +10,55 @@
 <link rel="stylesheet" href = "${pageContext.request.contextPath}/resources/CSS/dropdown.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.dd.min.js"></script>
+<style type="text/css">
+input {
+	border: solid 1px #A6A6A6;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	border-radius: 3px;
+}
 
+input:focus {
+	outline: 0;
+	border: solid 1px #4572ed;
+	
+}
+.btn {
+	background-color: #368AFF; 
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	text-decoration: none;
+	border-radius: 5px;
+}
 
+.reply_list{
+	margin: 10px;
+}
+.reply_item{
+	margin: 20px;
+}
+.btn_small{
+	background-color: #bdbdbd;
+	border-radius: 5px;
+	border: none;
+	text-decoration: none;
+	color:white;
+	padding: 5px 10px;
+}
+.btn_small:hover {
+	background-color: #368AFF;
+	border-radius: 5px;
+	border: none;
+	text-decoration: none;
+	color:white;
+	padding: 5px 10px;
+}
+</style>
 </head>
 <body>
 <c:if test="${userId ne null }">
-	<form action="reply.rpl">
+	<form action="reply.rpl" class="reply_list">
 		<div>
 			<input type="hidden" name="category" value="${category }">
 			<input type="hidden" name="keyword" value="${keyword }">
@@ -32,7 +75,7 @@
 				<option value="8" title="${pageContext.request.contextPath}/resources/Img/Icon/8.jpg">8</option>
 			</select>
 			<input type="text" name = "reply" width="200px">
-			<input type="submit" value="댓글 달기">
+			<input type="submit" value="댓글 달기" class="btn">
 		</div>
 	</form>
 </c:if>
@@ -43,7 +86,7 @@
 		</c:when>
 		<c:otherwise>
 			<c:forEach items="${replyList }" var="replies">
-				<div>
+				<div class="reply_item">
 					<c:choose>
 						<c:when test="${replies.writer eq 'admin'}">
 							<img src="${pageContext.request.contextPath}/resources/Img/Icon/admin.jpg" width="20px" height="20px" >
@@ -63,7 +106,7 @@
 							<span style="display:inline-block; width: 50px">${replies.writer } </span>
 						</c:otherwise>
 					</c:choose>
-					 ||<span style="display:inline-block; width: 200px"> ${replies.reply }	</span>
+					 ││<span style="display:inline-block; width: 200px"> ${replies.reply }	</span>
 					<c:if test="${replies.writer eq userId }">
 					<button onclick="delReply(${replies.replyto },${replies.rpnum},'${category }','${keyword}')">삭제</button>
 					</c:if>		

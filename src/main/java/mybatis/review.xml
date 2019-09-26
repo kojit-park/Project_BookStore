@@ -11,7 +11,7 @@
 
 	<select id="GetTotalCount" resultType="int">
 		select count(*) from bs_review 
-		<if test="category == 'book_title'">
+		<if test="category == 'booktitle'">
 			where booktitle like #{keyword}
 		</if>		
 		order by regdate desc

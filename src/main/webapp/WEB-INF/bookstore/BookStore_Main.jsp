@@ -669,34 +669,9 @@ button {
 			<h3>베스트 셀러</h3>
 		</div>
 
-		<div class="best_list_wrapper">
-			<div id="IncomesByBook" style="height: 400px; margin-bottom: 20px;">
-
-				<c:forEach items="${IncomeMapBook}" var="byBook">
-					<div class="best_rank">
-						<p class="best_ranking_num">
-							<!-- 여기에 번호 +1씩되게-->
-						</p>
-						<div class="bestbook_img">
-							<img src="#">
-							<!-- 이미지 -->
-						</div>
-					</div>
-					<hr>
-
-
-
-				</c:forEach>
-			</div>
-		</div>
-
-	</div>
-	
-	<div>
 		<%@include file="BestSellerList.jsp" %>
-	
+
 	</div>
-	
 	
 	<!-- 바닥 -->
 	<div class="footer">
@@ -709,8 +684,6 @@ button {
 		var BookArray = new Array();
 	</script>
 
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="resources/js/bootstrap.min.js"></script>
 	<script>
 		$('.carousel').carousel() /* 1 */
@@ -721,6 +694,19 @@ button {
 		         document.getElementById("cLayer" + id).style.display = "block";
 		      }
 		   }
+		<%HttpSession remember = request.getSession();%>
+		function LogIn(){
+			location.href = "login.bm"
+		}
+		function minigame(){
+			location.href = "minigame_select.mg"
+		}
+		function mobileVersion(){
+			<%remember.removeAttribute("mobile");%>
+			location.href = "main.bs?mobile=1"
+		}
+		
+		
 	</script>
 
 

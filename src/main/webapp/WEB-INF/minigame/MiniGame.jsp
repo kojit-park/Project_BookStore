@@ -5,7 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<link rel="stylesheet" href = "${pageContext.request.contextPath}/resources/CSS/bootstrap.min.css">
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+<title>Mini game</title>
+
 </head>
 
 <body>
@@ -20,18 +24,18 @@
 	<table style="margin: auto;">
 		<tr>
 			<td>
-			<button onclick="ActionTeacher('atk')" name="atk" value="atk" style="width:30">공격 Qq </button>
+			<button onclick="ActionTeacher('atk')" class="btn btn-outline-dark" name="atk" value="atk" style="width:30">공격 Qq </button>
 			</td>
 			<td>
-			<button onclick="ActionTeacher('smash')" class = "actions" name="smash" value="smash" style="width:30">강공격 Ww</button>
+			<button onclick="ActionTeacher('smash')" class="btn btn-outline-dark" name="smash" value="smash" style="width:30">강공격 Ww</button>
 			</td>
 		</tr>
 		<tr>
 			<td>
-			<button onclick="ActionTeacher('parring')" class = "actions" name="parring" value="parring" id="parring" style="width:30">방어 Ee</button>
+			<button onclick="ActionTeacher('parring')" class="btn btn-outline-dark" name="parring" value="parring" id="parring" style="width:30">방어 Ee</button>
 			</td>
 			<td>
-			<button onclick="ActionTeacher('avoid')" class = "actions" name="avoid" value="avoid" style="width:30">회피 Rr</button>
+			<button onclick="ActionTeacher('avoid')" class="btn btn-outline-dark" name="avoid" value="avoid" style="width:30">회피 Rr</button>
 			</td>
 		</tr>
 	</table>

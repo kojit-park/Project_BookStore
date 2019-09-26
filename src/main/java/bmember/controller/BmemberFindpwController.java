@@ -71,9 +71,11 @@ public class BmemberFindpwController {
 			String TempPassword = ((int)(Math.random()*1000)+1000)+"";
 			int chk = 0;
 			chk = bps.PassSend(mailAddr, TempPassword);
+			
 			if(chk == 1) {
 				bmemberDao.IssueTempPassword(findpw.getNum(),TempPassword);
 			}
+			
 			
 			mav.setViewName("BmemberLoginform");
 		}

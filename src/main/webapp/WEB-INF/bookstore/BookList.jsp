@@ -99,10 +99,10 @@
 							재고: ${book.stock } <br>
 							<hr style="border: solid 1px #368AFF;">
 							<div style="text-align: center;">
-							<a href="detail.bs?bnum=${book.bnum }&category=${pageInfo.category}&keyword=${pageInfo.keyword}&pageNumber=${bookInfo.pageNumber}&pageSize=${bookInfo.pageSize}"><button>상세 보기</button></a>
-							<span id="close" onclick="span_close(${book.bnum})"><input type="button" value="닫기"  style="width:100px;"></span>
+							<a href="detail.bs?bnum=${book.bnum }&category=${pageInfo.category}&keyword=${pageInfo.keyword}&pageNumber=${bookInfo.pageNumber}&pageSize=${bookInfo.pageSize}"><button class="btn btn-outline-dark">상세 보기</button></a>
+							<span id="close" onclick="span_close(${book.bnum})"><input type="button" class="btn btn-outline-dark" value="닫기"  style="width:100px;"></span>
 							<c:if test="${userId eq 'admin'}">
-							<a href = "delete.bs?bnum=${book.bnum }&category=${pageInfo.category}&keyword=${pageInfo.keyword}&pageNumber=${bookInfo.pageNumber}&pageSize=${bookInfo.pageSize}">삭제
+							<a href = "delete.bs?bnum=${book.bnum }&category=${pageInfo.category}&keyword=${pageInfo.keyword}&pageNumber=${bookInfo.pageNumber}&pageSize=${bookInfo.pageSize}" class="btn btn-outline-dark">삭제
 							</a></c:if>
 							</div>
 					</div>

@@ -7,6 +7,9 @@
 <c:set value="${sessionScope.loginfo.id}" var="userId"/>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href = "${pageContext.request.contextPath}/resources/CSS/bootstrap.min.css">
+<script type="text/javascript" src ="${pageContext.request.contextPath}/resources/js/searchScript.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
 <style type="text/css">
  td{
  	padding-left: 20%;
@@ -49,7 +52,7 @@ function searchReview(){
 						<td>${book.pubdate} 출간 </td>
 					</tr>
 					<tr>
-						<td><button type="button" onclick = "searchReview()">리뷰 보러가기</button></td>
+						<td><button class="btn btn-outline-dark" type="button" onclick = "searchReview()">리뷰 보러가기</button></td>
 					</tr>
 					<tr>
 						<td>가격 : <h3>${book.price }원</h3> </td>
@@ -61,12 +64,12 @@ function searchReview(){
 						<c:if test="${userId != null}">
 						<td>
 						<input type="hidden" value="${book.bnum }" name="bnum">
-						<input type="submit" value="장바구니 담기">
+						<input class="btn btn-outline-dark" type="submit" value="장바구니 담기">
 						</td></c:if>
 					</tr>
 				</table><br>
 			</form>
-		<c:if test="${usedBookMarket }"><button onclick="usedBookMarket()">중고 마켓</button></c:if>
+		<c:if test="${usedBookMarket }"><button class="btn btn-outline-dark" onclick="usedBookMarket()">중고 마켓</button></c:if>
 		</td>
 	</tr>
 

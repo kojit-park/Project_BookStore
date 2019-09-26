@@ -18,11 +18,12 @@
 </style>    
     
    
-   <h3 class="find_title">아이디 찾기 결과</h3>
-			<div>${findid.id }</div>
-			<br><br>
-	<h2><a href ="findpw.bm">비밀번호 찾기</a></h2>
-	<h2><a href ="main.bs">메인으로</a></h2>
-
+   <h3 class="find_title" align="center">아이디 찾기 결과</h3>
+		<div align="center">${findid.id }</div>
+		<br><br>
+	<div align="center">
+		<h2><a href ="findpw.bm">비밀번호 찾기</a></h2>
+		<h2><a href ="main.bs">메인으로</a></h2>
+	</div>
 
 

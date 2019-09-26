@@ -71,7 +71,6 @@ public class BookListController {
 			return mav;
 		}
 		
-		
 		mav.setViewName(getPage);
 		return mav;
 		

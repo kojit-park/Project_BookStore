@@ -1,6 +1,7 @@
 package bookstore.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,10 +9,13 @@ import java.util.Map;
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import bsmall.controller.IncomeViewController;
 import order.model.Order;
-import utility.Paging;
+import orderlist.model.OrderList;
+import orderlist.model.OrderListDao;
 import utility.PagingList;
 
 @Component("myBookStoreDao")
@@ -21,6 +25,10 @@ public class BookStoreDao {
 	
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
+	
+	@Autowired
+	@Qualifier("myOrderListDao")
+	public static OrderListDao orderListDao;
 	
 	public int GetTotalCount(Map<String, String> map) {
 		int cnt = -1;
@@ -118,5 +126,40 @@ public class BookStoreDao {
 	public void UpdateUsedBook(Map<String,String> map) {
 		sqlSessionTemplate.update(namespace+".UpdateUsedBook",map);
 	}
+	
+	public List<String> GetBestSeller(List<OrderList> IncomePerBook) {
+		Map<String,Integer> IncomeMapBook = new HashMap<String, Integer>();
+		int income=0;
+		
+		for(OrderList ol : IncomePerBook) {
+			//income = ol.getQty()*ol.getPrice();
+			income = ol.getPrice();
+			if(IncomeMapBook.containsKey(ol.getTitle())) {
+				IncomeMapBook.replace(ol.getTitle(), IncomeMapBook.get(ol.getTitle())+income);
+			}else {
+				IncomeMapBook.put(ol.getTitle(), income);
+			}
+		}
+		
+		Map<String, Integer> SortedBookMap = IncomeViewController.sortByVal(IncomeMapBook);
+		
+		List<String> SortedKeys = new ArrayList<String>(SortedBookMap.keySet());
+		List<String> BookTitleTopTen = new ArrayList<String>();
+		for(int i=0;i<SortedKeys.size();i++) {
+			if(i>9) break;
+			BookTitleTopTen.add(SortedKeys.get(i));
+		}
+		Collections.reverse(BookTitleTopTen);
+		
+		return BookTitleTopTen;
+	}
+	
+	public BookStore GetBestBookFromMain(String title) {
+		
+		BookStore book = new BookStore();
+		book = sqlSessionTemplate.selectOne(namespace+".GetBestBookFromMain",title);
+		return book;
+	}
+	
 	
 }

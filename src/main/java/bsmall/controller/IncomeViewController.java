@@ -9,12 +9,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import orderlist.model.OrderList;
@@ -114,7 +114,8 @@ public class IncomeViewController {
 		return mav;
 	}
 	
-	private static Map<String, Integer> sortByVal(Map<String, Integer> map){
+
+	public static Map<String, Integer> sortByVal(Map<String, Integer> map){
 		
 		List<Map.Entry<String, Integer>> list =
                 new LinkedList<Map.Entry<String, Integer>>(map.entrySet());

@@ -5,43 +5,48 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/CSS/slick.css"/>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/CSS/slick-theme.css"/>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/slick.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<style type="text/css">
+.slick-img{
+	width: 150px;
+
+}
+.best_ranking_num{
+	padding-bottom: 5px;
+	text-align: center;
+	font-size: large;
+	color: #666;
+	width: 150px;
+}
+</style>
 </head>
 <body>
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-  </ol>
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <img src="..." alt="...">
-      <div class="carousel-caption">
-        ...
-      </div>
-    </div>
-    <div class="item">
-      <img src="..." alt="...">
-      <div class="carousel-caption">
-        ...
-      </div>
-    </div>
-    ...
-  </div>
+<div class="best_book_slick" style="width: 900px; align-content: center;">
+			
+				<c:forEach items="${BestSellers }" var="best" varStatus="status">
+						<div><p class="best_ranking_num" >${status.index +1 }위</p><a href="bestBook.bs?title=${best }"><img class="slick-img" alt="${status.index }" src="${pageContext.request.contextPath}/resources/Img/${best}.jpg" style="width: 100px;height: 140px; display: block; margin: auto;"></a></div>
+				</c:forEach>
 
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
 </div>
+
+<script type="text/javascript">
+ $(document).ready(function(){
+	 $('.best_book_slick').slick({
+		  infinite: true,
+		  slidesToShow: 5,
+		  slidesToScroll: 1,
+		  dots:true,
+		  arrows:true
+		});
+	    });
+</script>
+	
 
 </body>
 </html>

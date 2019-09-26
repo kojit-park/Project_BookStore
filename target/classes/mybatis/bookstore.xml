@@ -106,4 +106,8 @@
 		where bnum = #{bnum,jdbcType=INTEGER}
 	</update>
 	
+	<select id="GetBestBookFromMain" resultType="MyBS">
+		select * from bookstore where title = #{title}
+	</select>
+	
 </mapper>

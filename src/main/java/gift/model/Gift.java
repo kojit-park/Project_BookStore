@@ -20,7 +20,6 @@ public class Gift {
 	@Length(min=5, max=15 , message="설명은 최소5자부터 15자까지 입력하세요.")
 	private String gcontents; 
 	
-	@Pattern(regexp="[0-9]{1,5}",message="숫자만 입력하세요")
 	private int gpoint;
 	
 	private String day;

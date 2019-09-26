@@ -6,19 +6,131 @@
 <head>
 <c:set value="${sessionScope.loginfo.id}" var="userId"/>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>리뷰 쓰는곳</title>
+<link rel="stylesheet" href="./../resources/CSS/nanumgothic.css" />
+<link href="resources/CSS/bootstrap.min.css" rel="stylesheet">
+<link href="resources/CSS/custom2.css" rel="stylesheet">
+<title>review update</title>
+<style type="text/css">
+input {
+	border: solid 1px #A6A6A6;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	border-radius: 3px;
+}
+
+input:focus {
+	outline: 0;
+	border: solid 1px #4572ed;
+	
+}
+.btn {
+	background-color: #368AFF;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	text-decoration: none;
+	border-radius: 5px;
+}
+
+.btn:focus{
+	background-color: #4572ed;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	text-decoration: none;
+	border-radius: 5px;
+}
+table {
+	border-top: solid 1px white;/* #A6A6A6 */
+	border-collapse: collapse;
+	margin-top: 20px;
+}
+
+th, td, tr {
+	border-bottom: solid 1px white;
+	padding: 10px;
+	height: 20px;
+}
+textarea {
+	margin: 10px;
+	background-color: #e3f2fd;
+	border-radius: 5px;
+	border: none;
+}
+.top_header{
+	border-bottom: 1px solid #e0e0e0;
+}
+.top_header .top_header_contents{
+	display: table;
+	position: relative;
+	margin: 0 auto;
+	width: 900px;
+}
+
+.top_header .top_header_contents .top_center{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+.top_header .top_header_contents .top_right{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: right;
+}
+ul, li, ol{
+	list-style: none;
+	margin: 0;
+}
+</style>
 </head>
 <body>
+<div class="top_header">
+	<div class="top_header_contents">
+		<div class="top_right">
+			<ul style="display: inline-block;text-align: left; margin-right: -8px;">
+				<li style="float: left;position: relative;margin: 5px ;color: #757575;">${userId}님</li>
+				<li style="float: left;position: relative;margin: 5px ;color: #757575;">
+					<a href="logOut.bm" style="color: #757575;">로그아웃</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="logo" align="center" style="margin: 0;">
+	<a href="main.bs"><img alt="홈으로" src="resources/Img/Logo/3.jpg" width="100px;"></a>
+</div>
+<hr style="margin-top: 0;border-bottom: 2px solid #A6A6A6;">
+
+<div class="container">
+			<div class="jumbotron">
+				<h1>리뷰수정</h1>
+			</div>
+	</div>
+<hr>
+
 <form action = "update.rv" method="post">
-	
 	<input type="hidden" name="category" value="${category }">
 	<input type="hidden" name="keyword" value="${keyword }">
 	<input type="hidden" name="rnum" value="${review.rnum }">
 	<input type="hidden" name="writer" value="${userId }">
-	책 제목 : <input type="text" name = "booktitle" value="${review.booktitle }"><br><br>
-	리뷰 제목: <input type="text" name="subject" value="${review.subject }"><br><br>
-	내용: <textarea name="content" rows="30" cols="20" >${review.content }</textarea><br><br>
-	<input type="submit" value="리뷰 쓰기">
+	<table>
+		<tr>
+			<th>책 제목 : </th>
+			<td><input type="text" name = "booktitle" value="${review.booktitle }"></td>
+		</tr>
+		<tr>
+			<th>리뷰 제목: </th>
+			<td><input type="text" name="subject" value="${review.subject }"></td>
+		</tr>
+		<tr>	
+			<th>내용: </th>
+			<td align="center"><textarea name="content" style="margin: 0px 11px 0px 0px; height: 100px; width: 511px;">${review.content }</textarea></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center">
+				<input type="submit" value="리뷰 쓰기" class="btn">
+			</td>
+		</tr>
+	</table>
 </form>
 
 
