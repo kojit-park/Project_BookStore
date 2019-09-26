@@ -92,4 +92,9 @@
 	update bmember set pw =#{TempPassword} where num =#{num}
 </update>
 
+<update id="UpdatePassword" parameterType="MyBmember">
+	update bmember set pw = #{pw} 
+	where id=#{id} and name = #{name} and email1=#{email1} and email2 = #{email2} 
+</update>
+
 </mapper>

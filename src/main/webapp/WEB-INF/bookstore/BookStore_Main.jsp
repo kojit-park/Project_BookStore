@@ -629,6 +629,7 @@ button {
 					</c:when>
 					<c:when test="${userId ne null and userId eq 'admin' }">
 						<li><a href="list.bm" class="gm_new"><span></span>회원리스트</a></li>
+						<li><a href="statisticsMember.bm" class="gm_new"><span></span>사용자 통계</a></li>
 						<li><a href="incomeView.bsmall" class="gm_new"><span></span>매출확인</a></li>
 						<li><a href="insert.bs" class="gm_new"><span></span>책 넣기</a></li>
 						<li><a href="list.gt" class="gm_new"><span></span>사은품 관리</a></li>

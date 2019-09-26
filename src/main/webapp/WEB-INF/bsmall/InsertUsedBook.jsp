@@ -67,7 +67,7 @@ text-align: center;
 	</tr>
 	<tr>
 	<td colspan="2" align="right" style="text-align: right">
-	<button type="submit" id="calcFrm"class="btn btn-outline-dark"><font style="font-weight: bold;">등록</font></button>
+	<button type="submit" id="calcFrm" class="btn btn-outline-dark"><font style="font-weight: bold;">등록</font></button>
 	</td>
 	</tr>
 </table>

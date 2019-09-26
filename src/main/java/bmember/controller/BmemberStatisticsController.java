@@ -7,6 +7,7 @@ import java.util.TreeMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.support.StaticMessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -50,7 +51,7 @@ public class BmemberStatisticsController {
 			}else if(birth >6) {
 				ageGroup = "70대 이상";
 			}
-			
+			System.out.println(sex);
 			memberBySex.replace(sex, (memberBySex.get(sex)+1));
 			
 			if(!memberByGenre.containsKey(genre)) {

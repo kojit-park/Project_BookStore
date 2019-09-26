@@ -101,6 +101,11 @@ public class BmemberDao {
 		return cnt;
 	}
 	
+	public void UpdatePassword(BmemberBean bean) {
+		sqlSessionTemplate.update(namespace+".UpdatePassword",bean);
+	}
+	
+	
 }
 
 

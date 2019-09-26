@@ -41,10 +41,10 @@ public class BmemberEmailVerification {
 	        message.addRecipient(Message.RecipientType.TO, new InternetAddress(mailAddr)); 
 	
 	        // Subject
-	        message.setSubject("회원 가입을 환영합니다"); //메일 제목을 입력
+	        message.setSubject("JB"); //메일 제목을 입력
 	
 	        // Text
-	        message.setText("어서오세요~ \n 회원가입 인증번호는-> "+randomNum+" <-입니다");    //메일 내용을 입력
+	        message.setText("인증번호는-> "+randomNum+" <-입니다");    //메일 내용을 입력
 	
 	        // send the message
 	        Transport.send(message); ////전송

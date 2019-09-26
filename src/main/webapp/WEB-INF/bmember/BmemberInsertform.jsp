@@ -251,7 +251,7 @@ $(window, document, undefined).ready(function() {
 					<option value="gmail.com">gmail.com</option>      
 		    </select>
 		</div>
-				<form:errors cssClass="err" path="eamil1" ></form:errors>
+				<form:errors cssClass="err" path="email1" ></form:errors>
 	</div>
 	
 	<div>
@@ -272,10 +272,10 @@ $(window, document, undefined).ready(function() {
       <br>
       <div class="btn-group btn-group-vertical" data-toggle="buttons">
         <div class="btn active">
-          <input type="radio" name='gender' class="gender"><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span>  남</span>
+          <input type="radio" name='gender' class="gender" value="남"><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span>  남</span>
         </div>
         <div class="btn">
-          <input type="radio" name='gender' class="gender"><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> 여</span>
+          <input type="radio" name='gender' class="gender" value="여"><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> 여</span>
         </div>
         <br> <form:errors cssClass="err" path="gender"></form:errors>
       </div>
@@ -289,13 +289,13 @@ $(window, document, undefined).ready(function() {
 	
   <div class="btn-group btn-group" data-toggle="buttons">
     <div class="btn active">
-      <input type="checkbox" name='genre'><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i><span> 미스테리
+      <input type="checkbox" name='genre' value = "미스테리"><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i><span> 미스테리
     </div>
     <div class="btn">
-      <input type="checkbox" name='genre'><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i><span> 로맨스</span>
+      <input type="checkbox" name='genre' value="로맨스"><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i><span> 로맨스</span>
     </div>
     <div class="btn">
-      <input type="checkbox" name='genre'><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i><span> 판타지</span>
+      <input type="checkbox" name='genre' value="판타지"><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i><span> 판타지</span>
     </div>    
   </div>
 </div> 

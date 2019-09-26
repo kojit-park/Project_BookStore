@@ -11,8 +11,6 @@
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<c:url value="/resources/js/jquery.js"/>"></script>
 <script type="text/javascript">
-
-
 /* input form js */
 
  $(window, document, undefined).ready(function() {
@@ -67,27 +65,6 @@
   /* id pw border color css */
  
 	$(function(){
-	     /* $('a').click(function(){
-	    	
-	    	if('a#id'){
-	    		$('a#id').css('border-right','1px solid blue',
-	    				'border-left','1px solid blue',
-	    				'border-top','1px solid blue'
-	    		);
-	    		$('a#pw').css('border-top','1px solid blue')
-	    		
-	    		
-	    	}
-	    	if('a#pw'){
-	    		$('a#pw').css('border-right','1px solid blue',
-	    				'border-left','1px solid blue',
-	    				'border-top','1px solid blue'
-	    		);
-	    		$('a#id').css('border-bottom','1px solid blue')
-	    		
-	    	}
-	        
-	    });  */
 	    
 		$('a#id').click(function(){
 			$('a#id').css('border-right','1px solid blue',
@@ -105,6 +82,56 @@
     		$('a#id').css('border-bottom','1px solid blue')
 		});
 	        
+	    	$("#EmailSend").click(function(){
+	    		var email = $("input[name=email1]").val()+"@"+$("select[name=email2]").val();
+	    		$.ajax({
+	    			 async: true,
+	    	         type : 'POST',
+	    	         data : email,
+	    	         url : "emailVerify.bm",
+	    	         dataType : "json",
+	    	         contentType: "application/json; charset=UTF-8",
+	    	         success : function(data) {
+	    	        	 
+	    	        	 if(data == 0){
+	    	        		 alert("email을 보내는데 실패했습니다.")
+	    	        	 }else{
+	    	        		 alert("email을 보냈습니다")
+	    	        	 }
+	    	         }, 
+	    	         error:function(){alert("에러남")}
+	    		})
+	    		
+	    	})
+	    	
+	    	$("#EmailVerification").click(function(){
+	    		var code = $("#code").val();
+	    		
+	    		if($("#code").val() == null || $("#code").val() ==""){
+	    			alert("인증하셔야 합니다")
+	    			return false;
+	    		}
+	    		
+	    		$.ajax({
+	    			 async: true,
+	    	         type : 'POST',
+	    	         data : code,
+	    	         url : "CodeVerify.bm",
+	    	         dataType : "json",
+	    	         contentType: "application/json; charset=UTF-8",
+	    	         success : function(data) {
+	    	        	 if(data ==1){
+	    	        		 alert("인증 성공")
+	    	        		 location.href = "newPassWord.bm?id="+$("input[name=id]").val()+"&name="+$("input[name=name]").val()+"&email1="+$("input[name=email1]").val()+"&email2="+$("select[name=email2]").val()
+	    	        	 }else{
+	    	        		 alert("인증 실패")
+	    	        	 }
+	    	         }, 
+	    	         error:function(){alert("에러남")}
+	    		})
+	    		
+	    	})
+	    
 	    }); 
  
 </script>
@@ -151,14 +178,18 @@
 				<option value="gmail.com">gmail.com</option>      
 	    </select>
 	</div>
-			<form:errors cssClass="err" path="eamil1"></form:errors>
+			<form:errors cssClass="err" path="email1"></form:errors>
 </div>
+
+	<div>
+		<button type="button" id = "EmailSend" class="btn btn-primary">메일보내기</button>
+	</div>
+	<br>
+	<div>
+		<span style="display: inline-block;"><input type="text" name = "code" id="code"></span>	
+	</div>
+		<button type="button" id = "EmailVerification" class="btn btn-primary">인증</button>
 		
-	<br><br>
-	
-	<input type="submit" id="check" value="확인" style="width:390px; height:50px;">
-	
-	
 </form:form>
 </body>
 </html>
