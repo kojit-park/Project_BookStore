@@ -108,7 +108,7 @@ input:focus {
 					</c:choose>
 					 ││<span style="display:inline-block; width: 200px"> ${replies.reply }	</span>
 					<c:if test="${replies.writer eq userId }">
-					<button onclick="delReply(${replies.replyto },${replies.rpnum},'${category }','${keyword}')">삭제</button>
+					<button class="btn btn-outline-dark" onclick="delReply(${replies.replyto },${replies.rpnum},'${category }','${keyword}')">삭제</button>
 					</c:if>		
 				</div>
 			</c:forEach>		

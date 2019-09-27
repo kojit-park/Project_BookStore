@@ -16,4 +16,8 @@
 	 	select * from bsorders where mid = #{id} order by oid desc
 	</select>
 	
+	<select id="OrderResult" resultType="String">
+		select orderdate from bsorders where mid = #{id} and oid = (select max(oid) from bsorders)
+	</select>
+	
 </mapper>

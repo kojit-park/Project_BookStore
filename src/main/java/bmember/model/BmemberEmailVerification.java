@@ -16,8 +16,8 @@ public class BmemberEmailVerification {
 	public String gmailSend(String mailAddr) {
 		
 		String randomNum = ((int)(Math.random()*1000)+1000)+"";
-		final String user = "kwanriza02@gmail.com"; // 네이버일 경우 네이버 계정, gmail경우 gmail 계정
-	    final String password = "hxhssdlgqdaoagus";   // 패스워드
+		final String user = "kwanriza03@gmail.com"; // 네이버일 경우 네이버 계정, gmail경우 gmail 계정
+	    final String password = "ProBook03";   // 패스워드
 	    System.out.println("머라고 오길래"+mailAddr);
 	    // SMTP 서버 정보를 설정한다.
 	    Properties prop = new Properties();

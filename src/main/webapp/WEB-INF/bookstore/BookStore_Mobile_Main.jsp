@@ -58,7 +58,7 @@
 </form>
 	<br><br><br> 
 	<br><br><br>
-    <footer data-role="footer"><h1>만든 사람들: <button onclick="PCVersion()">PC 버전</button> </h1></footer>
+    <footer data-role="footer"><h1><button onclick="PCVersion()">PC 버전</button> </h1></footer>
 </section>
 <script type="text/javascript">
 	<% HttpSession remember = request.getSession(); %>

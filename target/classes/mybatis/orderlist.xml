@@ -26,6 +26,12 @@
 	order by price desc
 </select>
 
+<select id="IncomeCheckByCategory" resultType="MyOrderList">
+	select b.category as category, b.price * o.qty as price 
+	from bsorders o inner join bookstore b 
+	on o.bnum = b.bnum 
+	order by price desc
+</select>
 
 
 

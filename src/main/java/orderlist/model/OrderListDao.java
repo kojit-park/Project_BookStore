@@ -33,4 +33,9 @@ public class OrderListDao {
 		return lists;
 	}
 	
+	public List<OrderList> IncomeCheckByCategory() {
+		List<OrderList> lists = new ArrayList<OrderList>();
+		lists = sqlSessionTemplate.selectList(namespace+".IncomeCheckByCategory");
+		return lists;
+	}
 }

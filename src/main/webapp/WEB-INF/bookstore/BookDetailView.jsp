@@ -22,7 +22,7 @@ function usedBookMarket(){
 	location.href = "usedBookList.bs?bnum="+${book.bnum}
 }
 function searchReview(){
-	location.href='list.rv?category=booktitle&keyword='+"${fn:substring(book.title,0,4)}"
+	location.href='list.rv?category=booktitle&keyword='+"${fn:substring(book.title,0,3)}"
 }
 
 

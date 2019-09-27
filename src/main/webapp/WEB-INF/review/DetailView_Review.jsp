@@ -118,17 +118,16 @@ ul, li, ol{
 	</tr>
 	
 	<tr>
-		<td colspan="4" align="center"><textarea rows="10" cols="50"
+		<td colspan="4" align="center"><textarea class="form-control" rows="10" cols="50"
 			disabled="disabled" style="margin: 0px 11px 0px 0px; height: 200px; width: 511px;">${review.content}</textarea></td>
 	</tr>
 	
 </table>
 	
 	<c:if test="${review.writer eq userId }">
-		<button onclick="location.href='update.rv?rnum=${review.rnum}&category=${category}&keyword=${keyword}'">수정</button>
-		<button onclick="location.href='delete.rv?rnum=${review.rnum}&category=${category}&keyword=${keyword}'">삭제</button>
+		<button class="btn btn-outline-dark" onclick="location.href='update.rv?rnum=${review.rnum}&category=${category}&keyword=${keyword}'">수정</button>
+		<button class="btn btn-outline-dark" onclick="location.href='delete.rv?rnum=${review.rnum}&category=${category}&keyword=${keyword}'">삭제</button>
 	</c:if>
-	<br>
 	<button onclick="location.href='list.rv?category=${category}&keyword=${keyword}'" class="btn">목록으로</button>					
 <br><br><br>
 <br><br><br>

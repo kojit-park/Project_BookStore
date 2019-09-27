@@ -142,7 +142,7 @@ th{
 <br><br>
 
 <form action = "calculate.bsmall">
-	 <table border="1" border="0" align="center" width="900px">
+	 <table border="0" border="0" align="center" width="900px">
 		<c:if test="${userId ne null and userId eq 'admin' }">
 			<tr>
 				<td colspan="9" align="center">
@@ -182,7 +182,7 @@ th{
 				</td>
 				<td align="center">
 					<%-- <a href="detail.gt?gnum=<c:out value="${gift.gnum}" />"> --%>
-					<img src="<%=request.getContextPath() %>/resources/Img/Gift/${gift.gimage}" width="60px" height="60px"> 
+					<img src="<%=request.getContextPath() %>/resources/Img/Gift/${gift.gimage}.jpg" width="60px" height="60px"> 
 				</td>
 				<td align="center">
 					<c:out value="${gift.gcategory}" />
@@ -210,14 +210,14 @@ th{
 			</tr>
 		</c:forEach>
 	</table>
-	
+		<div style="text-align: center;">현재 <b>${sessionScope.loginfo.point }point</b> 사용가능합니다.</div>
+	<br>
 	<c:if test="${userId ne null and userId ne 'admin' }">
 		<div class="mem_btn" align="center" style="margin-top: 10px;">
 			<input type="submit" value="선택 완료" class="btn">
 		</div>
 	</c:if>
 </form>
-		<div>현재 ${sessionScope.loginfo.point }point 사용가능합니다.</div>
 	<br>
 	<center>
 		${pageInfo.pagingHtml}

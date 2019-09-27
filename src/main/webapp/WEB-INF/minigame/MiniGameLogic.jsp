@@ -42,9 +42,9 @@ window.onload=function(){
 		
 		context2.fillStyle = "#ff0000"; 
 		context2.strokeStyle = "#000000"
-		context2.fillRect(0, 0, (enemyHp)/2, 20);
+		context2.fillRect(0, 0, (enemyHp), 20);
 		context.fillStyle = "#ff0000"; 
-		context.fillRect(0, 0, myHp/2, 20);
+		context.fillRect(0, 0, myHp, 20);
 		
 	}
 	fullHealth()
@@ -214,7 +214,7 @@ window.onkeydown = function(){
 			endChk();
 		}
 		
-		document.getElementById("stopwatch").innerHTML = (countDown-2)+"초";
+		document.getElementById("stopwatch").innerHTML = "<h1>"+(countDown-2)+"초</h1>";
 	}
 	
 	function ActionTeacher(action){
@@ -354,9 +354,9 @@ window.onkeydown = function(){
 	function endChk(){
 		
 		context2.fillStyle = "#ff0000"; 
-		context2.fillRect(0, 0, enemyHp/2, 20);
+		context2.fillRect(0, 0, enemyHp, 20);
 		context.fillStyle = "#ff0000"; 
-		context.fillRect(0, 0, myHp/2, 20);
+		context.fillRect(0, 0, myHp, 20);
 		
 		//alert("myHp"+myHp+"::::상대 Hp"+enemyHp)
 		

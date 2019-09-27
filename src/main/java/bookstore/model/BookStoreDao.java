@@ -145,11 +145,10 @@ public class BookStoreDao {
 		
 		List<String> SortedKeys = new ArrayList<String>(SortedBookMap.keySet());
 		List<String> BookTitleTopTen = new ArrayList<String>();
-		for(int i=0;i<SortedKeys.size();i++) {
-			if(i>9) break;
+		for(int i=(SortedKeys.size()-1);i>=0;i--) {
+			if(((SortedKeys.size()-1)-i)>9) break;
 			BookTitleTopTen.add(SortedKeys.get(i));
 		}
-		Collections.reverse(BookTitleTopTen);
 		
 		return BookTitleTopTen;
 	}

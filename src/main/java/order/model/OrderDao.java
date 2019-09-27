@@ -38,4 +38,11 @@ public class OrderDao {
 		return lists;
 	}
 	
+	public String OrderResult(String id){
+		String orderdate = null;
+		orderdate = sqlSessionTemplate.selectOne(namespace+".OrderResult",id);
+		
+		return orderdate;
+	}
+	
 }

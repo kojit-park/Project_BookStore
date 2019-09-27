@@ -44,6 +44,7 @@ table {
 	border-top: solid 1px white;/* #A6A6A6 */
 	border-collapse: collapse;
 	margin-top: 20px;
+	text-align: center;
 }
 
 th, td, tr {
@@ -106,7 +107,9 @@ ul, li, ol{
 			</div>
 	</div>
 <hr>
+<div style="text-align: center;">
 
+<center>
 <form action = "update.rv" method="post">
 	<input type="hidden" name="category" value="${category }">
 	<input type="hidden" name="keyword" value="${keyword }">
@@ -114,11 +117,11 @@ ul, li, ol{
 	<input type="hidden" name="writer" value="${userId }">
 	<table>
 		<tr>
-			<th>책 제목 : </th>
+			<th>주제 : </th>
 			<td><input type="text" name = "booktitle" value="${review.booktitle }"></td>
 		</tr>
 		<tr>
-			<th>리뷰 제목: </th>
+			<th>제목: </th>
 			<td><input type="text" name="subject" value="${review.subject }"></td>
 		</tr>
 		<tr>	
@@ -132,6 +135,8 @@ ul, li, ol{
 		</tr>
 	</table>
 </form>
+</center>
+</div>
 
 
 </body>

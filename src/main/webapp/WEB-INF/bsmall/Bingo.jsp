@@ -13,7 +13,7 @@
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
-
+<c:set value="${sessionScope.loginfo.id}" var="userId"/>
 <style type="text/css">
 body,h1,h2,h3 {font-family: 'Nanum Gothic', sans-serif; text-align: center;}
 tr,td{
@@ -24,6 +24,30 @@ border-color: #BDBDBD;
 font-family: 'Bungee Inline', cursive;
 font-size: 65px;
 font-weight: bold;
+}
+.top_header{
+	border-bottom: 1px solid #e0e0e0;
+}
+.top_header .top_header_contents{
+	display: table;
+	position: relative;
+	margin: 0 auto;
+	width: 900px;
+}
+
+.top_header .top_header_contents .top_center{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+.top_header .top_header_contents .top_right{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: right;
+}
+ul, li, ol{
+	list-style: none;
+	margin: 0;
 }
 </style>
 <script type="text/javascript">
@@ -36,6 +60,32 @@ $( document ).ready( function() {
 
 </head>
 <body>
+<div class="top_header">
+	<div class="top_header_contents">
+		<div class="top_right">
+			<ul style="display: inline-block;text-align: left; margin-right: -8px;">
+				<c:if test="${userId == null}">
+					<li style="float: left;position: relative;margin: 5px ;color: #757575;">
+							<a href="login.bm" style="color: #757575;"><b>로그인</b></a>
+					</li>
+					<li style="float: left;position: relative;margin: 5px ;">
+						<a href="insert.bm" style="color: #757575;"><b>회원가입</b></a>
+					</li>
+				</c:if>
+				<c:if test="${userId != null}">
+					<li style="float: left;position: relative;margin: 5px ;color: #757575;">${userId}님</li>
+					<li style="float: left;position: relative;margin: 5px ;">
+						<a href="logOut.bm" style="color: #757575;">로그아웃</a>
+					</li>
+				</c:if>		
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="logo" align="center" style="margin: 0;">
+	<a href="main.bs"><img alt="홈으로" src="resources/Img/Logo/3.jpg" width="100px;"></a>
+</div>
+<hr style="margin-top: 0;border-bottom: 2px solid #A6A6A6;">
 <br>
 <br>
 <table frame="void" align="center" width="420px">

@@ -118,12 +118,12 @@ ul, li, ol{
 	<input type="hidden" name="writer" value="${userId }">
 	<table border="0" align="center">
 		<tr>
-			<th>책 제목 : </th>
-			<td><input type="text" name = "booktitle" placeholder="책 제목을 입력하세요" value="${booktitle }"></td>
+			<th>주제 : </th>
+			<td><input type="text" name = "booktitle" placeholder="주제를 입력하세요" value="${booktitle }"></td>
 		</tr>
 		
 		<tr>
-			<th>리뷰 제목: </th>
+			<th>제목: </th>
 			<td><input type="text" name="subject" placeholder="제목을 입력하세요"></td>
 		
 		<tr><th>내용:</th>

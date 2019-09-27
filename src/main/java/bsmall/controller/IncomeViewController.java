@@ -36,13 +36,19 @@ public class IncomeViewController {
 		ModelAndView mav = new ModelAndView();
 		List<OrderList> IncomeByDate = new ArrayList<OrderList>();
 		List<OrderList> IncomePerBook = new ArrayList<OrderList>();
+		List<OrderList> IncomePerCategory = new ArrayList<OrderList>();
+		
 		
 		IncomePerBook =orderListDao.IncomeCheckByBook();
 		IncomeByDate = orderListDao.IncomeCheckByDate();
+		IncomePerCategory = orderListDao.IncomeCheckByCategory();
+		
 		Map<String,Integer> IncomeMapDay = new HashMap<String, Integer>();
 		Map<String,Integer> IncomeMapMonth = new HashMap<String, Integer>();
 		Map<String,Integer> IncomeMapYear = new HashMap<String, Integer>();
 		Map<String,Integer> IncomeMapBook = new HashMap<String, Integer>();
+		Map<String,Integer> IncomeMapCategory = new HashMap<String, Integer>();
+		
 		String byDay="";
 		String byMonth = "";
 		String byYear ="";
@@ -86,13 +92,30 @@ public class IncomeViewController {
 			}
 		}
 		
-		Map<String, Integer> SortedBookMap = sortByVal(IncomeMapBook);
+		for(OrderList ol : IncomePerCategory) {
+			income = ol.getPrice();
+			if(IncomeMapCategory.containsKey(ol.getCategory())) {
+				IncomeMapCategory.replace(ol.getCategory(), IncomeMapCategory.get(ol.getCategory())+income);
+			}else {
+				IncomeMapCategory.put(ol.getCategory(), income);
+			}
+		}
 		
-		List<String> SortedKeys = new ArrayList<String>(SortedBookMap.keySet());
+		
+		Map<String, Integer> SortedBookMap = sortByVal(IncomeMapBook);
 		List<Integer> SortedValues = new ArrayList<Integer>(SortedBookMap.values());
+		List<String> SortedKeys = new ArrayList<String>(SortedBookMap.keySet());
 		
 		Collections.reverse(SortedValues);
 		Collections.reverse(SortedKeys);
+		
+		Map<String, Integer> SortedCategoryMap = sortByVal(IncomeMapCategory);
+		List<String> SortedKeysCategory = new ArrayList<String>(SortedCategoryMap.keySet());
+		List<Integer> SortedValuesCategory = new ArrayList<Integer>(SortedCategoryMap.values());
+		
+		Collections.reverse(SortedKeysCategory);
+		Collections.reverse(SortedValuesCategory);
+		
 		
 		Map<String, Integer> SortedBookMapTopTen = new LinkedHashMap<String, Integer>();
 		for(int i =0; i<SortedKeys.size();i++) {
@@ -100,14 +123,23 @@ public class IncomeViewController {
 			SortedBookMapTopTen.put(SortedKeys.get(i), SortedValues.get(i));
 		}
 		
+		Map<String, Integer> SortedCategory = new LinkedHashMap<String, Integer>();
+		for(int i =0; i<SortedKeysCategory.size();i++) {
+			SortedCategory.put(SortedKeysCategory.get(i), SortedValuesCategory.get(i));
+		}
+		
 			System.out.println(SortedBookMapTopTen.keySet().toString());
 			System.out.println(SortedBookMapTopTen.values().toString());
+			
+			System.out.println(SortedCategory.keySet().toString());
+			System.out.println(SortedCategory.values().toString());
 		
 		mav.addObject("IncomeMapDay",IncomeMapDay);
 		mav.addObject("IncomeMapMonth",IncomeMapMonth);
 		mav.addObject("IncomeMapYear",IncomeMapYear);
 		
 		mav.addObject("IncomeMapBook",SortedBookMapTopTen);
+		mav.addObject("IncomeMapCategory",SortedCategory);
 		
 		mav.setViewName(getPage);
 		

@@ -55,7 +55,7 @@ public class BookDetailViewController {
 		model.addAttribute("pageNumber",pageNumber);
 		model.addAttribute("pageSize",pageSize);
 		
-		if(session.getAttribute("mobile") != null) {
+		if(session.getAttribute("mobile") != null && ((String)session.getAttribute("mobile")).equals("1")) {
 			return "Mobile_BookDetailView";
 		}
 		

@@ -46,13 +46,12 @@ public class ReviewListController {
 			) {
 		ModelAndView mav = new ModelAndView();
 		
-		
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("category", category);
 		map.put("keyword", "%"+keyword+"%");
 		
 		int totalCount = reviewDao.GetTotalCount(map);
-		
+		System.out.println(totalCount+"ㅏㅏㅏㅏㅏ");
 		String url = request.getContextPath() + "/" + command;
 		Paging pageInfo = new Paging(pageNumber, pageSize, totalCount, url, category, keyword, null);
 		

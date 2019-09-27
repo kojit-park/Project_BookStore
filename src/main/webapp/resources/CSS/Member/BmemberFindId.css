@@ -316,7 +316,7 @@ div#select_box {
     position: relative;
     width: 130px;
     height: 40px;
-    background: url("${pageContext.request.contextPath}/resources/Img/login/arrow.png") 180px center no-repeat; /* 화살표 이미지 */
+    background: url("${pageContext.request.contextPath}/resources/Img/Login/arrow.png") 180px center no-repeat; /* 화살표 이미지 */
    /*  border: 1px solid #368AFF; */
 }
 div#select_box label {

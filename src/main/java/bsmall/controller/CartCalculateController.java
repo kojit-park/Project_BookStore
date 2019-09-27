@@ -24,6 +24,7 @@ public class CartCalculateController {
 	
 	private static final String command = "/calculate.bsmall"; // MallList.jsp
 	private static final String gotoPage = "redirect:/main.bs"; 
+	private static final String getPage = "ShopResult";
 	
 	@Autowired
 	@Qualifier("myBookStoreDao")
@@ -83,11 +84,13 @@ public class CartCalculateController {
 		}
 		
 		/*mycart.removeOrder(orderlists);*/
+		String orderdate = orderDao.OrderResult(member.getId());
 		member = bmemberDao.GetInfo(member.getId());
+		session.setAttribute("orderdate", orderdate);
 		session.setAttribute("loginfo", member);
 		session.removeAttribute("mycart");
 		
-		return gotoPage;
+		return getPage;
 	}
 	
 }

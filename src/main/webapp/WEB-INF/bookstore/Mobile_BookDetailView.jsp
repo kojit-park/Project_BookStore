@@ -11,15 +11,19 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.mobile-1.4.5.js"></script>
 <script type="text/javascript">
+
 function usedBookMarket(){
 	location.href = "usedBookList.bs?bnum="+${book.bnum}
+}
+function searchReview(){
+	location.href='list.rv?category=booktitle&keyword='+"${fn:substring(book.title,0,4)}"
 }
 </script>
 </head>
 <body>
 <section id="page1" data-role="page">
     <header data-role="header">
-    	<div align="center"><a href="main.bs"><img src="${pageContext.request.contextPath}/resources/Img/Logo/3.jpg" width="200" height="100"/></a></div>
+    	<div align="center"><a href="main.bs"><img src="${pageContext.request.contextPath}/resources/Img/Logo/5.jpg" width="200" height="100"/></a></div>
     	<div style="text-align: center;"><img src='<c:url value="/resources/Img/${book.title}.jpg"/>' style="width:400; height:550;"><br></div>
     	<h1>${book.title }</h1>
     </header>       
@@ -29,6 +33,7 @@ function usedBookMarket(){
        ${book.author} 지음 | ${book.publisher }<br>
        ${book.pubdate} 출간<br>
        가격 : <b>${book.price }원</b>
+		<button type="button" onclick = "searchReview()">리뷰 보러가기</button>
        <form action="add.bsmall">
        <c:if test="${userId != null}">
        주문 수량 <input type="number" name="oqty" value=1>

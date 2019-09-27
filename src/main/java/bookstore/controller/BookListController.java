@@ -60,7 +60,8 @@ public class BookListController {
 		if(keyword != null) {
 			mav.addObject("keyword",keyword);
 		}
-		if(session.getAttribute("mobile") == null) {
+		
+		if(session.getAttribute("mobile") == null ||((String)session.getAttribute("mobile")).equals("")) {
 			session.setAttribute("mobile", mobile);
 				if(session.getAttribute("mobile") != null && ((String)session.getAttribute("mobile")).equals("1")) {
 					mav.setViewName("Mobile_BookList");
@@ -70,6 +71,15 @@ public class BookListController {
 			mav.setViewName("Mobile_BookList");
 			return mav;
 		}
+		
+		if(mobile !=null) {
+			System.out.println("여기는리스트2////"+mobile);
+		}
+		if(session.getAttribute("mobile")!= null) {
+			System.out.println((String)session.getAttribute("mobile"));
+		}
+		
+		
 		
 		mav.setViewName(getPage);
 		return mav;

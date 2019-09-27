@@ -5,12 +5,40 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<%@ include file="../tagsIn.jsp" %>
+<c:set value="${sessionScope.loginfo.id}" var="userId"/>
 <style type="text/css">
 	#submitButton{
 		align-items: center;
 		text-align: center;
 	}
+.top_header{
+	border-bottom: 1px solid #e0e0e0;
+}
+.top_header .top_header_contents{
+	display: table;
+	position: relative;
+	margin: 0 auto;
+	width: 900px;
+}
 
+.top_header .top_header_contents .top_center{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+.top_header .top_header_contents .top_right{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: right;
+}
+ul, li, ol{
+	list-style: none;
+	margin: 0;
+}
+th{
+	color: white;
+}
 </style>
 <link rel="stylesheet" href = "${pageContext.request.contextPath}/resources/CSS/bootstrap.min.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
@@ -18,6 +46,22 @@
 
 </head>
 <body>
+<div class="top_header">
+	<div class="top_header_contents">
+		<div class="top_right">
+			<ul style="display: inline-block;text-align: left; margin-right: -8px;">
+				<li style="float: left;position: relative;margin: 5px ;color: #757575;">${userId}님</li>
+				<li style="float: left;position: relative;margin: 5px ;">
+					<a href="logOut.bm" style="color: #757575;">로그아웃</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="logo" align="center" style="margin: 0;">
+	<a href="main.bs"><img alt="홈으로" src="resources/Img/Logo/3.jpg" width="100px;"></a>
+</div>
+<hr style="margin-top: 0;border-bottom: 2px solid #A6A6A6;">
+		
 		<form action = "minigame_select.mg" method="post" class="container">
 					<hr style="border: solid 1px #368AFF;">
 				<div class="input-group">

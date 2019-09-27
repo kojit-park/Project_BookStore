@@ -4,6 +4,44 @@
 <%@ include file="../tagsIn.jsp" %>
 <html>
 <head>
+<c:set value="${sessionScope.loginfo.id}" var="userId"/>
+<style type="text/css">
+div#select_box {
+    position: relative;
+    width: 130px;
+    height: 40px;
+    background: url("${pageContext.request.contextPath}/resources/Img/login/arrow.png") 180px center no-repeat; /* 화살표 이미지 */
+   /*  border: 1px solid #368AFF; */
+}
+.top_header{
+	border-bottom: 1px solid #e0e0e0;
+}
+.top_header .top_header_contents{
+	display: table;
+	position: relative;
+	margin: 0 auto;
+	width: 900px;
+}
+
+.top_header .top_header_contents .top_center{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+.top_header .top_header_contents .top_right{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: right;
+}
+ul, li, ol{
+	list-style: none;
+	margin: 0;
+}
+th{
+	color: white;
+}
+
+</style>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath }/resources/CSS/Member/BmemberFindId.css" rel="stylesheet">
@@ -141,6 +179,11 @@
 
 </head>
 <body>
+<div class="logo" align="center" style="margin: 0;">
+	<img alt="홈으로" src="resources/Img/Logo/5.jpg" width="100px;" onclick="location.href='main.bs'">
+</div>
+<hr style="margin-top: 0;border-bottom: 2px solid #A6A6A6;">
+
  			<div align="center"><h2><b>아이디/비밀번호 찾기</b></h2></div> <br>
 			<div align="center">
 				<a href="findid.bm" role="button" id="id" style="text-decoration:none; margin-right:-5px;"><span><b>아이디 찾기</b></span></a>

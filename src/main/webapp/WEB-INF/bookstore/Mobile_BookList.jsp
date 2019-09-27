@@ -40,7 +40,7 @@
 <body>
 	<section id="page${book.bnum }" data-role="page">
 		<header data-role="header">
-			<div align="center"><a href="main.bs"><img src="${pageContext.request.contextPath}/resources/Img/Logo/3.jpg" width="200" height="100"/></a></div>
+			<div align="center"><a href="main.bs"><img src="${pageContext.request.contextPath}/resources/Img/Logo/5.jpg" width="200" height="100"/></a></div>
 			<div style="text-align: center;">
 			<form name="frm" action="list.bs">
 						<select name="category" onchange="this.form.submit()" >
@@ -51,9 +51,6 @@
 						<input type="hidden" value="sorting" name="sorting">
 				<input type="hidden" value="${pageInfo.keyword }" name="keyword">
 			</form></div>
-			<%-- 	<div style="text-align: center;">
-						${pageInfo.pagingHtml}
-				</div> --%>
 		</header>
 
 		<c:choose>
@@ -89,45 +86,13 @@
 					
 					</table>
 				
-						<%-- <div class = "pic" style="text-align: center;width:40%" >
-							<div class="content" data-role="content">
-						        <a href="#modal${book.bnum }" data-rel="dialog"><img id="bookImage${book.bnum }" src='<c:url value="/resources/Img/${book.title}.jpg"/>' width="300" height="400"></a>
-					        </div>
-					    </div> --%>
 				</c:forEach>
 			</c:otherwise>
 		</c:choose>
 		</div>
 			<div>${pageInfo.pagingHtml}</div>
-		<%-- <footer data-role="footer">
-					<div style="text-align: center;">${pageInfo.pagingHtml}</div>
-		</footer> --%>
 	</section>
-	
 		
-				<%-- 	<c:forEach items="${bookLists }" var="book">
-						<section id="modal${book.bnum }" data-role="page">
-							<header data-role="header" data-add-back-btn="true"></header>
-							<div class="content" data-role="content">
-								<img src = "${pageContext.request.contextPath}/resources/Img/${book.title}.jpg" width =200 height =300 style="text-align: center"><br>
-									제목: ${book.title } <br>
-									저자: ${book.author } <br>
-									출판사: ${book.publisher } <br>
-									출판년도: ${book.pubdate }<br>
-									책소개: ${book.page } page, <br>
-									${book.introduce }... <br>
-									분류: ${book.category } <br>
-									재고: ${book.stock } <br>
-									<a href="detail.bs?bnum=${book.bnum }"><button>상세 보기</button></a>
-									<footer data-role="footer"><a class="ui-shadow ui-btn ui-corner-all ui-mini" data-rel="back">취소</a></footer>
-							</div>
-						</section>
-					</c:forEach>
-		 --%>
-		
-	
-	
-	
 
 </body>
 </html>

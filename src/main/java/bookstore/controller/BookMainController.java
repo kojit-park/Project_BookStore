@@ -36,9 +36,16 @@ public class BookMainController {
 	public ModelAndView doAction(@RequestParam(value = "mobile", required = false ) String mobile,HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		
-		System.out.println("메인 가는중");
+		if(mobile !=null) {
+			System.out.println("여기는메인////"+mobile);
+		}
+		if(session.getAttribute("mobile")!= null) {
+			System.out.println("메인체크1"+(String)session.getAttribute("mobile"));
+		}
 		
-		if(session.getAttribute("mobile") == null) {
+		
+		if(session.getAttribute("mobile") == null ||((String)session.getAttribute("mobile")).equals("")) {
+			System.out.println("메인체크2"+(String)session.getAttribute("mobile"));
 			session.setAttribute("mobile", mobile);
 					if(session.getAttribute("mobile") != null && ((String)session.getAttribute("mobile")).equals("1")) {
 						System.out.println("모바일 페이지로");
@@ -47,10 +54,20 @@ public class BookMainController {
 					}
 					
 		}else {
+			System.out.println("메인체크3"+(String)session.getAttribute("mobile"));
 			System.out.println("모바일 페이지로");
 			mav.setViewName("BookStore_Mobile_Main");
 			return mav;
 		}
+		if(mobile !=null) {
+			System.out.println("여기는메인2////"+mobile);
+		}
+		if(session.getAttribute("mobile")!= null) {
+			System.out.println((String)session.getAttribute("mobile"));
+		}
+		
+		
+		
 		List<OrderList> IncomePerBook = new ArrayList<OrderList>();
 		IncomePerBook =orderListDao.IncomeCheckByBook();
 		

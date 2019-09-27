@@ -244,24 +244,24 @@ public class Paging {
 		String added_param = "&category=" + category + "&keyword=" + keyword ; // &category=singer&keyword=��
 		
 		if (this.beginPage != 1) { 
-			result += "&nbsp;<li><a href='" + url  
+			result += "&nbsp;<a href='" + url  
 					+ "?pageNumber=" + ( 1 ) + "&pageSize=" + this.pageSize 
-					+ added_param + "'>처음</a></li>&nbsp;" ;
+					+ added_param + "'>처음</a>&nbsp;" ;
 			
-			result += "&nbsp;<li><a href='" + url 
+			result += "&nbsp;<a href='" + url 
 					+ "?pageNumber=" + (this.beginPage - 1 ) + "&pageSize=" + this.pageSize 
-					+ added_param + "'>이전</a></li>&nbsp;" ;
+					+ added_param + "'>이전</a>&nbsp;" ;
 		}
 		
 		//���
 		for (int i = this.beginPage; i <= this.endPage ; i++) {
 			if ( i == this.pageNumber ) {
-				result += "&nbsp;<li class='active'><a href='#'>" + i + "</a></li>&nbsp;"	;
+				result += "&nbsp;<a href='#'>" + i + "</a>&nbsp;"	;
 						
 			} else {
-				result += "&nbsp;<li><a href='" + url   
+				result += "&nbsp;<a href='" + url   
 						+ "?pageNumber=" + i + "&pageSize=" + this.pageSize 
-						+ added_param + "'>" + i + "</a></li>&nbsp;" ;
+						+ added_param + "'>" + i + "</a>&nbsp;" ;
 				
 			}
 		}
@@ -270,13 +270,13 @@ public class Paging {
 		
 		if ( this.endPage != this.totalPage) { // ����
 			
-			result += "&nbsp; <li><a href='" + url  
+			result += "&nbsp; <a href='" + url  
 					+ "?pageNumber=" + (this.endPage + 1 ) + "&pageSize=" + this.pageSize 
-					+ added_param + "'>다음</a></li>&nbsp;" ;
+					+ added_param + "'>다음</a>&nbsp;" ;
 			
-			result += "&nbsp;<li><a href='" + url  
+			result += "&nbsp;<a href='" + url  
 					+ "?pageNumber=" + (this.totalPage ) + "&pageSize=" + this.pageSize 
-					+ added_param + "'>끝</a></li>&nbsp;" ;
+					+ added_param + "'>끝</a>&nbsp;" ;
 		}		
 		System.out.println("result2:"+result);
 		

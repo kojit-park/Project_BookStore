@@ -117,8 +117,8 @@ th{
 </center>
 
 	<c:choose>
-		<c:when test="${totalAmount==0}">
-			<b style="text-align: center">리뷰가 없습니다.</b>
+		<c:when test="${totalCount==0}">
+			<div style="text-align: center;"><b>리뷰가 없습니다.</b></div><br><br>
 		</c:when>
 		<c:otherwise>
 		
