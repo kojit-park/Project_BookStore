@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bookstore.model.BookStore">
+
+	<select id="GetTotalCount" resultType="int">
+		select count(*) from bookstore 
+		<if test="category == 'all'">
+			where title like #{keyword} or author like #{keyword} or publisher like #{keyword}
+		</if>		
+		<if test="category == 'title'">
+			where title like #{keyword}
+		</if>		
+		<if test="category == 'author'">
+			where author like #{keyword}
+		</if>	
+		<if test="category == 'publisher'">
+			where publisher like #{keyword}
+		</if>
+		
+	</select>
+	
+	<select id="GetDataList" resultType="MyBS" parameterType="hashmap">
+		select * from bookstore 	
+		<if test="category == 'all'">
+			where title like #{keyword} or author like #{keyword} or publisher like #{keyword}
+		</if>	
+		<if test="category == 'title'">
+			where title like #{keyword}
+		</if>		
+		<if test="category == 'author'">
+			where author like #{keyword}
+		</if>	
+		<if test="category == 'publisher'">
+			where publisher like #{keyword}
+		</if>	
+		<choose>
+			<when test="sorting == 'sorting'">
+				<if test="category=='title'">
+				order by title desc
+				</if>
+				<if test="category=='pubdate'">
+				order by pubdate desc
+				</if>
+				<if test="category=='price'">
+				order by price desc
+				</if>
+			
+			</when>
+			<otherwise>
+				order by pubdate desc
+			</otherwise>
+		</choose>
+		
+	</select>
+	
+	<update id="UpdateIntroduce" parameterType="hashmap">
+		update bookstore set introduce = #{introduce} where title = #{title}
+	
+	</update>
+	
+	<insert id="InsertData" parameterType="MyBS">
+		insert into bookstore (bnum,title,category,author,translator,publisher,pubdate,ISBN,page,price,stock) 
+		values(bs_seq.nextval, #{title},#{category},#{author},#{translator},#{publisher},#{pubdate},#{ISBN},#{page},#{price},#{stock})
+	</insert>
+	
+	<select id="GetPubDate" resultType="String">
+		select pubdate from bookstore where title = #{title}
+	</select>
+	
+	<select id = "GetData" resultType="MyBS">
+		select * from bookstore where bnum = #{bnum}
+	</select>
+	
+	<select id="GetDataByISBN" resultType="MyBS">
+		select * from bookstore where ISBN = #{ISBN}
+	</select>
+	
+	<update id="updateStock">
+	update bookstore set 
+	stock = stock-#{stock}
+	where bnum = #{bnum} 
+	</update>
+	
+	<delete id="DeleteBook">
+	delete from bookstore where bnum = #{bnum}
+	</delete>
+	
+	<select id="BingoCheck" resultType="MyBS">
+	select * from bookstore where bnum = #{bnum}
+	</select>
+	
+	<update id="InsertUsedBook">
+		update bookstore set usedBookPrice = #{price}, usedBook = #{id} 
+		where title = #{title}
+	</update>
+	
+	<select id="GetUsedBookListById" resultType="MyBS">
+		select * from bookstore where usedBook like #{id}
+	</select>
+	
+	<update id="UpdateUsedBook" parameterType="hashmap">
+		update bookstore set 
+		usedBook = #{usedBook,jdbcType=VARCHAR}, usedBookPrice = #{usedBookPrice,jdbcType=VARCHAR} 
+		where bnum = #{bnum,jdbcType=INTEGER}
+	</update>
+	
+	<select id="GetBestBookFromMain" resultType="MyBS">
+		select * from bookstore where title = #{title}
+	</select>
+	
+</mapper>

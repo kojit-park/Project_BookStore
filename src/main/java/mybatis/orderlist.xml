@@ -33,6 +33,15 @@
 	order by price desc
 </select>
 
+<select id="GetSelectedIncome" resultType="MyOrderList">
+	select b.category as category, b.price * o.qty as price, o.orderdate as orderdate, b.title as title, o.mid as mid
+	from bsorders o inner join bookstore b
+	on o.bnum = b.bnum
+	order by price desc 
+</select>
+
+
+
 
 
 </mapper>

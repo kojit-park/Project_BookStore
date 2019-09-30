@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import bmember.model.BmemberBean;
 import bookstore.model.BookStoreDao;
-import order.model.Order;
-import order.model.OrderDao;
 import orderlist.model.OrderList;
 import orderlist.model.OrderListDao;
 

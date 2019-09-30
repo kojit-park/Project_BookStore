@@ -1,5 +1,8 @@
 package bsmall.controller;
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -14,7 +17,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import orderlist.model.OrderList;
@@ -53,34 +55,56 @@ public class IncomeViewController {
 		String byMonth = "";
 		String byYear ="";
 		int income=0;
-		
+		LocalDate DateCheck = null;
+
 		for(OrderList ol : IncomeByDate) {
 			income=ol.getQty()*ol.getPrice();
-			String od=ol.getOrderdate().replaceAll("-", "").replaceAll("/", "");
+			String od=ol.getOrderdate().replaceAll("-", "").replaceAll("/", "").replaceAll("년", "")
+					.replaceAll("월", "").replaceAll("일", "").replaceAll(" ", "");
 			
-			byDay = od.substring(0, 6);
-			byMonth = od.substring(0, 4);
-			byYear = od.substring(0, 2);
+			String byDate = "20"+od.substring(0, 6);
+			byDay = "20"+od.substring(0, 2)+"-"+od.substring(2,4)+"-"+od.substring(4,6);
+			byMonth = "20"+od.substring(0, 2)+"-"+od.substring(2,4);
+			byYear = "20"+od.substring(0, 2);
+			DateCheck = LocalDate.parse(byDate, DateTimeFormatter.BASIC_ISO_DATE);
+			System.out.println(DateCheck.toString());
 			
-			if(IncomeMapDay.containsKey(byDay)) {
-				IncomeMapDay.replace(byDay, IncomeMapDay.get(byDay)+income);
-			}else {
-				IncomeMapDay.put(byDay, income);
+			if(DateCheck.isAfter(LocalDate.now().minus(Period.ofDays(10)))) {
+				if(IncomeMapDay.containsKey(byDay)) {
+					IncomeMapDay.replace(byDay, IncomeMapDay.get(byDay)+income);
+				}else {
+					IncomeMapDay.put(byDay, income);
+				}
 			}
 			
-			if(IncomeMapMonth.containsKey(byMonth)) {
-				IncomeMapMonth.replace(byMonth, IncomeMapMonth.get(byMonth)+ol.getPrice());
-			}else {
-				IncomeMapMonth.put(byMonth, income);
+			if(DateCheck.isAfter(LocalDate.now().minus(Period.ofMonths(6)))) {
+				if(IncomeMapMonth.containsKey(byMonth)) {
+					IncomeMapMonth.replace(byMonth, IncomeMapMonth.get(byMonth)+income);
+				}else {
+					IncomeMapMonth.put(byMonth, income);
+				}
 			}
-			
-			if(IncomeMapYear.containsKey(byYear)) {
-				IncomeMapYear.replace(byYear, IncomeMapYear.get(byYear)+income);
-			}else {
-				IncomeMapYear.put(byYear, income);
+			if(DateCheck.isAfter(LocalDate.now().minus(Period.ofYears(5)))) {
+				if(IncomeMapYear.containsKey(byYear)) {
+					IncomeMapYear.replace(byYear, IncomeMapYear.get(byYear)+income);
+				}else {
+					IncomeMapYear.put(byYear, income);
+				}
 			}
 			
 		}
+		if(IncomeMapYear.size() ==0) {
+			IncomeMapYear.put("2019",0);
+		}
+		if(IncomeMapMonth.size() ==0) {
+			IncomeMapMonth.put("2019-10",0);
+		}
+		if(IncomeMapDay.size() ==0) {
+			IncomeMapDay.put("2019-10-01",0);
+		}
+		
+		
+		
 		
 		for(OrderList ol : IncomePerBook) {
 			//income = ol.getQty()*ol.getPrice();
@@ -101,7 +125,6 @@ public class IncomeViewController {
 			}
 		}
 		
-		
 		Map<String, Integer> SortedBookMap = sortByVal(IncomeMapBook);
 		List<Integer> SortedValues = new ArrayList<Integer>(SortedBookMap.values());
 		List<String> SortedKeys = new ArrayList<String>(SortedBookMap.keySet());
@@ -115,7 +138,6 @@ public class IncomeViewController {
 		
 		Collections.reverse(SortedKeysCategory);
 		Collections.reverse(SortedValuesCategory);
-		
 		
 		Map<String, Integer> SortedBookMapTopTen = new LinkedHashMap<String, Integer>();
 		for(int i =0; i<SortedKeys.size();i++) {

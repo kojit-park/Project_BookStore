@@ -3,7 +3,6 @@ package bsmall.controller;
 import java.util.Map;
 import java.util.Set;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +22,7 @@ import order.model.OrderDao;
 public class CartCalculateController {
 	
 	private static final String command = "/calculate.bsmall"; // MallList.jsp
-	private static final String gotoPage = "redirect:/main.bs"; 
+//	private static final String gotoPage = "redirect:/main.bs"; 
 	private static final String getPage = "ShopResult";
 	
 	@Autowired

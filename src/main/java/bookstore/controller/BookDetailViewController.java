@@ -71,7 +71,7 @@ public class BookDetailViewController {
 		if(result >= 1 && session.getAttribute("loginfo") != null) {
 			BmemberBean member = (BmemberBean)(session.getAttribute("loginfo"));
 			String id = member.getId();
-			int NoUsage = (result==1) ? bmemberDao.UpdatePoint(id, 100):bmemberDao.UpdatePoint(id, 50);
+//			int NoUsage = (result==1) ? bmemberDao.UpdatePoint(id, 100):bmemberDao.UpdatePoint(id, 50);
 			member = bmemberDao.GetInfo(id);
 			session.setAttribute("loginfo", member);
 		}

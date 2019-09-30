@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="review.model.Review">
+
+	<insert id="InsertReview" parameterType="MyReview">
+		insert into bs_review(rnum,booktitle,writer,subject,content) 
+		values(review_seq.nextval,#{booktitle}, #{writer},#{subject},#{content})	
+	</insert>
+
+	<select id="GetTotalCount" resultType="int">
+		select count(*) from bs_review 
+		<if test="category == 'booktitle'">
+			where booktitle like #{keyword}
+		</if>		
+		order by regdate desc
+	</select>
+
+	<select id="GetDataList" resultType="MyReview" parameterType="hashmap">
+		select * from bs_review 	
+		<if test="category == 'booktitle'">
+			where booktitle like #{keyword}
+		</if>		
+			order by rnum desc
+	</select>
+	
+	<select id = "GetData" resultType="MyReview">
+		select * from bs_review 
+		where rnum = #{rnum}
+	</select>
+	
+	<update id="UpdateReadCount">
+		update bs_review set readcount = readcount +1 
+		where rnum = #{rnum}
+	</update>
+	
+	<delete id="DeleteReview">
+		delete from bs_review 
+		where rnum = #{rnum}
+	</delete>
+	
+	<update id="UpdateReview" parameterType="MyReview">
+		update bs_review set booktitle=#{booktitle}, subject=#{subject}, content=#{content} 
+		where rnum = #{rnum}
+	</update>
+	
+	<select id="GetDataMissed" resultType="MyReview">
+		select regdate,booktitle from bs_review 
+		where rnum = #{rnum}
+	</select>
+	
+	<update id="UpdateReplyCount">
+		update bs_review set replycount = replycount+1 
+		where rnum = #{rnum}
+	</update>
+	
+	<update id="UpdateDeletedReply">
+		update bs_review set replycount = replycount-1 
+		where rnum = #{rnum}
+	</update>
+	
+</mapper>

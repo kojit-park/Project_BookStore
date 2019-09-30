@@ -6,9 +6,6 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import bookstore.model.BookCrawler;
-import bookstore.model.BookStore;
-
 @Component("myMiniGameDao")
 public class MiniGameDao {
 

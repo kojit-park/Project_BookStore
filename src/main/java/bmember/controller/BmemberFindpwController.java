@@ -1,7 +1,6 @@
 package bmember.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -14,11 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.sun.org.glassfish.gmbal.GmbalMBeanNOPImpl;
-
 import bmember.model.BmemberBean;
 import bmember.model.BmemberDao;
-import bmember.model.BmemberPasswordSender;
 
 @Controller
 public class BmemberFindpwController {

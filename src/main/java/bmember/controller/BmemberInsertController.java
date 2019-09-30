@@ -13,7 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import bmember.model.BmemberBean;
 import bmember.model.BmemberDao;
-import bmember.model.BmemberEmailVerification;
 
 @Controller
 public class BmemberInsertController {

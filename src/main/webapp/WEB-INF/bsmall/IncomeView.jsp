@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href = "${pageContext.request.contextPath}/resources/CSS/bootstrap.min.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
@@ -74,17 +75,90 @@ th{
 <div class="logo" align="center" style="margin: 0;">
 	<a href="main.bs"><img alt="홈으로" src="resources/Img/Logo/3.jpg" width="100px;"></a>
 </div>
+
+<hr style="margin-top: 0;border-bottom: 2px solid #A6A6A6;">
+<form action="incomeDetail.bsmall">
+	<div class="form-group" style="text-align: center;width: 80%;padding-left: 5%"><br>
+		<div><h1>기간으로 검색</h1></div>
+		<div style="display: inline-block; width: 300px">
+			<select name="selectYear1" class="form-control">
+				<option value="2019">2019년</option>
+				<option value="2018">2018년</option>
+				<option value="2017">2017년</option>
+				<option value="2016">2016년</option>
+				<option value="2015">2015년</option>
+			</select>
+		</div>
+		<div style="display: inline-block; width: 200px">
+			<select name="selectMonth1" class="form-control">
+				<option value="01">1월</option>
+				<option value="02">2월</option>
+				<option value="03">3월</option>
+				<option value="04">4월</option>
+				<option value="05">5월</option>
+				<option value="06">6월</option>
+				<option value="07">7월</option>
+				<option value="08">8월</option>
+				<option value="09">9월</option>
+				<option value="10">10월</option>
+				<option value="11">11월</option>
+				<option value="12">12월</option>
+			</select>
+		</div>
+			<div style="display: inline-block; width: 100px"><h2>부터</h2></div>
+		<div style="display: inline-block; width: 300px">
+			<select name="selectYear2" class="form-control">
+				<option value="2019">2019년</option>
+				<option value="2018">2018년</option>
+				<option value="2017">2017년</option>
+				<option value="2016">2016년</option>
+				<option value="2015">2015년</option>
+			</select>
+		</div>
+		
+		<div style="display: inline-block; width: 200px">
+			<select name="selectMonth2" class="form-control">
+				<option value="01">1월</option>
+				<option value="02">2월</option>
+				<option value="03">3월</option>
+				<option value="04">4월</option>
+				<option value="05">5월</option>
+				<option value="06">6월</option>
+				<option value="07">7월</option>
+				<option value="08">8월</option>
+				<option value="09">9월</option>
+				<option value="10">10월</option>
+				<option value="11">11월</option>
+				<option value="12">12월</option>
+			</select>
+		</div>
+		<div style="display: inline-block; width: 100px"><h2>까지</h2></div>
+		
+		<div style="text-align: center; display: inline-block;">
+			<input type="submit" value="검색" class="btn btn-primary btn-lg">
+		</div>
+	
+	</div>
+</form>
+
 <hr style="margin-top: 0;border-bottom: 2px solid #A6A6A6;">
 
+
+
 <div style="text-align: center;width: 80%;padding-left: 5%">
+	<div><h1>일별 매출</h1></div>
 	<div id="IncomesByDay" style="height: 250px;"></div>
 	<hr style="margin-top: 0;border-bottom: 2px solid #A6A6A6;">
+	<div><h1>월별 매출</h1></div>
 	<div id="IncomesByMonth" style="height: 250px;"></div>
 	<hr style="margin-top: 0;border-bottom: 2px solid #A6A6A6;">
+	<div><h1>년도별 매출</h1></div>
 	<div id="IncomesByYear" style="height: 250px;"></div>
 	<hr style="margin-top: 0;border-bottom: 2px solid #A6A6A6;">
+	<div><h1>책별 매출</h1></div>
 	<div id="IncomesByBook" style="height: 400px;"></div>
 	<hr style="margin-top: 0;border-bottom: 2px solid #A6A6A6;">
+	<div><h1>카테고리별 매출</h1></div>
 	<div id="legend" class="donut-legend" style="text-align: left"></div>
 	<div id="IncomesByCategory" style="height: 400px;"></div>
 </div>
@@ -151,9 +225,8 @@ var sum = 0;
 		  xkey: 'day',
 		  ykeys: ['val'],
 		  labels: ['일 매출'],
-		  xLabels:['year'],
+		  xLabels:['day'],
 		  yLabelFormat:function(y){return y +' krw';},
-		  xLabelFormat:function(year){return year.toString().substring(13,15)+'월'+year.toString().substring(15,17)+'일';}
 		});
 	
 	new Morris.Line({
@@ -162,9 +235,8 @@ var sum = 0;
 		  xkey: 'month',
 		  ykeys: ['val'],
 		  labels: ['월 매출'],
-		  xLabels:['year'],
+		  xLabels:['month'],
 		  yLabelFormat:function(y){return y +' krw';},
-		  xLabelFormat:function(x){return x.toString().substring(11,13)+'년'+x.toString().substring(13,15)+'월';}
 		});
 	
 	new Morris.Line({
@@ -175,7 +247,6 @@ var sum = 0;
 		  labels: ['연 매출'],
 		  xLabels:['year'],
 		  yLabelFormat:function(y){return y +' krw';},
-		  xLabelFormat:function(year){return year.toString().substring(11,13)+'년';}
 		});
 	
 	var IncomeByBooks =

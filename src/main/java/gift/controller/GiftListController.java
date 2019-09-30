@@ -47,7 +47,7 @@ public class GiftListController {
 		int totalCount = giftDao.GetTotalCount( map );
 		System.out.print("totalCount : " + totalCount); 
 
-		String url = request.getContextPath() +  this.command ;
+		String url = request.getContextPath() + command ;
 
 		Paging pageInfo 
 		= new Paging( pageNumber, pageSize, totalCount, url, category, keyword, null);

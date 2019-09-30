@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+ 
+ <configuration>
+ 
+ 	<settings>
+ 		<setting name= "mapUnderscoreToCamelCase" value="true"/>
+ 	</settings>
+	
+ 	<typeAliases>
+ 		<typeAlias type="bookstore.model.BookStore" alias="MyBS"/>
+ 		<typeAlias type="minigame.model.MiniGame" alias="MyMG"/>
+ 		<typeAlias type="bmember.model.BmemberBean" alias="MyBmember"/>
+ 		<typeAlias type="order.model.Order" alias="MyOrder"/>
+		<typeAlias type="bsmall.cart.ShoppingInfo" alias="MyComposite"/>
+		<typeAlias type="gift.model.Gift" alias="MyGift"/>
+		<typeAlias type="review.model.Review" alias="MyReview"/>
+		<typeAlias type="reply.model.Reply" alias="MyReply"/>
+		<typeAlias type="orderlist.model.OrderList" alias="MyOrderList"/>
+ 	</typeAliases>
+ 
+	<mappers>
+		<mapper resource="mybatis/bookstore.xml"></mapper>
+		<mapper resource="mybatis/minigame.xml"></mapper>
+		<mapper resource="mybatis/bmember.xml"></mapper>
+		<mapper resource="mybatis/order.xml"/>
+		<mapper resource="mybatis/composite.xml"/>
+		<mapper resource="mybatis/gift.xml"/>
+		<mapper resource="mybatis/review.xml"/>
+		<mapper resource="mybatis/reply.xml"/>
+		<mapper resource="mybatis/orderlist.xml"/>
+	</mappers>
+
+</configuration>
+ 
