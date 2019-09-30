@@ -80,7 +80,7 @@ th{
 <form action="incomeDetail.bsmall">
 	<div class="form-group" style="text-align: center;width: 80%;padding-left: 5%"><br>
 		<div><h1>기간으로 검색</h1></div>
-		<div style="display: inline-block; width: 300px">
+		<div style="display: inline-block; width: 200px">
 			<select name="selectYear1" class="form-control">
 				<option value="2019">2019년</option>
 				<option value="2018">2018년</option>
@@ -89,7 +89,7 @@ th{
 				<option value="2015">2015년</option>
 			</select>
 		</div>
-		<div style="display: inline-block; width: 200px">
+		<div style="display: inline-block; width: 100px">
 			<select name="selectMonth1" class="form-control">
 				<option value="01">1월</option>
 				<option value="02">2월</option>
