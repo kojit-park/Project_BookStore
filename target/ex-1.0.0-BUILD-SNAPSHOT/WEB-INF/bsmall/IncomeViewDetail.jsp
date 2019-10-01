@@ -80,7 +80,7 @@ th{
 <form action="incomeDetail.bsmall">
 	<div class="form-group" style="text-align: center;width: 80%;padding-left: 5%"><br>
 		<div><h1>기간으로 검색</h1></div>
-		<div style="display: inline-block; width: 300px">
+		<div style="display: inline-block; width: 200px">
 			<select name="selectYear1" class="form-control">
 				<option value="2019">2019년</option>
 				<option value="2018">2018년</option>
@@ -89,7 +89,7 @@ th{
 				<option value="2015">2015년</option>
 			</select>
 		</div>
-		<div style="display: inline-block; width: 200px">
+		<div style="display: inline-block; width: 100px">
 			<select name="selectMonth1" class="form-control">
 				<option value="01">1월</option>
 				<option value="02">2월</option>
@@ -106,7 +106,7 @@ th{
 			</select>
 		</div>
 			<div style="display: inline-block; width: 100px"><h2>부터</h2></div>
-		<div style="display: inline-block; width: 300px">
+		<div style="display: inline-block; width: 200px">
 			<select name="selectYear2" class="form-control">
 				<option value="2019">2019년</option>
 				<option value="2018">2018년</option>
@@ -116,7 +116,7 @@ th{
 			</select>
 		</div>
 		
-		<div style="display: inline-block; width: 200px">
+		<div style="display: inline-block; width: 100px">
 			<select name="selectMonth2" class="form-control">
 				<option value="01">1월</option>
 				<option value="02">2월</option>
@@ -143,36 +143,37 @@ th{
 
 <hr style="margin-top: 0;border-bottom: 2px solid #A6A6A6;">
 
+
 <div style="text-align: center;width: 80%;padding-left: 5%">
-	<div><h1>책별 매출</h1></div>
-	<div id="DivBookIncome" style="height: 400px;"></div>
-<hr style="margin-top: 0;border-bottom: 2px solid #A6A6A6;">
-	<div><h1>책별 매출 (남)</h1></div>
-	<div id="DivMaleBookIncome" style="height: 400px;"></div>
-<hr style="margin-top: 0;border-bottom: 2px solid #A6A6A6;">
-	<div><h1>책별 매출 (여)</h1></div>
-	<div id="DivFemaleBookIncome" style="height: 400px;"></div>
-<hr style="margin-top: 0;border-bottom: 2px solid #A6A6A6;">
-	<div><h1>회원별 매출</h1></div>
-	<div id="DivMemberIncome" style="height: 400px;"></div>
-<hr style="margin-top: 0;border-bottom: 2px solid #A6A6A6;">
-	<div><h1>기간별 매출</h1></div>
-	<div id="DivIncome" style="height: 400px;"></div>
-<hr style="margin-top: 0;border-bottom: 2px solid #A6A6A6;">
-	<div><h1>카테고리별 매출</h1></div>
-	
-	<div id="legend_Cate" class="donut-legend" style="text-align: left"></div>
-	<div id="DivCategory" style="height: 400px;"></div>
-<hr style="margin-top: 0;border-bottom: 2px solid #A6A6A6;">
-	<div><h1>성별에 따른 매출</h1></div>
-	
-	<div id="legend_Gender" class="donut-legend" style="text-align: left"></div>
-	<div id="DivGender" style="height: 400px;"></div>
-<hr style="margin-top: 0;border-bottom: 2px solid #A6A6A6;">
-	<div><h1>나이대별 매출</h1></div>
-	
-	<div id="legend_AgeGroup" class="donut-legend" style="text-align: left"></div>
-	<div id="DivAgeGroup" style="height: 400px;"></div>
+		<div><h1>책별 매출</h1></div>
+		<div id="DivBookIncome" style="height: 400px;"></div>
+	<hr style="margin-top: 0;border-bottom: 2px solid #A6A6A6;">
+		<div><h1>책별 매출 (남)</h1></div>
+		<div id="DivMaleBookIncome" style="height: 400px;"></div>
+	<hr style="margin-top: 0;border-bottom: 2px solid #A6A6A6;">
+		<div><h1>책별 매출 (여)</h1></div>
+		<div id="DivFemaleBookIncome" style="height: 400px;"></div>
+	<hr style="margin-top: 0;border-bottom: 2px solid #A6A6A6;">
+		<div><h1>회원별 매출</h1></div>
+		<div id="DivMemberIncome" style="height: 400px;"></div>
+	<hr style="margin-top: 0;border-bottom: 2px solid #A6A6A6;">
+		<div><h1>기간별 매출</h1></div>
+		<div id="DivIncome" style="height: 400px;"></div>
+	<hr style="margin-top: 0;border-bottom: 2px solid #A6A6A6;">
+		<div><h1>카테고리별 매출</h1></div>
+		
+		<div id="legend_Cate" class="donut-legend" style="text-align: left"></div>
+		<div id="DivCategory" style="height: 400px;"></div>
+	<hr style="margin-top: 0;border-bottom: 2px solid #A6A6A6;">
+		<div><h1>성별에 따른 매출</h1></div>
+		
+		<div id="legend_Gender" class="donut-legend" style="text-align: left"></div>
+		<div id="DivGender" style="height: 400px;"></div>
+	<hr style="margin-top: 0;border-bottom: 2px solid #A6A6A6;">
+		<div><h1>나이대별 매출</h1></div>
+		
+		<div id="legend_AgeGroup" class="donut-legend" style="text-align: left"></div>
+		<div id="DivAgeGroup" style="height: 400px;"></div>
 </div>
 
 <script type="text/javascript">
@@ -368,88 +369,6 @@ var BookIncomeArray = new Array();
 					    $('#legend_AgeGroup').append(AgeGrouplegend)
 					  });
 				
-				
-			
-				
-				
-				
-		/* 		
-			<c:forEach items="${IncomesSelected}" var="bySel">
-				var SelectedInfo = new Object();
-				SelectedInfo.label = "${bySel.key}"
-				SelectedInfo.value = ${bySel.value}
-				SelectedArray.push(SelectedInfo)
-				var jsonInfoSelected =  JSON.stringify(SelectedArray)
-			</c:forEach>  
-				
-				new Morris.Line({
-					  element: 'IncomesBySelected',
-					  data: JSON.parse(jsonInfoSelected),
-					  xkey: 'label',
-					  ykeys: ['value'],
-					  xLabels:['year'],
-					  labels: ['value']
-				})
-				
-			<c:forEach items="${IncomesSelected}" var="bySel">
-				var SelectedInfo = new Object();
-				SelectedInfo.label = "${bySel.key}"
-				SelectedInfo.value = ${bySel.value}
-				SelectedArray.push(SelectedInfo)
-				sum += ${bySel.value}
-				var jsonInfoSelected =  JSON.stringify(SelectedArray)
-			</c:forEach>  
-				
-			<c:forEach items="${IncomesSelected}" var="bySel">
-				var SelectedInfo = new Object();
-				SelectedInfo.label = "${bySel.key}"
-				SelectedInfo.value = ${bySel.value}
-				SelectedArray.push(SelectedInfo)
-				var jsonInfoSelected =  JSON.stringify(SelectedArray)
-			</c:forEach>  
-		
-		console.log(jsonInfoSelected);  */
-		
-		/* if(${graphShape} == 1){
-			new Morris.Line({
-				  element: 'IncomesBySelected',
-				  data: JSON.parse(jsonInfoSelected),
-				  xkey: 'label',
-				  ykeys: ['value'],
-				  xLabels:['year'],
-				  labels: ['value']
-				  //yLabelFormat:function(y){return y +' krw';},
-				  //xLabelFormat:function(year){return year.toString().substring(15,17)+'월'+year.toString().substring(17,19)+'일';}
-				}); */
-/* 			var IncomeByBooks =
-				new Morris.Bar({
-				  element: 'IncomesBySelected',
-				  data: JSON.parse(jsonInfoSelected),
-				  xkey: 'label',
-				  ykeys: ['value'],
-				  labels: ['매출'],
-				  yLabelFormat:function(y){return y +' krw';}
-				});
-				
-			var BySelected = 
-				new Morris.Donut({
-				  element: 'IncomesBySelected',
-				  data: JSON.parse(jsonInfoSelected),
-				  formatter: function(value,data){
-					  return Math.floor(value/sum*100)+'%';
-					  }
-				});
-			BySelected.options.data.forEach(function(label, i) {
-				    var legendItem = $('<span></span>').text( label['label'] + " ( " +label['value'] + " 원)" ).prepend('<br><span>&nbsp;</span>');
-				    legendItem.find('span')
-				      .css('backgroundColor', BySelected.options.colors[i])
-				      .css('width', '20px')
-				      .css('display', 'inline-block')
-				      .css('margin', '5px');
-				    $('#legend').append(legendItem)
-				  });
-		} */
-
 
 </script>
 </body>

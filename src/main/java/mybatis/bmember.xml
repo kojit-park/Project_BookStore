@@ -34,7 +34,7 @@
 </select>
 
 <select id="GetInfo" resultType="MyBmember">
-	select * from bmember where id=#{id}
+	select * from bmember where id=#{id} and rownum = 1
 </select>
 
 

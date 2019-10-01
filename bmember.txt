@@ -23,19 +23,110 @@ minvalue 0
 start with 0
 nocache;
 
-insert into bmember values(bmem_seq.nextval,'admin','1234','1234','������','20010203','010','1234','5678','book123','naver.com','��','�̽��׸�', 0);
-insert into bmember values(bmem_seq.nextval,'first','5678','5678','ù����','19990304','010','5678','1234','book321','daum.net','��','�θǽ�', 0);
+insert into bmember values(bmem_seq.nextval,'admin','1234','1234','관리자','20010203','010','1234','5678','book123','naver.com','남','미스테리', 0);
+insert into bmember values(bmem_seq.nextval,'first','5678','5678','첫고객','19990304','010','5678','1234','book321','daum.net','여','로맨스', 0);
+insert into bmember values(bmem_seq.nextval,'member1','qwer1234','qwer1234','member1','19590421','010','1111','2222','abcd','efgh.com','여','미스테리',0);
+insert into bmember values(bmem_seq.nextval,'member2','qwer1234','qwer1234','member2','19680704','010','1111','2222','abcd','efgh.com','남','미스터리,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member3','qwer1234','qwer1234','member3','19750513','010','1111','2222','abcd','efgh.com','남','로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member4','qwer1234','qwer1234','member4','20071009','010','1111','2222','abcd','efgh.com','남','미스테리',0);
+insert into bmember values(bmem_seq.nextval,'member5','qwer1234','qwer1234','member5','19520207','010','1111','2222','abcd','efgh.com','여','로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member6','qwer1234','qwer1234','member6','20030415','010','1111','2222','abcd','efgh.com','여','판타지,미스터리',0);
+insert into bmember values(bmem_seq.nextval,'member7','qwer1234','qwer1234','member7','19510704','010','1111','2222','abcd','efgh.com','여','판타지',0);
+insert into bmember values(bmem_seq.nextval,'member8','qwer1234','qwer1234','member8','19580923','010','1111','2222','abcd','efgh.com','여','미스터리,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member9','qwer1234','qwer1234','member9','19681210','010','1111','2222','abcd','efgh.com','여','미스테리',0);
+insert into bmember values(bmem_seq.nextval,'member10','qwer1234','qwer1234','member10','19801221','010','1111','2222','abcd','efgh.com','여','미스테리',0);
+insert into bmember values(bmem_seq.nextval,'member11','qwer1234','qwer1234','member11','19910728','010','1111','2222','abcd','efgh.com','남','판타지,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member12','qwer1234','qwer1234','member12','19870707','010','1111','2222','abcd','efgh.com','여','미스터리,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member13','qwer1234','qwer1234','member13','19980228','010','1111','2222','abcd','efgh.com','여','판타지,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member14','qwer1234','qwer1234','member14','19880414','010','1111','2222','abcd','efgh.com','남','판타지,미스터리',0);
+insert into bmember values(bmem_seq.nextval,'member15','qwer1234','qwer1234','member15','19811215','010','1111','2222','abcd','efgh.com','남','미스터리,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member16','qwer1234','qwer1234','member16','19860111','010','1111','2222','abcd','efgh.com','남','미스테리',0);
+insert into bmember values(bmem_seq.nextval,'member17','qwer1234','qwer1234','member17','20011104','010','1111','2222','abcd','efgh.com','남','판타지,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member18','qwer1234','qwer1234','member18','19820820','010','1111','2222','abcd','efgh.com','여','미스테리',0);
+insert into bmember values(bmem_seq.nextval,'member19','qwer1234','qwer1234','member19','19521016','010','1111','2222','abcd','efgh.com','남','미스터리,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member20','qwer1234','qwer1234','member20','19530313','010','1111','2222','abcd','efgh.com','여','미스터리,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member21','qwer1234','qwer1234','member21','19590801','010','1111','2222','abcd','efgh.com','여','판타지,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member22','qwer1234','qwer1234','member22','19791219','010','1111','2222','abcd','efgh.com','남','미스터리,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member23','qwer1234','qwer1234','member23','19531026','010','1111','2222','abcd','efgh.com','남','로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member24','qwer1234','qwer1234','member24','19990604','010','1111','2222','abcd','efgh.com','남','판타지',0);
+insert into bmember values(bmem_seq.nextval,'member25','qwer1234','qwer1234','member25','19940522','010','1111','2222','abcd','efgh.com','여','로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member26','qwer1234','qwer1234','member26','19560518','010','1111','2222','abcd','efgh.com','남','로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member27','qwer1234','qwer1234','member27','20041223','010','1111','2222','abcd','efgh.com','여','미스터리,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member28','qwer1234','qwer1234','member28','20070923','010','1111','2222','abcd','efgh.com','여','미스터리,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member29','qwer1234','qwer1234','member29','19640821','010','1111','2222','abcd','efgh.com','여','미스터리,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member30','qwer1234','qwer1234','member30','20030105','010','1111','2222','abcd','efgh.com','여','미스테리',0);
+insert into bmember values(bmem_seq.nextval,'member31','qwer1234','qwer1234','member31','20030519','010','1111','2222','abcd','efgh.com','남','미스테리',0);
+insert into bmember values(bmem_seq.nextval,'member32','qwer1234','qwer1234','member32','19910906','010','1111','2222','abcd','efgh.com','여','미스터리,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member33','qwer1234','qwer1234','member33','19710604','010','1111','2222','abcd','efgh.com','여','미스테리',0);
+insert into bmember values(bmem_seq.nextval,'member34','qwer1234','qwer1234','member34','19531228','010','1111','2222','abcd','efgh.com','여','판타지',0);
+insert into bmember values(bmem_seq.nextval,'member35','qwer1234','qwer1234','member35','19790203','010','1111','2222','abcd','efgh.com','여','미스터리,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member36','qwer1234','qwer1234','member36','19800410','010','1111','2222','abcd','efgh.com','여','미스터리,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member37','qwer1234','qwer1234','member37','19760728','010','1111','2222','abcd','efgh.com','여','판타지,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member38','qwer1234','qwer1234','member38','19780402','010','1111','2222','abcd','efgh.com','남','미스테리',0);
+insert into bmember values(bmem_seq.nextval,'member39','qwer1234','qwer1234','member39','19571119','010','1111','2222','abcd','efgh.com','여','판타지,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member40','qwer1234','qwer1234','member40','19830204','010','1111','2222','abcd','efgh.com','여','판타지,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member41','qwer1234','qwer1234','member41','19750411','010','1111','2222','abcd','efgh.com','남','판타지,미스터리',0);
+insert into bmember values(bmem_seq.nextval,'member42','qwer1234','qwer1234','member42','20000409','010','1111','2222','abcd','efgh.com','남','미스테리',0);
+insert into bmember values(bmem_seq.nextval,'member43','qwer1234','qwer1234','member43','19840726','010','1111','2222','abcd','efgh.com','여','로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member44','qwer1234','qwer1234','member44','19821124','010','1111','2222','abcd','efgh.com','남','미스터리,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member45','qwer1234','qwer1234','member45','19770113','010','1111','2222','abcd','efgh.com','여','판타지,미스터리',0);
+insert into bmember values(bmem_seq.nextval,'member46','qwer1234','qwer1234','member46','19540609','010','1111','2222','abcd','efgh.com','남','로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member47','qwer1234','qwer1234','member47','19981203','010','1111','2222','abcd','efgh.com','여','판타지',0);
+insert into bmember values(bmem_seq.nextval,'member48','qwer1234','qwer1234','member48','19590108','010','1111','2222','abcd','efgh.com','남','판타지,미스터리',0);
+insert into bmember values(bmem_seq.nextval,'member49','qwer1234','qwer1234','member49','19891203','010','1111','2222','abcd','efgh.com','남','판타지,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member50','qwer1234','qwer1234','member50','19540326','010','1111','2222','abcd','efgh.com','여','판타지,미스터리',0);
+insert into bmember values(bmem_seq.nextval,'member51','qwer1234','qwer1234','member51','19720120','010','1111','2222','abcd','efgh.com','남','판타지,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member52','qwer1234','qwer1234','member52','19981010','010','1111','2222','abcd','efgh.com','여','로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member53','qwer1234','qwer1234','member53','19880209','010','1111','2222','abcd','efgh.com','여','판타지,미스터리',0);
+insert into bmember values(bmem_seq.nextval,'member54','qwer1234','qwer1234','member54','19970820','010','1111','2222','abcd','efgh.com','여','미스터리,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member55','qwer1234','qwer1234','member55','20011222','010','1111','2222','abcd','efgh.com','여','미스터리,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member56','qwer1234','qwer1234','member56','19791022','010','1111','2222','abcd','efgh.com','여','미스터리,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member57','qwer1234','qwer1234','member57','19660922','010','1111','2222','abcd','efgh.com','남','판타지,미스터리',0);
+insert into bmember values(bmem_seq.nextval,'member58','qwer1234','qwer1234','member58','19691107','010','1111','2222','abcd','efgh.com','남','로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member59','qwer1234','qwer1234','member59','19540928','010','1111','2222','abcd','efgh.com','남','미스터리,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member60','qwer1234','qwer1234','member60','19921223','010','1111','2222','abcd','efgh.com','남','미스터리,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member61','qwer1234','qwer1234','member61','19710819','010','1111','2222','abcd','efgh.com','여','미스터리,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member62','qwer1234','qwer1234','member62','19770709','010','1111','2222','abcd','efgh.com','남','판타지,미스터리',0);
+insert into bmember values(bmem_seq.nextval,'member63','qwer1234','qwer1234','member63','19540522','010','1111','2222','abcd','efgh.com','남','미스터리,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member64','qwer1234','qwer1234','member64','19960708','010','1111','2222','abcd','efgh.com','남','판타지,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member65','qwer1234','qwer1234','member65','19780817','010','1111','2222','abcd','efgh.com','여','미스테리',0);
+insert into bmember values(bmem_seq.nextval,'member66','qwer1234','qwer1234','member66','19771105','010','1111','2222','abcd','efgh.com','남','판타지,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member67','qwer1234','qwer1234','member67','19700501','010','1111','2222','abcd','efgh.com','여','판타지,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member68','qwer1234','qwer1234','member68','19810221','010','1111','2222','abcd','efgh.com','남','판타지,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member69','qwer1234','qwer1234','member69','19691027','010','1111','2222','abcd','efgh.com','여','미스터리,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member70','qwer1234','qwer1234','member70','20030724','010','1111','2222','abcd','efgh.com','남','미스테리',0);
+insert into bmember values(bmem_seq.nextval,'member71','qwer1234','qwer1234','member71','19671214','010','1111','2222','abcd','efgh.com','여','판타지,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member72','qwer1234','qwer1234','member72','19571204','010','1111','2222','abcd','efgh.com','남','판타지,미스터리',0);
+insert into bmember values(bmem_seq.nextval,'member73','qwer1234','qwer1234','member73','19500121','010','1111','2222','abcd','efgh.com','여','미스터리,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member74','qwer1234','qwer1234','member74','19780527','010','1111','2222','abcd','efgh.com','남','판타지,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member75','qwer1234','qwer1234','member75','19850503','010','1111','2222','abcd','efgh.com','남','미스테리',0);
+insert into bmember values(bmem_seq.nextval,'member76','qwer1234','qwer1234','member76','19870518','010','1111','2222','abcd','efgh.com','남','미스터리,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member77','qwer1234','qwer1234','member77','20000422','010','1111','2222','abcd','efgh.com','남','로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member78','qwer1234','qwer1234','member78','19570510','010','1111','2222','abcd','efgh.com','남','미스테리',0);
+insert into bmember values(bmem_seq.nextval,'member79','qwer1234','qwer1234','member79','19870424','010','1111','2222','abcd','efgh.com','여','판타지,미스터리',0);
+insert into bmember values(bmem_seq.nextval,'member80','qwer1234','qwer1234','member80','19781016','010','1111','2222','abcd','efgh.com','여','미스터리,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member81','qwer1234','qwer1234','member81','20060521','010','1111','2222','abcd','efgh.com','남','판타지',0);
+insert into bmember values(bmem_seq.nextval,'member82','qwer1234','qwer1234','member82','19630417','010','1111','2222','abcd','efgh.com','남','미스테리',0);
+insert into bmember values(bmem_seq.nextval,'member83','qwer1234','qwer1234','member83','19550825','010','1111','2222','abcd','efgh.com','남','미스터리,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member84','qwer1234','qwer1234','member84','19821123','010','1111','2222','abcd','efgh.com','여','로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member85','qwer1234','qwer1234','member85','19710620','010','1111','2222','abcd','efgh.com','여','미스터리,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member86','qwer1234','qwer1234','member86','20000312','010','1111','2222','abcd','efgh.com','여','로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member87','qwer1234','qwer1234','member87','20090812','010','1111','2222','abcd','efgh.com','남','미스터리,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member88','qwer1234','qwer1234','member88','19740815','010','1111','2222','abcd','efgh.com','여','미스터리,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member89','qwer1234','qwer1234','member89','19941028','010','1111','2222','abcd','efgh.com','여','로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member90','qwer1234','qwer1234','member90','19510726','010','1111','2222','abcd','efgh.com','여','미스터리,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member91','qwer1234','qwer1234','member91','19521002','010','1111','2222','abcd','efgh.com','여','판타지,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member92','qwer1234','qwer1234','member92','19610427','010','1111','2222','abcd','efgh.com','여','판타지,로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member93','qwer1234','qwer1234','member93','19730624','010','1111','2222','abcd','efgh.com','남','로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member94','qwer1234','qwer1234','member94','19801125','010','1111','2222','abcd','efgh.com','여','로맨스',0);
+insert into bmember values(bmem_seq.nextval,'member95','qwer1234','qwer1234','member95','19600110','010','1111','2222','abcd','efgh.com','여','미스테리',0);
+insert into bmember values(bmem_seq.nextval,'member96','qwer1234','qwer1234','member96','19670824','010','1111','2222','abcd','efgh.com','남','판타지',0);
+insert into bmember values(bmem_seq.nextval,'member97','qwer1234','qwer1234','member97','19670323','010','1111','2222','abcd','efgh.com','여','판타지',0);
+insert into bmember values(bmem_seq.nextval,'member98','qwer1234','qwer1234','member98','19681112','010','1111','2222','abcd','efgh.com','남','판타지,미스터리',0);
+insert into bmember values(bmem_seq.nextval,'member99','qwer1234','qwer1234','member99','19800902','010','1111','2222','abcd','efgh.com','여','판타지',0);
+insert into bmember values(bmem_seq.nextval,'member100','qwer1234','qwer1234','member100','19850521','010','1111','2222','abcd','efgh.com','여','판타지',0);
+
+
 commit;
 
-
-select * from bmember;
-
-=========================================
-[ �۾� ���� ]
-1. pom.xml
-2. web.xml
-3. root-context.xml
-4. album-servlet.xml
-5. album/mybatis/SqlMapConfig.xml
-6. classpath:/album/mybatis/album.xml => mapper namespace ���� �ۼ� 
 

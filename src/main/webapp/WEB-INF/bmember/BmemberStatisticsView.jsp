@@ -75,10 +75,13 @@ th{
 </div>
 	<hr style="margin-top: 0;border-bottom: 2px solid #A6A6A6;">
 <div style="width: 80%; padding: 10%;text-align: center;">
+	<div><h1>회원의 연령 분포</h1></div>
 	<div id="StatisticsBirth" style="height: 250px;"></div>
 		<hr style="margin-top: 0;border-bottom: 2px solid #A6A6A6;">
+	<div><h1>선호 장르 통계</h1></div>
 	<div id="StatisticsGenre" style="height: 250px;"></div>
 		<hr style="margin-top: 0;border-bottom: 2px solid #A6A6A6;">
+	<div><h1>회원의 성별 분포</h1></div>
 	<div id="legend" class="donut-legend" style="text-align: left"></div>
 	<div id="StatisticsGender" style="height: 250px;"></div>
 </div>
