@@ -64,7 +64,13 @@ Git 사용법 학습, 역할 분담
 
 Heroku 올리긴 하였으나 오라클 DB를 지원하지 않아서 Db관련 세팅과 쿼리를 바꿔야하는 상황, 
 
-배포 실패로 프로젝트 마감. 
+Heroku 배포 실패로 프로젝트 마감. 
 
+![Main](https://user-images.githubusercontent.com/52885307/66731106-8f656900-ee90-11e9-8e17-144e26755f58.PNG)
+![List](https://user-images.githubusercontent.com/52885307/66731111-912f2c80-ee90-11e9-9e98-a11604076a9f.PNG)
+![Modal](https://user-images.githubusercontent.com/52885307/66731108-8ffdff80-ee90-11e9-8793-52d90ed07ca6.PNG)
+![MiniGame](https://user-images.githubusercontent.com/52885307/66731107-8f656900-ee90-11e9-843f-3b12a647c502.PNG)
+![Statistics1](https://user-images.githubusercontent.com/52885307/66731109-8ffdff80-ee90-11e9-962d-0ab2e04183a3.PNG)
+![Statistics2](https://user-images.githubusercontent.com/52885307/66731110-8ffdff80-ee90-11e9-973e-01f8154effa5.PNG)
 
 
